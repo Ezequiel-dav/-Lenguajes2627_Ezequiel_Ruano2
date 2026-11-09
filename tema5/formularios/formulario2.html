@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de pedido</title>
+    <link rel="stylesheet" href="estilos_formularios.css" />
+  </head>
+  <body>
+    <h1>Formulario de pedido</h1>
+    <form name="formulario" action="procesar.php" method="get">
+   
+        <label for="nombre">Nombre del cliente:</label>
+        <input type="text" name="nombre" id="nombre" />
+   
+    <label for="email">Correo electronico:</label>
+        <input type="email" name="email" id="email" />
+    
+    <label for="fecha">Fecha deseada de entrega:</label>
+        <input type="date" name="fecha" id="fecha" />
+
+    <label for="color">Color del producto:</label>
+        <input type="color" name="color" id="color" />
+
+    <label for="cantidad">Cantidad del 1 al 10:</label>
+        <input type="range" name="cantidad " id="cantidad" min="1" max="10" />
+    
+    <label for="accesorios">Accesorios adicionales:</label>
+        <select name="accesorios" id="accesorios" multiple>
+            <option value="funda">Funda protectora</option>
+            <option value="bateria">Bateria adicional</option>
+            <option value="Soporte">Soporte de mesa</option>
+            <option value="kit">Kit de limpieza</option>
+        </select>
+
+    <label for="aceptar">Acepto los terminos del servicio</label>
+        <input type="checkbox"  name="aceptar" id="aceptar" value="si">
+    
+    <label for="comentario">Comentarios o instrucciones especiales:</label>
+        <textarea name="comentario" id="">Indica detalles adicionales sobre tu pedido...</textarea>
+    
+        <input type="submit" value="enviar">
+    </form>
+  </body>
+</html>

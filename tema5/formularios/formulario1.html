@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de registro al curso</title>
+    <link rel="stylesheet" href="estilos_formularios.css" />
+  </head>
+  <body>
+    <h1>Formulario de registro al curso</h1>
+    <form name="formulario" action="procesar.php" method="get">
+   
+        <label for="nombre">Nombre completo: (requerido)</label>
+        <input type="text" name="nombre" id="nombre" required />
+   
+    <label for="email">Correo electronico: (requerido)</label>
+        <input type="email" name="email" id="email" required/>
+    
+    <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" />
+    
+    <label for="curso">Curso de interés:</label>
+        <select name="curso" id="curso">
+            <option value="deportes">Deportes</option>
+            <option value="informatica">Informatica</option>
+            <option value="farmacia">Farmacia</option>
+        </select>
+   
+   
+    <label for="turno">Turno preferido:</label>
+        <label for="mañana">Mañana:</label>
+        <input type="radio" name="mañana" id="mañana" />
+    <label for="tarde">Tarde:</label>
+        <input type="radio" name="tarde" id="tarde" />
+
+    <label for="aceptar">Acepto los terminos y condiciones</label>
+        <input type="checkbox"  name="aceptar" id="aceptar" value="si">
+    
+    <label for="comentario">Comentarios adicionales:</label>
+        <textarea name="comentario" id="">Escribe aqui tus dudas o preferencias</textarea>
+    
+        <input type="submit" value="enviar">
+    </form>
+  </body>
+</html>
