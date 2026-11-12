@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel">
+    <link rel="stylesheet" href="CSS/css_pagina3.css">
+    <title>Propiedad Box-Sizing</title>
+</head>
+<body>
+    <h1>Propiedad Box-Sizing</h1>
+    
+    <div class="explicacion">
+        <p><strong>Explicación:</strong> Modifica la fórmula matemática que el navegador utiliza para calcular el tamaño total de un elemento en pantalla.</p>
+        <ul>
+            <li><strong>content-box:</strong> Suma el relleno y el borde por fuera de la anchura declarada haciendo que el bloque crezca.</li>
+            <li><strong>border-box:</strong> Absorbe el relleno y el borde hacia el interior manteniendo intactas las dimensiones exactas especificadas.</li>
+        </ul>
+    </div>
+
+    <h2>Demostración Visual (Ambas cajas declaran un width de 300px)</h2>
+    
+    <h3>content-box (Se expande a 360px totales)</h3>
+    <div class="caja content-box">
+        content-box
+    </div>
+
+    <h3>border-box (Mide exactamente 300px totales)</h3>
+    <div class="caja border-box">
+        border-box
+    </div>
+    <a href="index.html">indice</a>
+</body>
+</html>

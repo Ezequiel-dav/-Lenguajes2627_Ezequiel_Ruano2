@@ -1,0 +1,44 @@
+body {
+    margin: 40px;
+    background-color: #f4f5f9;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #4169c1;
+}
+
+ul {
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    list-style: none;
+    box-sizing: border-box;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+li {
+    float: left;
+    margin: 8px;
+}
+
+a {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    background-color: #4169c1;
+    border-radius: 5px;
+}
+
+.autor {
+    color: #666;
+    font-size: 14px;
+}
