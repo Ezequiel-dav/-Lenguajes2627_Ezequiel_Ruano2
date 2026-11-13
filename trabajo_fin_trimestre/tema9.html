@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 9 - Flexbox y Grid</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Tema 9: Flexbox y Grid</h1>
+    </header>
+    <nav><a href="index.html">Volver al índice</a></nav>
+    <main>
+        <h2>Flexbox</h2>
+        <p>Flexbox permite distribuir elementos en una fila o una columna. Se activa con <code>display: flex</code>.</p>
+        <pre class="ejemplo"><code>.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}</code></pre>
+        <h2>Grid</h2>
+        <p>CSS Grid permite organizar elementos en filas y columnas al mismo tiempo.</p>
+        <pre class="ejemplo"><code>.rejilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}</code></pre>
+        <h2>Diseño adaptable</h2>
+        <p>Un diseño adaptable se ajusta a distintos tamaños de pantalla. Se pueden combinar medidas flexibles con consultas de medios <code>@media</code>.</p>
+        <p><a class="volver" href="index.html">Volver al índice de temas</a></p>
+    </main>
+    <footer><p>Tema 9 · Flexbox y Grid</p></footer>
+</body>
+</html>
