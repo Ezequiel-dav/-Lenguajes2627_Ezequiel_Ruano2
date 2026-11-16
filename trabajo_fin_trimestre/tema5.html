@@ -5,32 +5,542 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tema 5 - Tablas y formularios</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 5: Tablas y formularios</h1>
+        <p class="etiqueta">Tema 5 · Lenguajes de Marcas</p>
+        <h1>Tablas y formularios</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>Tablas</h2>
-        <p>Las tablas sirven para presentar datos relacionados en filas y columnas. Se pueden usar encabezados para explicar el contenido de cada columna.</p>
-        <pre class="ejemplo"><code>&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Día&lt;/th&gt;
-        &lt;th&gt;Asignatura&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Lunes&lt;/td&gt;
-        &lt;td&gt;Lenguajes de Marcas&lt;/td&gt;
-    &lt;/tr&gt;
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Tablas</a>
+                    <ul>
+                        <li><a href="#subpunto-2-1">2.1. Estructura típica de tabla</a></li>
+                        <li><a href="#subpunto-2-1-1">2.1.1. Col y colgroup</a></li>
+                        <li><a href="#subpunto-2-2">2.2. Atributos colspan y rowspan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#punto-3">3. Formularios</a>
+                    <ul>
+                        <li><a href="#subpunto-3-1">3.1. Método get y post</a></li>
+                        <li><a href="#subpunto-3-2">3.2. Atributos comunes</a></li>
+                        <li>
+                            <a href="#subpunto-3-3">3.3. Controles</a>
+                            <ul>
+                                <li><a href="#subpunto-3-3-1">3.3.1. Botones</a></li>
+                                <li><a href="#subpunto-3-3-2">3.3.2. Cajas de texto</a></li>
+                                <li><a href="#subpunto-3-3-3">3.3.3. Casilla de verificación</a></li>
+                                <li><a href="#subpunto-3-3-4">3.3.4. Botones radio</a></li>
+                                <li><a href="#subpunto-3-3-5">3.3.5. Listas desplegables</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#punto-4">4. Caso práctico 1: actividades formativas</a></li>
+                <li><a href="#punto-5">5. Caso práctico 2: grupo de controles</a></li>
+                <li><a href="#punto-6">6. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Crear tablas en el documento HTML.</li>
+                    <li>Conocer las etiquetas para trabajar con tablas.</li>
+                    <li>Conocer las etiquetas para crear formularios.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>En temas anteriores hemos trabajado con numerosas etiquetas que nos han permitido enriquecer el contenido de nuestra página web. En este tema veremos las tablas y los formularios.</p>
+                <p>Con las tablas podremos tabular información para que se muestre de una manera estructurada, gracias a las filas y a las columnas que las caracterizan y que, visualmente, nos van a proporcionar un contenido más organizado.</p>
+                <p>Por otro lado, los formularios nos permitirán interactuar con el usuario, porque nos permitirán solicitar información que el usuario deberá introducir.</p>
+                <p>La agencia de viajes solicita a WebMalagaDesign que cree un formulario para que los clientes puedan enviarles consultas.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-01.png" alt="Introducción.">
+                    <figcaption>Fig. 1. Introducción.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Tablas</h2></div>
+                <p>Al igual que podemos trabajar con tablas en un procesador de textos para estructurar el contenido en filas y columnas, en HTML también tenemos la posibilidad de crear este elemento. La etiqueta que usaremos es <code>&lt;table&gt;</code>.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-02.png" alt="Estructura de una tabla en HTML: título, cabecera, cuerpo y pie.">
+                    <figcaption>Fig. 2. Estructura de una tabla en HTML: título, cabecera, cuerpo y pie.</figcaption>
+                </figure>
+                <p>Podemos diferenciar las siguientes partes en una tabla:</p>
+                <ul>
+                    <li><strong>Título (<code>&lt;caption&gt;</code>):</strong> identifica el título de la tabla.</li>
+                    <li><strong>Cabecera (<code>&lt;thead&gt;</code>):</strong> identifica las celdas que van a formar parte de la cabecera de la tabla.</li>
+                    <li><strong>Cuerpo (<code>&lt;tbody&gt;</code>):</strong> contiene las celdas con el contenido de la tabla.</li>
+                    <li><strong>Pie (<code>&lt;tfoot&gt;</code>):</strong> contiene las celdas que forman el pie de la tabla.</li>
+                </ul>
+                <p>Tanto la cabecera como el cuerpo y el pie de tabla contendrán una o más filas (<code>&lt;tr&gt;</code>), cada una de las cuales estará compuesta por celdas de datos (<code>&lt;td&gt;</code>) o celdas de cabecera (<code>&lt;th&gt;</code>).</p>
+                <p>Por lo tanto, una tabla típica puede ser la siguiente:</p>
+                <pre class="bloque-codigo"><code>&lt;table&gt;
+    &lt;caption&gt;Precio de las naranjas&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Provincia&lt;/th&gt;
+            &lt;th&gt;Precio&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
+    &lt;/tfoot&gt;
 &lt;/table&gt;</code></pre>
-        <h2>Formularios</h2>
-        <p>Los formularios permiten recoger datos. Cada campo debe tener una etiqueta que indique qué información se debe introducir.</p>
-        <pre class="ejemplo"><code>&lt;label for="correo"&gt;Correo electrónico:&lt;/label&gt;
-&lt;input type="email" id="correo" name="correo"&gt;</code></pre>
-        <p>Existen campos de texto, botones, casillas de selección y listas desplegables. El atributo <code>required</code> puede marcar un campo como obligatorio.</p>
-        <p><a class="volver" href="tema6.html">Ir al tema 6: HTML semántico y multimedia</a></p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-03.png" alt="Visualización en el navegador de la tabla «Precio de las naranjas».">
+                    <figcaption>Fig. 3. Visualización en el navegador de la tabla «Precio de las naranjas».</figcaption>
+                </figure>
+                <p>Por defecto, los navegadores, cuando detectan cabeceras en una tabla, suelen aplicarles un estilo diferente. En este caso, se muestran en negrita. En el siguiente apartado mostramos cómo se ha realizado esta tabla, que tiene una estructura típica. Se ha aplicado cierto estilo con la etiqueta <code>&lt;style&gt;</code>. No te preocupes porque este código se explicará más adelante, cuando veamos CSS.</p>
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Estructura típica de tabla</h3>
+                    <p>Los elementos <code>thead</code>, <code>tbody</code> y <code>tfoot</code> nos sirven para agrupar una o varias filas. Si no necesitamos esta agrupación no es necesario incluirlos, y solo deberíamos indicar filas (<code>&lt;tr&gt;</code>), celdas de datos (<code>&lt;td&gt;</code>) y celdas de cabecera (<code>&lt;th&gt;</code>).</p>
+                    <p>Normalmente, las celdas de cabecera (<code>&lt;th&gt;</code>) se muestran en la cabecera (<code>&lt;thead&gt;</code>), pero pueden utilizarse en otros lugares de la tabla, como en este caso, en el que las hemos utilizado en el pie (<code>&lt;tfoot&gt;</code>).</p>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Tablas&lt;/title&gt;
+    &lt;style&gt;
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;caption&gt;Precio de las naranjas&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;&lt;th&gt;Provincia&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-04.png" alt="Código HTML de la tabla.">
+                        <figcaption>Fig. 4. Código HTML de la tabla.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-2-1-1">
+                    <h4>2.1.1. Etiquetas &lt;col&gt; y &lt;colgroup&gt;</h4>
+                    <p>Estas etiquetas nos van a permitir agrupar columnas para identificar algunas que tengan un significado especial. Esto nos va a dejar colorear esas columnas para que destaquen del resto cuando le podamos aplicar estilos. En el ejemplo se sombrean las dos primeras columnas en rojo y la tercera en amarillo.</p>
+                    <pre class="bloque-codigo"><code>&lt;table&gt;
+    &lt;colgroup&gt;
+        &lt;col span="2" class="grupo-rojo"&gt;
+        &lt;col class="grupo-amarillo"&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;ISBN&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;3476896&lt;/td&gt;&lt;td&gt;My first HTML&lt;/td&gt;&lt;td&gt;$53&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;5869207&lt;/td&gt;&lt;td&gt;My first CSS&lt;/td&gt;&lt;td&gt;$49&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-05.png" alt="Ejemplo de etiquetas col y colgroup.">
+                        <figcaption>Fig. 5. Ejemplo de etiquetas col y colgroup.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-2-2">
+                    <h3>2.2. Atributos colspan y rowspan</h3>
+                    <p>Estos atributos nos van a permitir unir celdas tanto horizontal como verticalmente. Cuando queramos unir celdas de manera horizontal usaremos <code>colspan</code>, y cuando la agrupación la necesitemos en vertical, usaremos <code>rowspan</code>.</p>
+                    <p>El número que asociemos a esos atributos indicará el número de celdas que queramos unir. Estos atributos están asociados con las etiquetas <code>&lt;td&gt;</code> y <code>&lt;th&gt;</code>.</p>
+                    <p>Siguiendo con el ejemplo anterior, si quisiéramos tener una primera fila combinada y una primera columna unida con información común, tendríamos que codificar el siguiente documento HTML:</p>
+                    <pre class="bloque-codigo"><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="3"&gt;Precio de las naranjas&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="4"&gt;Datos analizados&lt;/th&gt;
+        &lt;th&gt;Provincia&lt;/th&gt;
+        &lt;th&gt;Precio&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-06.png" alt="Tabla combinada con colspan y rowspan.">
+                        <figcaption>Fig. 6. Tabla combinada con colspan y rowspan.</figcaption>
+                    </figure>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-07.png" alt="Código HTML de la tabla combinada.">
+                        <figcaption>Fig. 7. Código HTML de la tabla combinada.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Formularios</h2></div>
+                <p>Los formularios nos van a permitir agrupar una serie de controles para recoger información de los usuarios y enviarla a un servidor web para que este procese los datos. Un ejemplo típico sería un formulario de contacto de una página web.</p>
+                <p>La etiqueta que engloba los controles es <code>&lt;form&gt;</code>. Se trata de un elemento de bloque y puede contener otros elementos HTML además de los propios de los formularios. Los atributos asociados más importantes son:</p>
+                <ul>
+                    <li><strong><code>action</code>:</strong> aquí se indica la página web que va a recibir los datos que hemos introducido en el formulario. Normalmente se trata de una página web dinámica que contendrá un script con un lenguaje de programación del lado del servidor, como PHP (Hypertext Preprocessor).</li>
+                    <li><strong><code>method</code>:</strong> se indica de qué manera se va a enviar la información. Puede ser de dos tipos:
+                        <ul>
+                            <li><code>get</code>: la información aparece en la propia llamada de la página web; por lo tanto, los datos se pueden ver en la URL. Estos datos no deben ser sensibles porque serán públicos. Es el método por defecto si no se indica ninguno.</li>
+                            <li><code>post</code>: la información se envía en el cuerpo de la petición y no aparece en la barra de direcciones.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>El método <code>post</code> no cifra ni protege los datos por sí solo: simplemente evita que aparezcan en la URL. Para proteger información sensible se necesita una conexión segura y medidas adicionales.</p>
+                <pre class="bloque-codigo"><code>&lt;form action="http://localhost/proceso.php" method="get"&gt;
+    Nombre: &lt;input type="text" name="nombre"&gt;
+    &lt;p&gt;
+        &lt;input type="radio" name="sexo" value="h"&gt;Hombre
+        &lt;input type="radio" name="sexo" value="m"&gt;Mujer
+    &lt;/p&gt;
+    &lt;input type="submit" value="Enviar"&gt;
+&lt;/form&gt;</code></pre>
+                <p>Lo importante ahora es conocer el comportamiento de los atributos <code>action</code> y <code>method</code> de <code>form</code>, que provocan que, al pulsar el botón «Enviar», se envíen los datos introducidos al fichero <code>proceso.php</code>.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-08.png" alt="Ejemplo de formulario con método get.">
+                    <figcaption>Fig. 8. Ejemplo de formulario con método get.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-09.png" alt="Llamada con el método get.">
+                    <figcaption>Fig. 9. Llamada con el método get.</figcaption>
+                </figure>
+
+
+                <div class="subpunto" id="subpunto-3-1">
+                    <h3>3.1. Método get y post</h3>
+                    <p>Como observamos en el ejemplo anterior, el fichero que se encuentra en el servidor y que procesará la información enviada desde el cliente es <code>proceso.php</code>. Si utilizo el método de envío <code>get</code>, al hacer clic sobre el botón «Enviar», observaremos en la dirección URL la siguiente llamada:</p>
+                    <pre class="bloque-codigo"><code>localhost/proceso.php?nombre=Federico&amp;sexo=h</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-10.png" alt="Llamada con el método get.">
+                        <figcaption>Fig. 10. Llamada con el método get.</figcaption>
+                    </figure>
+                    <p>Como se puede observar, aparece el nombre del fichero del servidor y la información que se ha completado en el formulario. La separación entre el fichero de procesamiento y los campos se hace con el carácter <code>?</code>. Cuando se envía más de un dato en el formulario, se separan con el carácter <code>&amp;</code>. En el caso de que el método utilizado sea <code>post</code>, la llamada sería así:</p>
+                    <pre class="bloque-codigo"><code>localhost/proceso.php</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema5/figura-11.png" alt="Llamada con el método post: los datos no aparecen en la barra del navegador.">
+                        <figcaption>Fig. 11. Llamada con el método post: los datos no aparecen en la barra del navegador.</figcaption>
+                    </figure>
+                    <p>En este caso, la información no aparece en la barra del navegador. Por lo tanto, se usa <code>post</code> cuando no queremos que los datos enviados sean visibles en la URL.</p>
+                </div>
+
+                <div class="subpunto" id="subpunto-3-2">
+                    <h3>3.2. Atributos comunes</h3>
+                    <p>Las etiquetas que pueden utilizarse dentro del formulario dispondrán de atributos comunes, aparte de los específicos de cada etiqueta. Se listan a continuación:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Atributos comunes de los controles de formulario</caption>
+                            <thead><tr><th>Atributo</th><th>Función</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>type</code></th><td>Indica el tipo de control.</td></tr>
+                                <tr><th scope="row"><code>name</code></th><td>Identifica al control.</td></tr>
+                                <tr><th scope="row"><code>value</code></th><td>Permite dar un valor inicial al control.</td></tr>
+                                <tr><th scope="row"><code>required</code></th><td>Indica que el campo es obligatorio. Hasta que no se complete no se podrá enviar el formulario.</td></tr>
+                                <tr><th scope="row"><code>size</code></th><td>Indica el tamaño del control a la hora de su visualización en el navegador.</td></tr>
+                                <tr><th scope="row"><code>maxlength</code> y <code>minlength</code></th><td>Indican la longitud máxima y mínima en caracteres que se puede escribir en un control.</td></tr>
+                                <tr><th scope="row"><code>autofocus</code></th><td>Indica qué control tendrá el foco cuando se visualice el formulario.</td></tr>
+                                <tr><th scope="row"><code>disabled</code></th><td>Permite deshabilitar el control. Aparecerá en un tono gris y no permitirá acceder a él ni podrá coger el foco.</td></tr>
+                                <tr><th scope="row"><code>readonly</code></th><td>El control no puede ser modificado, aunque sí puede coger el foco.</td></tr>
+                                <tr><th scope="row"><code>tabindex</code></th><td>Permite indicar el orden de los controles cuando usamos el tabulador.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-3-3">
+                    <h3>3.3. Controles</h3>
+                    <p>En este apartado detallaremos los controles que se pueden usar en un formulario e indicaremos sus atributos principales.</p>
+
+                    <div class="subpunto" id="subpunto-3-3-1">
+                        <h4>3.3.1. Botones</h4>
+                        <p>Este tipo de controles nos va a permitir interactuar con el formulario, permitiendo la ejecución de un script, el envío de los datos o el borrado de estos.</p>
+                        <div class="tabla-contenedor">
+                            <table class="tabla-tema">
+                                <caption>Tabla 1. Tipos de botones</caption>
+                                <thead><tr><th>Control</th><th>Etiqueta</th><th>Función</th><th>Atributo</th></tr></thead>
+                                <tbody>
+                                    <tr><th scope="row">Botón</th><td><code>&lt;input&gt;</code></td><td>Permite crear un botón al que podremos asociar una funcionalidad, normalmente con JavaScript.</td><td><code>type="button"</code></td></tr>
+                                    <tr><th scope="row">Botón de envío</th><td><code>&lt;input&gt;</code></td><td>Permite enviar los datos del formulario al fichero de procesamiento en el servidor.</td><td><code>type="submit"</code></td></tr>
+                                    <tr><th scope="row">Botón de borrado</th><td><code>&lt;input&gt;</code></td><td>Borra la información incluida en el formulario y muestra los valores iniciales; si los controles no tienen esos valores, los pone en blanco.</td><td><code>type="reset"</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    Nombre: &lt;input type="text" name="nombre"&gt;
+    &lt;p&gt;
+        &lt;input type="radio" name="sexo" value="h"&gt;Hombre
+        &lt;input type="radio" name="sexo" value="m"&gt;Mujer
+    &lt;/p&gt;
+    &lt;input type="submit" value="Enviar"&gt;
+    &lt;input type="reset" value="Borrar"&gt;
+    &lt;input type="button" value="Hola Mundo"
+           onclick="alert('¡Hola Mundo!')"&gt;
+&lt;/form&gt;</code></pre>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-12.png" alt="Código HTML de ejemplo de botones.">
+                            <figcaption>Fig. 12. Código HTML de ejemplo de botones.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-13.png" alt="Envío del formulario.">
+                            <figcaption>Fig. 13. Envío del formulario.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-14.png" alt="Borrado del formulario.">
+                            <figcaption>Fig. 14. Borrado del formulario.</figcaption>
+                        </figure>
+                        <p>En los ejemplos de las figuras 13 y 14, al pulsar «Enviar» se enviarían al servidor los datos introducidos. Al pulsar «Borrar» se dejarían en blanco. En el caso del botón «Hola Mundo», se ha introducido código en JavaScript.</p>
+
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-3-2">
+                        <h4>3.3.2. Cajas de texto</h4>
+                        <p>Este tipo de control nos va a permitir introducir texto que solo ocupe una línea o varias, según la etiqueta que usemos.</p>
+                        <div class="tabla-contenedor">
+                            <table class="tabla-tema">
+                                <caption>Tabla 2. Tipos de cajas de texto</caption>
+                                <thead><tr><th>Control</th><th>Etiqueta</th><th>Función y atributos</th></tr></thead>
+                                <tbody>
+                                    <tr><th scope="row">Caja de texto alfanumérica</th><td><code>&lt;input&gt;</code></td><td>Permite introducir texto alfanumérico. <code>type="text"</code>.</td></tr>
+                                    <tr><th scope="row">Contraseña</th><td><code>&lt;input&gt;</code></td><td>Es una caja de texto especial: al escribir aparecen caracteres que ocultan lo que se está introduciendo. <code>type="password"</code>.</td></tr>
+                                    <tr><th scope="row">Área de texto</th><td><code>&lt;textarea&gt;</code></td><td>Permite introducir más de una línea de texto. Los atributos <code>rows</code> y <code>cols</code> indican las filas y columnas iniciales; el área se puede ampliar arrastrando la esquina inferior derecha.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;p&gt;Nombre: &lt;input type="text" name="nombre" size="25"&gt;&lt;/p&gt;
+    &lt;p&gt;Contraseña: &lt;input type="password"
+       name="contrasena" size="22"&gt;&lt;/p&gt;
+    &lt;p&gt;Comentario&lt;/p&gt;
+    &lt;p&gt;&lt;textarea name="comentario" rows="4" cols="27"&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-15.png" alt="Código HTML de ejemplo de cajas de texto.">
+                            <figcaption>Fig. 15. Código HTML de ejemplo de cajas de texto.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-16.png" alt="Visualización en el navegador.">
+                            <figcaption>Fig. 16. Visualización en el navegador.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-3-3">
+                        <h4>3.3.3. Casilla de verificación</h4>
+                        <p>Este control nos va a permitir elegir entre varias opciones y poder marcar una o varias.</p>
+                        <ul>
+                            <li><strong>Etiqueta:</strong> <code>&lt;input&gt;</code>.</li>
+                            <li><strong>Función:</strong> permite marcar o desmarcar casillas.</li>
+                            <li><strong>Atributos:</strong> <code>type="checkbox"</code>; <code>checked</code> indica si inicialmente se desea que el checkbox esté marcado. Para marcar la casilla, basta con escribir <code>checked</code>.</li>
+                            <li>Si no se indica un valor con el atributo <code>value</code>, al marcarla se enviaría el valor <code>on</code>; en caso contrario, se enviaría el valor indicado. Si no se marca la casilla, no se enviaría nada.</li>
+                        </ul>
+                        <p>En el siguiente ejemplo se usa el control <code>checked</code> para marcar dos opciones de tres posibles:</p>
+                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;input type="checkbox" name="opcion1" checked&gt; Opción 1&lt;br&gt;
+    &lt;input type="checkbox" name="opcion2"&gt; Opción 2&lt;br&gt;
+    &lt;input type="checkbox" name="opcion3" checked&gt; Opción 3&lt;br&gt;
+&lt;/form&gt;</code></pre>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-17.png" alt="Código HTML de ejemplo de casilla de verificación.">
+                            <figcaption>Fig. 17. Código HTML de ejemplo de casilla de verificación.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-18.png" alt="Visualización en el navegador.">
+                            <figcaption>Fig. 18. Visualización en el navegador.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-3-4">
+                        <h4>3.3.4. Botones radio</h4>
+                        <p>Este control nos permite elegir entre varias opciones, normalmente excluyentes.</p>
+                        <ul>
+                            <li><strong>Etiqueta:</strong> <code>&lt;input&gt;</code>.</li>
+                            <li><strong>Función:</strong> normalmente se usa en un grupo de opciones donde se elegirá solo una. Al elegir una opción, el resto se desmarca.</li>
+                            <li><strong>Atributos:</strong> <code>type="radio"</code>. Para que los botones radio formen un grupo y las opciones sean excluyentes, el atributo <code>name</code> debe ser el mismo para todos.</li>
+                            <li><code>value</code> indica el valor que se enviará si se marca la opción; si no se indica, se enviaría <code>on</code>. Si no se marca una opción, no se envía nada.</li>
+                            <li><code>checked</code> se puede utilizar, al igual que con las casillas de verificación, para marcar una opción inicialmente.</li>
+                        </ul>
+                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;input type="radio" name="opciones" value="1"&gt; Opción 1&lt;br&gt;
+    &lt;input type="radio" name="opciones" value="2" checked&gt; Opción 2&lt;br&gt;
+    &lt;input type="radio" name="opciones" value="3"&gt; Opción 3&lt;br&gt;
+&lt;/form&gt;</code></pre>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-19.png" alt="Código HTML de ejemplo de botones radio.">
+                            <figcaption>Fig. 19. Código HTML de ejemplo de botones radio.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-20.png" alt="Visualización en el navegador.">
+                            <figcaption>Fig. 20. Visualización en el navegador.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-3-5">
+                        <h4>3.3.5. Listas desplegables</h4>
+                        <p>Nos permiten mostrar una lista de opciones cuando pulsamos en el control.</p>
+                        <ul>
+                            <li><strong>Etiqueta:</strong> <code>&lt;select&gt;</code>.</li>
+                            <li><strong>Función:</strong> muestra opciones en una lista. Las opciones se colocan dentro de <code>&lt;select&gt;</code> y se indican con la etiqueta <code>&lt;option&gt;</code>.</li>
+                            <li><code>size</code> se asocia a <code>&lt;select&gt;</code> e indica la altura del control.</li>
+                            <li><code>value</code> se asocia a <code>&lt;option&gt;</code> e indica el valor de la opción seleccionada.</li>
+                            <li><code>selected</code> se asocia a <code>&lt;option&gt;</code> e indica la opción seleccionada por defecto.</li>
+                        </ul>
+                        <p>Observa cómo se han utilizado las listas desplegables en el siguiente ejemplo:</p>
+                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;p&gt;Opciones a elegir:&lt;/p&gt;
+    &lt;select name="opciones" size="3"&gt;
+        &lt;option value="1"&gt;opcion1&lt;/option&gt;
+        &lt;option value="2"&gt;opcion2&lt;/option&gt;
+        &lt;option value="3"&gt;opcion3&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;</code></pre>
+                        <figure class="figura-documento">
+                            <img src="imagenes/tema5/figura-21.png" alt="Código HTML de ejemplo de lista desplegable.">
+                            <figcaption>Fig. 21. Código HTML de ejemplo de lista desplegable.</figcaption>
+                        </figure>
+                        <figure class="figura-documento">
+                            <div class="grupo-imagenes">
+                                <img src="imagenes/tema5/figura-22a.png" alt="Visualización de la lista desplegable cerrada y abierta. (parte 1)">
+                                <img src="imagenes/tema5/figura-22b.png" alt="Visualización de la lista desplegable cerrada y abierta. (parte 2)">
+                            </div>
+                            <figcaption>Fig. 22 y Fig. 23. Visualización de la lista desplegable cerrada y abierta.</figcaption>
+                        </figure>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Caso práctico 1: «Actividades formativas»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto quiere incluir en la intranet de la empresa una tabla con los horarios de algunos cursos que se quieren impartir.</p>
+                <p><strong>Nudo:</strong> se reúne con Gloria y le comenta lo que necesita. La tabla debe contener:</p>
+                <ul>
+                    <li>El título de la tabla: «ACTIVIDADES FORMATIVAS».</li>
+                    <li>Una segunda fila que contenga la cabecera donde aparecerá el nombre del curso, el horario y las horas de duración.</li>
+                    <li>Los siguientes cursos en el cuerpo de la tabla:
+                        <ul>
+                            <li>Curso de HTML, 20 horas, de 16:00 a 20:00.</li>
+                            <li>Curso de CSS, 15 horas, de 9:00 a 12:00.</li>
+                            <li>Curso de JavaScript, 20 horas, de 16:00 a 20:00.</li>
+                            <li>Curso de jQuery, 20 horas; comparte horario con el curso de JavaScript.</li>
+                        </ul>
+                    </li>
+                    <li>En el pie de la tabla se debe mostrar el total de horas.</li>
+                </ul>
+                <p><strong>Desenlace:</strong> puedes observar una representación de la solución en la figura 24, tal y como se visualizaría en el navegador. El código correspondiente lo encontrarás en el anexo del tema.</p>
+                <p><strong>Solución completa:</strong> «Lenguaje de marcas-tema5-Anexos».</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Actividades formativas</caption>
+                        <thead><tr><th>Curso</th><th>Horario</th><th>Aula</th><th>Horas</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">HTML</th><td>16:00 a 20:00</td><td>Aula 1</td><td>20 horas</td></tr>
+                            <tr><th scope="row">CSS</th><td>9:00 a 12:00</td><td>Aula 3</td><td>15 horas</td></tr>
+                            <tr><th scope="row">JavaScript</th><td rowspan="2">16:00 a 20:00</td><td>Aula 4</td><td>20 horas</td></tr>
+                            <tr><th scope="row">jQuery</th><td>Aula 5</td><td>20 horas</td></tr>
+                        </tbody>
+                        <tfoot><tr><th colspan="3">Total de horas</th><th>55 horas</th></tr></tfoot>
+                    </table>
+                </div>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-23.png" alt="Visualización en el navegador de la tabla Actividades formativas.">
+                    <figcaption>Fig. 24. Visualización en el navegador de la tabla Actividades formativas.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Caso práctico 2: «Grupo de controles»</h2></div>
+                <p><strong>Planteamiento:</strong> Gloria, mientras buscaba información en Internet, ha visto en algunas páginas que los controles de un formulario se pueden agrupar.</p>
+                <p><strong>Nudo:</strong> se lo comenta a Alberto y este le dice que haga un pequeño manual de cómo se haría, incluyendo un ejemplo.</p>
+                <p><strong>Desenlace:</strong> un grupo de controles permite agrupar los controles que podemos incluir en un formulario. La etiqueta <code>&lt;fieldset&gt;</code> los agrupa y <code>&lt;legend&gt;</code>, que debe incluirse al comienzo del grupo, proporciona el título que se mostrará.</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 6. Grupo de controles</caption>
+                        <thead><tr><th>Control</th><th>Etiqueta</th><th>Función</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Grupo de controles</th><td><code>&lt;fieldset&gt;</code></td><td>Permite agrupar controles. En el navegador se mostrarán rodeados de una línea.</td></tr>
+                            <tr><th scope="row">Título del grupo</th><td><code>&lt;legend&gt;</code></td><td>Da el título al grupo de controles y se incluye dentro de <code>&lt;fieldset&gt;</code>.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Datos personales&lt;/legend&gt;
+        &lt;label&gt;Nombre: &lt;input type="text" name="nombre"&gt;&lt;/label&gt;
+        &lt;label&gt;Edad: &lt;input type="number" name="edad"&gt;&lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Datos de interés&lt;/legend&gt;
+        &lt;p&gt;¿Estás casado?
+            &lt;input type="radio" name="casado" value="si"&gt; Sí
+            &lt;input type="radio" name="casado" value="no"&gt; No
+        &lt;/p&gt;
+        &lt;p&gt;Deportes:
+            &lt;input type="checkbox" name="deporte" value="baloncesto"&gt; Baloncesto
+            &lt;input type="checkbox" name="deporte" value="futbol"&gt; Fútbol
+            &lt;input type="checkbox" name="deporte" value="ciclismo"&gt; Ciclismo
+        &lt;/p&gt;
+    &lt;/fieldset&gt;
+    &lt;input type="submit" value="Enviar"&gt;
+&lt;/form&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-24.png" alt="Visualización en el navegador de un formulario con los grupos Datos personales y Datos de interés.">
+                    <figcaption>Fig. 25. Visualización en el navegador de un formulario con los grupos Datos personales y Datos de interés.</figcaption>
+                </figure>
+                <p>El código correspondiente lo encontrarás en el anexo del tema.</p>
+                <p><strong>Solución completa:</strong> «Lenguaje de marcas-tema5-Anexos».</p>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-25.png" alt="Esquema: tablas (colspan y rowspan) y formularios (métodos get y post, controles y fieldset).">
+                    <figcaption>Fig. 26. Esquema: tablas (colspan y rowspan) y formularios (métodos get y post, controles y fieldset).</figcaption>
+                </figure>
+                <p>En este tema hemos trabajado con tablas y formularios. Las tablas nos permiten estructurar el contenido en filas y podemos destacar algunas celdas para que formen parte de la cabecera y del pie de la tabla.</p>
+                <p>Por otro lado, los formularios nos permiten recabar información del usuario y enviar esos datos al servidor para su procesamiento. Para ello, se utilizan lenguajes del lado del servidor como PHP.</p>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>Una de las visualizaciones que puede adoptar el formulario encargado por el cliente Sol y Mar es la que se muestra en la figura 27. El código correspondiente lo encontrarás en el anexo del tema.</p>
+                <p><strong>Solución completa:</strong> «Lenguaje de marcas-tema5-Anexos».</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema5/figura-26.png" alt="Visualización en el navegador del formulario de consulta: datos personales, publicidad, temática, mes de vacaciones y consulta.">
+                    <figcaption>Fig. 27. Visualización en el navegador del formulario de consulta: datos personales, publicidad, temática, mes de vacaciones y consulta.</figcaption>
+                </figure>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 5 · Tablas y formularios</p></footer>
+    <footer><p>Tema 5 · <a class="volver" href="tema4.html">Volver al tema 4</a> · <a class="volver" href="tema6.html">Ir al tema 6</a></p></footer>
 </body>
 </html>

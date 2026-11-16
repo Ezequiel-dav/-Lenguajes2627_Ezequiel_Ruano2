@@ -5,26 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tema 1 - Lenguajes de marcas</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 1: Lenguajes de marcas</h1>
+        <p class="etiqueta">Tema 1 · Lenguajes de Marcas</p>
+        <h1>Lenguajes de marcas</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>¿Qué es un lenguaje de marcas?</h2>
-        <p>Es un lenguaje que utiliza etiquetas para organizar y describir la información de un documento. Las etiquetas indican qué función tiene cada parte del contenido.</p>
-        <h2>Etiquetas y atributos</h2>
-        <p>Las etiquetas delimitan elementos. Los atributos aportan información adicional, como el idioma o la dirección de un enlace.</p>
-        <pre class="ejemplo"><code>&lt;p class="aviso"&gt;Este es un párrafo.&lt;/p&gt;</code></pre>
-        <h2>HTML y XML</h2>
-        <ul>
-            <li>HTML se utiliza para estructurar el contenido de las páginas web.</li>
-            <li>XML permite describir y organizar datos.</li>
-            <li>Los elementos deben anidarse y cerrarse correctamente.</li>
-        </ul>
-        <p><a class="volver" href="tema2.html">Ir al tema 2: Internet y la Web</a></p>
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Concepto y características generales</a>
+                    <ul>
+                        <li><a href="#subpunto-2-1">2.1. Características generales</a></li>
+                        <li><a href="#subpunto-2-2">2.2. Orígenes y evolución</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#punto-3">3. Clasificación e identificación</a>
+                    <ul><li><a href="#subpunto-3-1">3.1. Utilización en distintos ámbitos</a></li></ul>
+                </li>
+                <li><a href="#punto-4">4. Caso práctico 1</a></li>
+                <li>
+                    <a href="#punto-5">5. Herramientas de edición</a>
+                    <ul>
+                        <li><a href="#subpunto-5-1">5.1. Bloc de notas</a></li>
+                        <li><a href="#subpunto-5-2">5.2. Notepad++</a></li>
+                        <li><a href="#subpunto-5-3">5.3. Visual Studio Code</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-6">6. XML: características propias y etiquetas</a></li>
+                <li><a href="#punto-7">7. Documentos bien formados</a></li>
+                <li><a href="#punto-8">8. Caso práctico 2</a></li>
+                <li>
+                    <a href="#punto-9">9. Espacios de nombres en XML</a>
+                    <ul><li><a href="#subpunto-9-1">9.1. Ejemplo de etiquetas ambiguas</a></li></ul>
+                </li>
+                <li><a href="#punto-10">10. Resumen y resolución</a></li>
+                <li><a href="#punto-11">11. Bibliografía</a></li>
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer las características generales de los lenguajes de marcas, su clasificación y uso en diferentes ámbitos.</li>
+                    <li>Identificar herramientas de edición para trabajar con los lenguajes de marcas.</li>
+                    <li>Obtener los conocimientos básicos sobre XML de cara a profundizar en próximos temas.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>Las personas usamos en nuestro lenguaje escrito ciertas reglas, formatos y colores que nos permiten comunicarnos con el resto de individuos para que el mensaje se interprete.</p>
+                <p>De igual forma, los documentos con los que trabajamos en Internet deben seguir unas reglas para que se puedan visualizar o compartir y no haya problemas en su interpretación. Los lenguajes de marcas son un mecanismo que nos va a permitir realizar este cometido. El uso más frecuente es la creación de páginas web.</p>
+                <p>A continuación, vamos a plantear un caso práctico a través del cual podremos aproximarnos de forma práctica a la teoría de este tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema1/figura-01.png" alt="Introducción.">
+                    <figcaption>Fig. 1. Introducción.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Concepto y características generales. Orígenes y evolución</h2></div>
+                <p>Un lenguaje de marcas nos va a permitir crear documentos para representar información que podremos visualizar en un navegador web, usar como ficheros de configuración o utilizar en el intercambio de información entre aplicaciones informáticas.</p>
+                <p>En su estructura vamos a disponer de etiquetas que van a definir los datos que queremos representar. Para definir estas etiquetas se utilizan los caracteres <code>&lt;</code>, <code>&gt;</code> y <code>/</code>.</p>
+                <p>Ejemplo de documento codificado con lenguaje de marcas:</p>
+                <pre class="bloque-codigo"><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Hola Mundo&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;
+            &lt;b&gt;Hola mundo&lt;/b&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema1/figura-02.png" alt="Documento codificado con lenguaje de marcas.">
+                    <figcaption>Fig. 2. Documento codificado con lenguaje de marcas.</figcaption>
+                </figure>
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Características generales</h3>
+                    <p>En la siguiente tabla se muestran las características generales de los lenguajes de marcas.</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 1. Características de los lenguajes de marcas</caption>
+                            <thead><tr><th>Característica</th><th>Descripción</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row">Uso de texto plano</th><td>Al ser texto plano, este tipo de lenguajes pueden ser editados por cualquier editor o procesador de textos. Esto hace que sean independientes de la plataforma.</td></tr>
+                                <tr><th scope="row">Compacto</th><td>Las marcas se incluyen dentro del propio contenido, pero no se muestran en el resultado final. Por ejemplo, con la marca <code>&lt;b&gt;Hola mundo&lt;/b&gt;</code> se indica que el valor «Hola mundo» debe aparecer en negrita, pero en el navegador web no aparecen las marcas <code>&lt;b&gt;</code> y <code>&lt;/b&gt;</code>.</td></tr>
+                                <tr><th scope="row">Procesamiento fácil y ligero</th><td>Es fácil crear documentos con etiquetas que se puedan mezclar con lenguajes especializados según la funcionalidad buscada.</td></tr>
+                                <tr><th scope="row">Flexible</th><td>Al basarse en etiquetas, les otorga una flexibilidad muy alta que permite su utilización en diferentes áreas de trabajo.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-2-2">
+                    <h3>2.2. Orígenes y evolución</h3>
+                    <p>El origen de los lenguajes de marcas es el GML (Generalized Markup Language), que surgió como una forma de estandarizar la manera en que se compartía información en los sistemas informáticos. Con esto, se conseguía que la información fuera independiente del sistema operativo o software de aplicación utilizado. Este formato evolucionó hacia SGML (Standard Generalized Markup Language), que solventó deficiencias de GML y dio lugar a la ISO 8879. Sin embargo, este último es un lenguaje complejo que solo se usa para aplicaciones industriales.</p>
+                    <p>En los años 90, Tim Berners-Lee simplifica SGML y crea el lenguaje de marcas HTML, que permite que se visualice información en un navegador web.</p>
+                    <p>HTML se presentaba como una opción muy buena para la creación de contenido para la web, pero estaba limitado en el uso de etiquetas y en la creación de contenido dinámico. Para resolver estas deficiencias, en 1998 se establece el estándar XML, que se convierte en un lenguaje de marcas estructural libre en la creación de etiquetas.</p>
+                    <p>Por último, podemos identificar XHTML (Extensible HyperText Markup Language), que se trata de una nueva versión de HTML basada en XML. Con este lenguaje se consigue que el documento HTML sea más robusto y más estricto en la construcción de la página web. Esto nos va a permitir identificar errores e inconsistencias de manera más precisa.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema1/figura-03.png" alt="Esquema del origen y evolución: SGML → HTML / XML → XHTML.">
+                        <figcaption>Fig. 3. Esquema del origen y evolución: SGML → HTML / XML → XHTML.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Clasificación e identificación de los lenguajes más relevantes</h2></div>
+                <p>Los lenguajes de marcas los podemos clasificar en tres tipos:</p>
+                <ul>
+                    <li><strong>De presentación:</strong> Se utiliza para el diseño y muestra del texto de un documento. Es útil para información pequeña, pero al no ser estructurado es inviable para proyectos más voluminosos. Un ejemplo es el usado en procesadores de textos como Word, donde podemos ver las marcas si activamos (¶).</li>
+                    <li><strong>De procedimiento:</strong> Dispone de la funcionalidad de presentación, pero también incluye visibilidad de lo que se está editando. De esta manera se interpretan ciertos códigos que nos van a permitir, por ejemplo, elegir el tipo de letra o la negrita. Un ejemplo puede ser el lenguaje PostScript utilizado para el diseño e impresión de documentos.</li>
+                    <li><strong>Descriptivo o semántico:</strong> Se utilizan etiquetas para la descripción de partes del texto, pero nada más. No se indica cómo se tienen que representar ni el orden a seguir. En este tipo de lenguajes tenemos SGML y sus derivados como HTML, XML y XHTML.</li>
+                </ul>
+
+                <div class="subpunto" id="subpunto-3-1">
+                    <h3>3.1. Utilización en distintos ámbitos</h3>
+                    <p>Los lenguajes de marcas se utilizan en numerosos ámbitos debido a su facilidad para representar información y poder compartirla de manera ágil y fácil. Debido a su característica de independencia de plataforma y tecnología, permiten su fácil integración en aplicaciones informáticas.</p>
+
+                    <p>Los usos más demandados son:</p>
+                    <ul>
+                        <li>Compartir información entre plataformas.</li>
+                        <li>Base de datos: XML, al tener información estructurada, nos va a permitir interrogarla para obtener resultados filtrados.</li>
+                        <li>Conversión: podemos convertir este formato a los más utilizados actualmente.</li>
+                    </ul>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema1/figura-04.png" alt="Los usos más demandados.">
+                        <figcaption>Fig. 4. Los usos más demandados.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Caso práctico 1: «Tipos de lenguajes de marcas»</h2></div>
+                <p><strong>Planteamiento:</strong> El objetivo de esta actividad es tomar conciencia de la gran cantidad de lenguajes de marcas que se están utilizando actualmente.</p>
+                <p><strong>Nudo:</strong> Busca en Internet 10 lenguajes de marcas y clasifícalos según si son lenguajes de marcas procedimentales, de presentación o semánticos.</p>
+                <p><strong>Desenlace:</strong></p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 2. Tipos de lenguajes de marcas</caption>
+                        <thead><tr><th>Lenguaje</th><th>Tipo</th></tr></thead>
+                        <tbody>
+                            <tr><td>XML</td><td>Descriptivo o semántico</td></tr>
+                            <tr><td>HTML</td><td>Descriptivo o semántico</td></tr>
+                            <tr><td>JSON</td><td>Descriptivo o semántico</td></tr>
+                            <tr><td>BBCode</td><td>Procedimental y de presentación</td></tr>
+                            <tr><td>TeX</td><td>Procedimental y de presentación</td></tr>
+                            <tr><td>SVG</td><td>Procedimental y de presentación</td></tr>
+                            <tr><td>troff</td><td>Procedimental y de presentación</td></tr>
+                            <tr><td>Markdown</td><td>Procedimental y de presentación</td></tr>
+                            <tr><td>GML</td><td>Descriptivo y semántico</td></tr>
+                            <tr><td>Office Open XML</td><td>Procedimental y de presentación</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Herramientas de edición</h2></div>
+                <p>A la hora de trabajar con lenguajes de marcas existen numerosas herramientas de edición que nos van a permitir que la labor de creación de ficheros HTML o XML sea más fácil. Estas herramientas pueden controlar posibles errores o incluso autocompletar ciertas etiquetas que son de uso común.</p>
+                <div class="subpunto" id="subpunto-5-1">
+                    <h3>5.1. Bloc de notas</h3>
+                    <p>La forma más inmediata de trabajar con el lenguaje de marcas es utilizar el bloc de notas de un sistema operativo como Windows. Como se trata de texto plano, no vamos a tener ningún problema en utilizar esta herramienta para crear los documentos. Hay que tener en cuenta que a la hora de grabarlo hay que cambiar la extensión a HTML para que se pueda visualizar en el navegador web.</p>
+                </div>
+                <div class="subpunto" id="subpunto-5-2">
+                    <h3>5.2. Notepad++</h3>
+                    <p>Es un editor libre muy potente que permite la elección de numerosos lenguajes tanto de programación como de marcas. Según se elija un lenguaje u otro, la herramienta va coloreando las etiquetas o palabras reservadas de ese lenguaje, lo que permite identificar de manera muy visual los diferentes bloques del documento. También permite enumerar las líneas. Esto es muy útil a la hora de depurar porque nos permite identificar rápidamente la línea donde se encuentra el error.</p>
+                </div>
+                <div class="subpunto" id="subpunto-5-3">
+                    <h3>5.3. Visual Studio Code</h3>
+                    <p>Esta herramienta está desarrollada por Microsoft. Al igual que con Notepad++, la podemos usar con los lenguajes de programación o de etiquetas, configurar la vista del interfaz como más nos guste e identificar bloques y etiquetas con colores.</p>
+                    <p>Una característica muy interesante de este programa es el autocompletado de ciertas etiquetas a medida que vamos escribiendo y también la posibilidad de instalar plugins que aumenten su capacidad. Un ejemplo de plugin puede ser Live Server, que nos va a crear un servidor local que permite la recarga en vivo del documento HTML que se esté creando. También disponemos de herramientas online como CodePen u Online HTML Editor.</p>
+
+                </div>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>XML: características propias y etiquetas</h2></div>
+                <p>Como ya se ha comentado en apartados anteriores, XML surge de la simplificación de SGML y se puede considerar un metalenguaje porque gracias a él se pueden definir otros lenguajes específicos, como por ejemplo XHTML.</p>
+                <p>Una de las ventajas con respecto a HTML es que no está limitado a un número concreto de etiquetas y, cuando estas se definen, se está indicando el significado de los datos que contienen. Es importante indicar que XML no sustituye a HTML, sino que es otro tipo de lenguaje de marcas.</p>
+                <p>Este apartado se va a desarrollar en profundidad en posteriores temas, pero sirva este punto como introducción a este lenguaje para ir asimilando conceptos.</p>
+                <ul>
+                    <li>Se pueden crear las etiquetas que se consideren necesarias para crear el contenido apropiado.</li>
+                    <li>Las etiquetas también pueden tener asociados atributos que permiten diferenciar valores.</li>
+                    <li>Utiliza un esquema en forma de árbol que nos permite crear estructuras jerárquicas partiendo de un nodo raíz.</li>
+                    <li>El diseño y la estructura no son dependientes entre sí.</li>
+                </ul>
+                <p>Un documento XML está definido por una estructura en árbol jerárquica y consta de dos partes principales:</p>
+                <ul>
+                    <li><strong>Prólogo:</strong> Aparece al comienzo del documento y contiene referencias de cómo está definido el contenido del XML.</li>
+                    <li><strong>Cuerpo:</strong> Contiene la información en sí.</li>
+                </ul>
+                <p>En el siguiente ejemplo se puede ver un documento XML tipo. La primera línea identifica el prólogo, donde se indica la versión y el tipo de codificación. Es importante la codificación para que no haya problemas con caracteres como la ñ o los acentos.</p>
+                <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;biblioteca&gt;
+    &lt;libro&gt;
+        &lt;titulo&gt;El Quijote&lt;/titulo&gt;
+        &lt;autor&gt;Miguel de Cervantes&lt;/autor&gt;
+        &lt;paginas&gt;350&lt;/paginas&gt;
+    &lt;/libro&gt;
+&lt;/biblioteca&gt;</code></pre>
+                <p>A partir de la línea 2 tenemos el cuerpo, donde vemos información acerca de una biblioteca y los libros que contiene. Por cada libro tenemos los datos de su título, autor y número de páginas. Se pueden definir las etiquetas que se necesiten siempre que vayan encerradas entre los símbolos <code>&lt;</code> y <code>&gt;</code>. Cada etiqueta debe ir emparejada con su etiqueta de cierre, que la definimos con los caracteres <code>&lt;/</code>.</p>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Elaboración de documentos bien formados: estructura y sintaxis</h2></div>
+                <p>Un documento XML se dice que está bien formado cuando cumple las reglas sintácticas definidas en la recomendación W3C con respecto al estándar XML.</p>
+                <p>Dichas normas básicas son:</p>
+                <ul>
+                    <li>El documento debe tener un prólogo definido donde se indique versión y codificación del documento.</li>
+                    <li>Al tener una estructura en forma de árbol, siempre debe existir un nodo raíz del que partirá el resto de la información. En el ejemplo, el nodo raíz sería <code>biblioteca</code>.</li>
+                    <li>Las etiquetas tienen que estar emparejadas, es decir, toda etiqueta de apertura debe tener una de cierre.</li>
+                    <li>Los atributos de las etiquetas deberán ir encerrados entre comillas simples o dobles y no se pueden repetir dentro de la misma etiqueta.</li>
+                    <li>Es sensible a mayúsculas y minúsculas. Por lo tanto, la etiqueta <code>&lt;coche&gt;</code> es diferente a la etiqueta <code>&lt;Coche&gt;</code>.</li>
+                    <li>Los nombres de las etiquetas, al igual que ocurre con las variables en lenguajes de programación, deben seguir una serie de reglas, como no comenzar por número ni utilizar caracteres reservados como <code>/</code>.</li>
+                    <li>Los comentarios deben ir fuera de las etiquetas y se representan con los símbolos <code>&lt;!--</code> para su apertura y <code>--&gt;</code> para su cierre.</li>
+                </ul>
+                <p>En el ejemplo se incluye el atributo ciudad como información adicional sobre dónde se encuentra la biblioteca y un comentario sobre el objetivo del documento XML.</p>
+                <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!-- Ejemplo de biblioteca en XML --&gt;
+&lt;biblioteca ciudad="Malaga"&gt;
+    &lt;libro&gt;
+        &lt;titulo&gt;El Quijote&lt;/titulo&gt;
+        &lt;autor&gt;Miguel de Cervantes&lt;/autor&gt;
+        &lt;paginas&gt;350&lt;/paginas&gt;
+    &lt;/libro&gt;
+&lt;/biblioteca&gt;</code></pre>
+                <p>Para poder comprobar si un documento está bien formado existen herramientas que nos ayudan a comprobarlo. Entre ellas está XML Copy Editor.</p>
+
+            </section>
+
+            <section class="punto" id="punto-8">
+                <div class="titulo-punto"><span class="numero-punto">8</span><h2>Caso práctico 2: «Bibliotecas interprovinciales»</h2></div>
+                <p><strong>Planteamiento:</strong> Se quiere tener información sobre los libros de informática que hay en las bibliotecas de Málaga y Granada.</p>
+                <p><strong>Nudo:</strong> Según el formato indicado en el ejemplo, podemos añadir dos libros por ciudad, teniendo como nodo raíz la etiqueta <code>&lt;bibliotecas&gt;</code>.</p>
+                <p><strong>Desenlace:</strong> El resultado sería el siguiente.</p>
+                <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!-- Bibliotecas de Málaga y Granada --&gt;
+&lt;bibliotecas&gt;
+    &lt;biblioteca ciudad="Málaga"&gt;
+        &lt;libro&gt;
+            &lt;titulo&gt;Componentes en java&lt;/titulo&gt;
+            &lt;autor&gt;Jose Luis Ruiz&lt;/autor&gt;
+            &lt;paginas&gt;350&lt;/paginas&gt;
+        &lt;/libro&gt;
+        &lt;libro&gt;
+            &lt;titulo&gt;El libro de javascript&lt;/titulo&gt;
+            &lt;autor&gt;Francisco Sanchez&lt;/autor&gt;
+            &lt;paginas&gt;200&lt;/paginas&gt;
+        &lt;/libro&gt;
+    &lt;/biblioteca&gt;
+    &lt;biblioteca ciudad="Granada"&gt;
+        &lt;libro&gt;
+            &lt;titulo&gt;Introducción a XML&lt;/titulo&gt;
+            &lt;autor&gt;Pedro Gonzalez&lt;/autor&gt;
+            &lt;paginas&gt;200&lt;/paginas&gt;
+        &lt;/libro&gt;
+        &lt;libro&gt;
+            &lt;titulo&gt;Bases de datos&lt;/titulo&gt;
+            &lt;autor&gt;Gloria Martinez&lt;/autor&gt;
+            &lt;paginas&gt;150&lt;/paginas&gt;
+        &lt;/libro&gt;
+    &lt;/biblioteca&gt;
+&lt;/bibliotecas&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema1/figura-05.png" alt="Ejemplo de biblioteca interprovincial en XML.">
+                    <figcaption>Fig. 8. Ejemplo de biblioteca interprovincial en XML.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-9">
+                <div class="titulo-punto"><span class="numero-punto">9</span><h2>Utilización de espacios de nombres en XML</h2></div>
+                <p>Con el uso del espacio de nombres se va a poder evitar la ambigüedad de etiquetas cuando queramos unir dos o más ficheros XML que contengan elementos con el mismo nombre. Se va a poder definir a qué fichero XML pertenece cada uno de esos elementos y así diferenciarlos.</p>
+                <p>En el documento, las etiquetas que sean ambiguas van a estar precedidas de un prefijo que identificará su procedencia, seguido de dos puntos:</p>
+                <pre class="bloque-codigo"><code>&lt;prefijo:etiqueta&gt;&lt;/prefijo:etiqueta&gt;</code></pre>
+                <p>Para poder utilizar los prefijos en un espacio de nombres hay que declararlo e indicarle un índice con el URI que tenga asociado mediante el atributo especial <code>xmlns</code>. Dicha declaración hay que realizarla entre el prólogo y el cuerpo.</p>
+                <pre class="bloque-codigo"><code>&lt;conexión&gt;://&lt;direccion_del_servidor&gt;/&lt;sección1&gt;/&lt;sección2&gt;/…</code></pre>
+
+                <div class="subpunto" id="subpunto-9-1">
+                    <h3>9.1. Ejemplo: unión de dos ficheros XML con etiquetas ambiguas</h3>
+                    <p>Disponemos de dos ficheros XML que hacen referencia a dos estructuras y significados diferentes, pero que usan etiquetas iguales. Un fichero XML representa a un canal de agua y otro a canales de televisión.</p>
+                    <h4>Canal de agua</h4>
+                    <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!-- Canal de agua --&gt;
+&lt;canal&gt;
+    &lt;ubicacion&gt;Segovia&lt;/ubicacion&gt;
+    &lt;capacidad&gt;300 litros&lt;/capacidad&gt;
+&lt;/canal&gt;</code></pre>
+                    <h4>Canal de televisión</h4>
+                    <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!-- Canal de televisión --&gt;
+&lt;canal&gt;
+    &lt;cadena&gt;Antena3&lt;/cadena&gt;
+    &lt;frecuencia&gt;698 MHz&lt;/frecuencia&gt;
+&lt;/canal&gt;</code></pre>
+                    <h4>Unión de los ficheros usando espacio de nombres</h4>
+                    <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;canalagua:ejemplo xmlns:canal_agua="http://...xml1"
+                   xmlns:canal_television="http://...xml2"&gt;
+    &lt;canal_agua:canal&gt;
+        &lt;ubicacion&gt;Segovia&lt;/ubicacion&gt;
+        &lt;capacidad&gt;300 litros&lt;/capacidad&gt;
+    &lt;/canal_agua:canal&gt;
+    &lt;canal_television:canal&gt;
+        &lt;cadena&gt;Antena3&lt;/cadena&gt;
+        &lt;frecuencia&gt;698 MHz&lt;/frecuencia&gt;
+    &lt;/canal_television:canal&gt;
+&lt;/canalagua:ejemplo&gt;</code></pre>
+                    <p> Definición de URI en W3C.</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-10">
+                <div class="titulo-punto"><span class="numero-punto">10</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <p>En esta unidad introductoria hemos visto las características generales de los lenguajes de marcas y las ventajas que aportan para el tratamiento de la información. Existe una clasificación según el uso de este tipo de lenguajes y son numerosos sus ámbitos de aplicación.</p>
+                <p>Para hacer el trabajo con este tipo de documentos más fácil existen muchas herramientas de edición que nos permitirán agilizar su creación.</p>
+                <p>Por último, se ha realizado una introducción a los ficheros XML como ejemplo de lenguaje de marcas, indicando sus características, cómo debe estar formada su estructura y el uso de espacios de nombres cuando nos encontramos con etiquetas ambiguas.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema1/figura-06.png" alt="Resumen: lenguajes de marcas, clasificación y características, herramientas de edición e introducción a XML.">
+                    <figcaption>Fig. 10. Resumen: lenguajes de marcas, clasificación y características, herramientas de edición e introducción a XML.</figcaption>
+                </figure>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>El formato ideal sería XML porque nos va a permitir que se pueda visualizar en cualquier plataforma o aplicación. La información que vamos a incluir son los datos personales, departamento al que pertenece, cargo y sueldo.</p>
+                <p>En el ejemplo se muestran dos empleados y un departamento, pero se podría escalar según necesitemos.</p>
+                <pre class="bloque-codigo"><code>&lt;empresa&gt;
+    &lt;departamento dept="marketing"&gt;
+        &lt;empleado&gt;
+            &lt;nombre&gt;Federico&lt;/nombre&gt;
+            &lt;apellidos&gt;Huércano Ruiz&lt;/apellidos&gt;
+            &lt;dni&gt;33358698T&lt;/dni&gt;
+            &lt;telefono&gt;650596415&lt;/telefono&gt;
+            &lt;cargo&gt;Director&lt;/cargo&gt;
+            &lt;sueldo&gt;2400&lt;/sueldo&gt;
+        &lt;/empleado&gt;
+        &lt;empleado&gt;
+            &lt;nombre&gt;Gloria&lt;/nombre&gt;
+            &lt;apellidos&gt;Martínez Pérez&lt;/apellidos&gt;
+            &lt;dni&gt;30515453T&lt;/dni&gt;
+            &lt;telefono&gt;607788923&lt;/telefono&gt;
+            &lt;cargo&gt;Jefe departamento&lt;/cargo&gt;
+            &lt;sueldo&gt;1800&lt;/sueldo&gt;
+        &lt;/empleado&gt;
+    &lt;/departamento&gt;
+&lt;/empresa&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema1/figura-07.png" alt="Resolución del caso práctico de la unidad.">
+                    <figcaption>Fig. 11. Resolución del caso práctico de la unidad.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-11">
+                <div class="titulo-punto"><span class="numero-punto">11</span><h2>Bibliografía</h2></div>
+                <ul>
+                    <li>Notepad++</li>
+                    <li>Visual Studio Code</li>
+                    <li>CodePen</li>
+                    <li>Online HTML Editor</li>
+                    <li>XML Copy Editor</li>
+                </ul>
+            </section>
+        </article>
     </main>
-    <footer><p>Tema 1 · Lenguajes de Marcas</p></footer>
+    <footer><p>Tema 1 · <a class="volver" href="tema2.html">Ir al tema 2: Introducción al documento HTML</a></p></footer>
 </body>
 </html>

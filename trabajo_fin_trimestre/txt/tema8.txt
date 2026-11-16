@@ -1,0 +1,572 @@
+================================================================================
+TEMA 8. PROPIEDADES CSS
+LENGUAJES DE MARCAS Y SISTEMAS DE GESTIÓN DE INFORMACIÓN
+================================================================================
+
+--- PÁGINA 1 ---
+8
+LENGUAJES DE MARCAS Y SISTEMAS DE GESTIÓN DE INFORMACIÓN
+Propiedades CSS
+Davante
+
+
+--- PÁGINA 2 ---
+ÍNDICE
+
+/ 1. Introducción y contextualización práctica ................................. 3
+/ 2. Propiedades CSS .......................................................... 4
+    2.1. Propiedades del texto ................................................ 4
+/ 3. Propiedades de las fuentes ............................................... 5
+/ 4. Propiedades de las listas ................................................ 6
+/ 5. Pseudoclases y pseudoelementos ........................................... 7
+    5.1. Pseudoclases para acceder a hijos o hermanos ......................... 7
+    5.2. Pseudoclases de estado ............................................... 7
+    5.3. Pseudoelementos ...................................................... 7
+    5.4. Ejemplo pseudoclases y pseudoelementos ............................... 8
+/ 6. Propiedades de las tablas ................................................ 8
+/ 7. Modelo de cajas .......................................................... 10
+    7.1. Propiedades asociadas a las cajas .................................... 11
+    7.2. Tamaño de las cajas .................................................. 12
+    7.3. Propiedades que debemos considerar en el modelo de cajas ............. 13
+    7.4. Ejemplo de las propiedades de las cajas .............................. 13
+/ 8. Caso práctico 1: “Viajes más frecuentes” ................................. 14
+/ 9. Caso práctico 2: “Tablero de ajedrez” .................................... 14
+/ 10. Resumen y resolución del caso práctico de la unidad ..................... 15
+/ 11. Webgrafía ............................................................... 16
+
+© MEDAC 978-84-18864-02-5
+Reservados todos los derechos. Queda rigurosamente prohibida, sin la autorización escrita de los titulares del copyright, bajo las sanciones establecidas en las leyes, la reproducción, transmisión y distribución total o parcial de esta obra por cualquier medio o procedimiento, incluidos la reprografía y el tratamiento informático.
+
+
+--- PÁGINA 3 ---
+OBJETIVOS
+- Conocer las propiedades CSS.
+- Distinguir entre clases, pseudoclases y pseudoelementos.
+- Practicar el modelo de cajas.
+
+/ 1. Introducción y contextualización práctica
+
+CSS está en continua evolución, y el número de propiedades que se pueden usar en las reglas CSS es cada vez más elevado, lo cual permite un mayor control del aspecto visual de la página web. Conocer estas propiedades, así como saber cómo se aplican a los elementos HTML, es importante.
+
+Existen propiedades asociadas a las tablas, a las imágenes, a los textos, etc. Algunas de ellas son generales y otras son específicas de los elementos HTML, las cuales nos van a posibilitar controlar no sólo su aspecto visual, sino también su disposición dentro de la página web.
+
+Planteamiento del caso práctico de la unidad.
+La agencia de viajes Sol y Mar le solicita a Alberto que incluya en su web información sobre los itinerarios de los viajes.
+
+Escucha el siguiente audio donde planteamos la contextualización práctica de este tema. Encontrarás su resolución en el apartado «Resumen y resolución del caso práctico de la unidad».
+
+[Fig. 1. Introducción: Vista previa en navegador de itinerario "DÍA 2: VACACIONES EN ROMA" con secciones Ciudad Origen - Ciudad Destino, Horario y Visita]
+[Audio Intro. “Plan de viaje” - https://bit.ly/2NUaDUh]
+
+
+--- PÁGINA 4 ---
+/ 2. Propiedades CSS
+
+Las propiedades CSS estarán condicionadas al elemento HTML al que queramos aplicar un estilo. Las propiedades de las que se dispone en la versión CSS2.1 y CSS3 son numerosas. En este apartado vamos a nombrar las más importantes. Para tener una referencia más global, puedes acceder al siguiente enlace.
+
+2.1. Propiedades del texto
+
+Con estas propiedades, podremos cambiar características del texto que se incluya en la web. En la siguiente tabla se muestran algunas, y en este enlace encontraréis la referencia completa
+
+[Tabla 1. Propiedades del texto]
+- Propiedad: text-align | Significado: Alinear el texto | Valores: left | right | center | justify
+- Propiedad: color | Significado: Indica el color del texto | Valores: Valor RGB, HEX o nombre
+- Propiedad: background-color | Significado: Indica el color de fondo | Valores: Valor RGB, HEX o nombre
+- Propiedad: text-decoration | Significado: Efectos de tachado, subrayado, etc. | Valores: none | underline | overline | ..
+- Propiedad: letter-spacing | Significado: Espacio entre caracteres | Valores: normal | longitud
+- Propiedad: word-spacing | Significado: Espacio entre palabras | Valores: normal | longitud
+- Propiedad: text-transform | Significado: Mayúsculas o minúsculas | Valores: uppercase | lowercase
+- Propiedad: line-height | Significado: Espacio entre líneas | Valores: Longitud | porcentaje
+
+2.1.1. Ejemplo propiedades del texto
+
+Mostramos un ejemplo de aplicación de algunas propiedades:
+
+[Código 1. Propiedades del texto]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Propiedades de texto</title>
+    <style>
+        #p1 {text-align:right;
+        color:RGB(255,0,0);
+        text-decoration:underline;
+        word-spacing: 20px;}
+        #p2 {text-align:left;
+        color:blue;
+        letter-spacing:10px;
+        line-height: 5rem;}
+
+        #p3 {text-align:center;
+        background-color:#00FF00;
+        letter-spacing: 5px;
+        text-transform:uppercase;}
+    </style>
+</head>
+<body>
+    <p id="p1">Esto es un ejemplo</p>
+    <p id="p2">para ver como funcionan</p>
+    <p id="p3">las propiedades del texto</p>
+</body>
+</html>
+
+[Fig. 2. Visualización en el navegador del Código 1]
+
+
+--- PÁGINA 5 ---
+/ 3. Propiedades de las fuentes
+
+Estas propiedades van a controlar las características de las fuentes con las que trabajaremos en la web. Las propiedades principales se muestran en la siguiente tabla y, para una referencia completa, podéis acceder al siguiente enlace. A continuación, podéis ver un ejemplo.
+
+[Tabla 2. Propiedades de las fuentes]
+- Propiedad: font-family | Significado: Familia de la fuente | Valores: nombre-familia
+- Propiedad: font-style | Significado: Estilo de la fuente | Valores: normal | italic
+- Propiedad: font-weight | Significado: Anchura | Valores: bold | 100 | 200 | ..
+- Propiedad: font-size | Significado: Tamaño de la fuente | Valores: Longitud | porcentaje | médium | large | …
+
+[Código 2. Propiedades de las fuentes]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuentes</title>
+    <style>
+        #palabra1{
+            font-family:'Helvetica';
+            font-size:24px;
+        }
+        #palabra2{
+            font-style:italic;
+            font-weight:bold;
+            font-size:2rem;
+        }
+        #palabra3{
+            font-family:'Brush Script MT';
+            font-weight:300;
+            font-size:300%;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <p>Esto es un
+        <span id="palabra1">ejemplo</span>
+    </p>
+    <p>para ver como
+        <span id="palabra2">funcionan</span>
+    </p>
+    <p>las propiedades de las
+        <span id="palabra3">fuentes</span>
+    </p>
+</body>
+</html>
+
+[Fig. 3. Visualización en el navegador del Código 2]
+[Audio 1. “Fuentes seguras” - https://bit.ly/38skz12]
+
+Existe la posibilidad de cargar fuentes de familias diferentes a las fuentes seguras (Safe Fonts), descargando la fuente, o con un enlace a sitios de descarga como Google Fonts. En el apartado dedicado a CSS3 detallaremos cómo hacerlo.
+
+
+--- PÁGINA 6 ---
+/ 4. Propiedades de las listas
+
+Las listas pueden configurarse para cambiar su viñeta o alineación, entre otras cosas. Estas son las principales propiedades. Podéis consultar una referencia completa en el siguiente enlace.
+
+[Tabla 3. Propiedades de las listas]
+- Propiedad: list-style-type | Significado: Estilo de las viñetas | Valores: None | disc | circle | …
+- Propiedad: list-style-image | Significado: Imagen de la viñeta | Valores: url(“http://... “)
+- Propiedad: list-style-position | Significado: Posición de la viñeta | Valores: Inside | outside
+
+[Fig. 4. Visualización en el navegador del Código 3]
+
+Como se observa, se puede indicar una imagen como viñeta, elegir algunas viñetas predefinidas, o indicar cierto sangrado en la lista.
+
+[Código 3. Propiedades de las listas]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listas</title>
+    <style>
+        #lista1{
+        list-style-type: square;
+        list-style-position:inside;
+        }
+        #lista2{
+        list-style-image: url("viñeta.png");
+        }
+    </style>
+</head>
+<body>
+    <b>PAISES</b>
+    <ul id="lista1">
+        <li>España: Lorem Ipsum is
+        simply dummy text of the
+        printing and typesetting.
+        </li>
+        <li>Bélgica</li>
+        <li>Francia</li>
+    </ul>
+    <b>DEPORTES</b>
+    <ul id="lista2">
+        <li>Baloncesto</li>
+        <li>Fútbol</li>
+        <li>Ciclismo</li>
+    </ul>
+</body>
+</html>
+
+
+--- PÁGINA 7 ---
+/ 5. Pseudoclases y pseudoelementos
+
+Con las pseudoclases y los pseudoelementos, podremos acceder a ciertas partes de los elementos HTML sin tener que crear nuevas clases o identificadores. Las pseudoclases se indican con dos puntos (:), y los pseudoelementos con dos puntos (::).
+
+5.1. Pseudoclases para acceder a hijos o hermanos
+
+Con estas pseudoclases accederemos a elementos contiguos al elemento padre.
+
+[Tabla 4. Pseudoclases acceso]
+- Pseudoclase: :first-child | Significado: Primer hijo
+- Pseudoclase: :last-child | Significado: Último hijo
+- Pseudoclase: :nth-child(n) | Significado: Enésimo hijo. Se pueden indicar los valores odd y even entre otros para indicar los hijos impares o pares.
+
+5.2. Pseudoclases de estado
+
+Dependiendo de su estado, se van a poder asociar características a ciertos elementos HTML. Es muy frecuente usarlo en etiquetas de enlace <a>, pero se pueden aplicar a otros elementos.
+
+[Tabla 5. Pseudoclases de estado]
+- Pseudoclase: :link | Significado: No ha sido aún visitado
+- Pseudoclase: :visited | Significado: Enlace visitado por el usuario
+- Pseudoclase: :hover | Significado: Ocurre cuando el cursor pasa por encima.
+- Pseudoclase: :active | Significado: Se activa cuando el usuario pincha en el elemento.
+- Pseudoclase: :focus | Significado: Se activa cuando el usuario pincha en el elemento, lo toca, o lo selecciona con la tecla TAB
+
+5.3. Pseudoelementos
+
+Con los pseudoelementos podremos acceder a partes concretas del elemento HTML, para complementarlas o modificarlas.
+
+[Tabla 6. Pseudoelementos]
+- Pseudoelementos: ::first-line | Significado: Primera línea de texto
+- Pseudoelementos: ::first-letter | Significado: Primera letra del texto
+- Pseudoelementos: ::before | Significado: Antes del texto.
+- Pseudoelementos: ::after | Significado: Después del texto.
+
+Con el pseudoelemento ::before y ::after podremos añadir contenido con la propiedad content. En el siguiente ejemplo se muestra cómo usar esta propiedad.
+
+[Vídeo 1. “Crear menú vertical con listas” - https://bit.ly/3dNaGfi]
+
+
+--- PÁGINA 8 ---
+5.4. Ejemplo pseudoclases y pseudoelementos
+
+En este ejemplo, mostramos cómo se aplican las pseudoclases y los pseudoelementos a elementos de la página web.
+
+[Código 4. Uso de pseudoclases y pseudoelementos]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pseudoclases y Pseudoelementos</title>
+    <style>
+        ul li:first-child{color:red;}
+        ul li:last-child{color:green;}
+        ul li:nth-child(2){color:blue;}
+        a:link{color:blue;}
+        a:visited{color:red;}
+        a:hover{background-color:yellow;}
+        li::first-letter{text-transform:UPPERCASE;}
+        p::after{content:" - Esto es un párrafo";}
+    </style>
+</head>
+<body>
+    <p>PAISES</p>
+    <ul>
+        <li>españa</li>
+        <li>belgica</li>
+        <li>francia</li>
+    </ul>
+    <p>MENU</p>
+    <a href="#e1">Inicio</a>
+    <a href="#e2">Servicios</a>
+    <a href="#e3">Contacto</a>
+</body>
+</html>
+
+[Fig. 5. Visualización en el navegador del Código 4]
+
+Como se observa, con :first-child se aplica el color rojo al primer elemento de la lista; con last-child se aplica el color verde al último, y con nth-child(2) se aplica el color azul al segundo elemento. A este último caso podríamos haberle indicado even y, como el 2 es par, tendría el mismo efecto.
+
+En el ejemplo, establecemos que cuando el enlace aún no ha sido visitado (:link) se muestre azul; cuando se haya visitado (:visited), en rojo, y que cuando se pase el cursor por encima (:hover) del enlace, se muestre el amarillo como color de fondo.
+
+Por último, se ponen en mayúsculas las iniciales de los países (::first-letter) y se añade después(::after) de todos los párrafos el contenido (content) «- Esto es un párrafo».
+
+/ 6. Propiedades de las tablas
+
+Al igual que en otros elementos HTML, en las tablas se podrá cambiar el color del fondo, del texto, el ancho, la altura, etc. Pero las tablas también disponen de una serie de propiedades que nos van a permitir controlar ciertos aspectos propios de este elemento HTML.
+
+[Tabla 7. Propiedades de las tablas]
+- Propiedad: caption-side | Significado: Ubicación del título | Valores: top | bottom
+- Propiedad: table-layout | Significado: Formato de la tabla | Valores: auto | fixed
+- Propiedad: border-collapse | Significado: Se indica la unión o no de los bordes | Valores: collapse | separate
+- Propiedad: border-spacing | Significado: Espacio entre celdas | Valores: longitud
+- Propiedad: empty-cells | Significado: Si las celdas están vacías, no se muestra el borde | Valores: show | hide
+- Propiedad: width | Significado: Ancho del elemento | Valores: longitud
+- Propiedad: heigth | Significado: Alto del elemento | Valores: longitud
+- Propiedad: vertical-align | Significado: Alineación vertical | Valores: top, bottom, middle
+
+
+--- PÁGINA 9 ---
+En el siguiente ejemplo, se ponen en práctica las propiedades mostradas en la tabla. Es interesante que te fijes en la propiedad vertical-align, que alinea el contenido verticalmente, y en la separación entre celdas (border-spacing). En el caso de que se unieran los bordes (border-collapse), la separación entre celdas no tendría efecto.
+
+[Código 5. Propiedades de las tablas]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tablas</title>
+    <style>
+        table{caption-side:bottom;
+            border-spacing:15px;
+            width:100%;
+            border:solid 3px blue;}
+        th,td{border: solid 1px black;
+            height:40px;
+            vertical-align:middle;
+            text-align:center;}
+        th{background-color:cyan;}
+    </style>
+</head>
+<body>
+    <table>
+        <caption><b>Fig. 1.-</b>
+        Precio de las naranjas
+        </caption>
+        <thead>
+            <tr>
+                <th>Provincia</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Málaga</td>
+                <td>0,54€</td>
+            </tr>
+            <tr>
+                <td>Granada</td>
+                <td>0,45€</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Promedio</th>
+                <th>0,5€</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
+
+[Fig. 6. Precio de las naranjas: Visualización en el navegador]
+
+
+--- PÁGINA 10 ---
+/ 7. Modelo de cajas
+
+El modelo de cajas es uno de los aspectos más importantes a la hora de diseñar y ubicar elementos en una página web. Este modelo se basa en que todos los elementos de una página HTML son considerados cajas rectangulares. De esta manera, cuando insertamos un párrafo, un div, una imagen o una tabla, se crean cajas con las características que se muestran en la siguiente figura:
+
+[Fig. 7. Modelo de cajas. Esquema 3D de capas desde dentro hacia fuera: content, padding, border, background-image, background-color, margin. (Esquema utilizado con permiso de http://www.hicksdesign.co.uk/boxmodel/)]
+
+Concretamente, en la imagen podemos observar:
+• Contenido (content): se trata del contenido propiamente dicho y puede ser texto, una imagen, una tabla, etc.
+• Relleno (padding): espacio existente entre el contenido y el borde. Es transparente.
+• Borde (border): línea que encierra tanto el contenido como el relleno.
+• Imagen de fondo (background-image).
+• Color de fondo (background-color).
+• Margen (margin): Espacio que va a existir con el resto de cajas contiguas al elemento HTML. Es transparente.
+
+El orden de los elementos que aparecen en la figura es importante. En consecuencia, si se indican tanto la imagen de fondo como el color de fondo, la imagen tendrá prioridad, porque está por delante en la jerarquía de capas mostrada. Si la imagen consta de partes transparentes, permitirá ver el color de fondo.
+
+Para el relleno, borde y margen, se pueden definir valores diferentes para el lado superior, inferior, izquierdo y derecho.
+
+[Fig. 8. Valores independientes por lados: Diagrama de caja con content en el centro rodeado por padding-top/right/bottom/left, border-top/right/bottom/left y margin-top/right/bottom/left]
+
+
+--- PÁGINA 11 ---
+7.1. Propiedades asociadas a las cajas
+
+A continuación, se detallan las propiedades que nos van a permitir modificar el aspecto y comportamiento de la caja.
+
+[Tabla 8. Propiedades de las cajas]
+- Propiedad: padding | Significado: Se indica el tamaño del relleno de la caja | Valores: longitud | porcentaje
+- Propiedad: margin | Significado: Se indica el tamaño del relleno de la caja | Valores: longitud | porcentaje | auto
+- Propiedad: border-width | Significado: Ancho del borde | Valores: longitud | thin | …
+- Propiedad: border-color | Significado: Color del borde | Valores: color | transparent
+- Propiedad: border-style | Significado: Estilo del borde | Valores: none | hidden | dotted | ….
+- Propiedad: background-image | Significado: Imagen de fondo | Valores: url(‘..’)
+
+Para indicar de manera independiente valores a los lados de la caja, simplemente hay que añadir el sufijo -top, -right, -bottom y -left a la propiedad deseada.
+
+En el caso del borde, existe una versión reducida (shorthand) que nos permite indicar el ancho, el estilo, y el color en una misma propiedad, border. Un ejemplo podría ser el siguiente:
+• p {border: 4px solid blue}
+
+Para una referencia completa de la propiedad border se puede consultar el siguiente enlace.
+
+Existen una serie de propiedades asociadas a la imagen de fondo:
+• background-position: indica dónde ubicar la imagen.
+• background-size: tamaño de la imagen.
+• background-repeat: se indica si se repite o no la imagen.
+• background-attachment: Se indica si la imagen permanece fija aunque se haga scroll.
+
+Para una referencia detallada de todos los valores de estas propiedades, puedes acceder al siguiente enlace.
+
+Recuerda que todos los elementos HTML de una página web son cajas, incluido el body. Por lo tanto, no solo vamos a poder asociar una imagen de fondo a un div, sino que también podemos colocar una imagen como fondo de la página, tal y como se muestra a continuación.
+
+[Código 6. Propiedad background]
+<style>
+body{background-image: url('raton.png');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
+     background-size:150px 100px;}
+</style>
+
+[Fig. 9. Ejemplo background: Visualización en el navegador]
+
+
+--- PÁGINA 12 ---
+7.2. Tamaño de las cajas
+
+A las cajas les podemos dar un tamaño. Para ello disponemos de las siguientes propiedades.
+
+[Tabla sin numerar: Tamaño de las cajas]
+- Propiedad: width | Significado: Ancho de la caja | Valores: auto | tamaño
+- Propiedad: max-width | Significado: Ancho máximo que puede tener la caja | Valores: none | tamaño
+- Propiedad: min-width | Significado: Ancho mínimo | Valores: 0 | tamaño
+- Propiedad: height | Significado: Altura de la caja | Valores: auto | tamaño
+- Propiedad: max-height | Significado: Altura máxima | Valores: none | tamaño
+- Propiedad: min-height | Significado: Altura mínima | Valores: 0 | tamaño
+
+Cuando se indica un valor auto en alguna propiedad, el navegador se encarga de calcular el tamaño dependiendo del contenido del elemento y del espacio existente en la página web. Con los prefijos max- y min- se puede limitar la medida de las cajas.
+
+Por ejemplo, si la caja tiene un tamaño expresado en porcentaje y modificamos el de la ventana, dicha caja nunca se reducirá o ampliará más allá de los límites indicados. En el siguiente ejemplo se muestra este comportamiento.
+
+[Código 7. Efecto de max-width en un párrafo]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>max-width y min-width</title>
+    <style>
+        p{border:solid 2px blue;
+          padding:10px;
+          width:50%;
+          max-width:300px;}
+    </style>
+</head>
+<body>
+    <p>Este párrafo no va a crecer
+       más de 500px</p>
+</body>
+</html>
+
+En este caso, el párrafo siempre va a intentar tener un tamaño del 50% con respecto al de la ventana, salvo que se amplíe tanto la ventana que se llegue a más de 300px. En ese caso ya no ocuparía el 50% y su tamaño se limitaría a esos 300px.
+
+[Fig. 10. Se sobrepasa el límite y ya no ocupa el 50%, solo 300px]
+
+
+--- PÁGINA 13 ---
+7.3. Propiedades que debemos considerar en el modelo de cajas
+
+Hay ciertas propiedades que afectan a la visualización de las cajas. Caben destacar las siguientes:
+
+• Propiedad box-sizing: nos permite indicar cómo se va a calcular el ancho y el alto de una caja. Puede tener dos valores:
+  » content-box: cuando se indican los valores de width y height se hace con respecto a content.
+  » border-box: cuando se indican los valores de width y height se hace con respecto a toda la caja, incluido margin y el border.
+
+• Propiedad display: Se puede modificar el comportamiento de una caja modificando su tipo. Los valores principales son:
+  » none: se oculta el elemento.
+  » block: se crea la caja como un bloque
+  » inline: esta caja estará en línea y estará incluida en una caja de tipo block.
+
+Es interesante indicar que existe una propiedad llamada visibility que también nos permite ocultar elementos. La diferencia con respecto a display:none es que con visibility el elemento se hará invisible, pero continua ocupando espacio. Los valores que puede tener la propiedad visibility son visible y hidden.
+
+Una simulación de todos los tipos de display lo puedes ver en el siguiente enlace.
+
+• Propiedad overflow: Mediante esta, controlamos qué debe hacerse cuando el contenido de una caja desborda su tamaño. Puede tener los siguientes valores:
+  » visible: aunque el contenido lo desborde, este se muestra fuera de la caja.
+  » hidden: se oculta lo que no quepa en la caja.
+  » scroll: se generan barras de desplazamiento para poder ver todo el contenido, aunque no sean necesarias.
+  » auto: el navegador se encarga de poner barras de scroll si es necesario.
+
+[Vídeo 2. “Uso de display y visibility” - https://bit.ly/2YknSn7]
+
+7.4. Ejemplo de las propiedades de las cajas
+
+En el siguiente enlace se muestra un ejemplo con las principales propiedades que se han visto en los apartados anteriores.
+
+Cabe comentar que la propiedad border-radius pertenece a CSS3. Esta se utiliza en el ejemplo, pero la estudiaremos en detalle en el tema siguiente. En líneas generales, podemos decir que permite que los bordes de las cajas sean redondeados.
+
+
+--- PÁGINA 14 ---
+/ 8. Caso práctico 1: “Viajes más frecuentes”
+
+Planteamiento: La agencia de Viajes Sol y Mar se pone en contacto de nuevo con WebMalagaDesign y le comenta a Gloria que quiere incluir más contenido en la web.
+
+Nudo: la responsable de la agencia quiere añadir una tabla con los destinos más frecuentes. La tabla debe estar incluida en la parte superior de la web y debe cumplir las siguientes características:
+• Siempre debe ocupar el 50% del ancho de la página y estar centrada.
+• Tanto el título de la tabla como la cabecera deben tener el tipo de fuente Verdana. El título debe tener las letras más separadas que el texto normal de la página.
+• El tamaño de la fuente de la cabecera debe ser 1.5, el tamaño de la fuente normal de la página.
+• Dentro de la tabla, los orígenes y los destinos deben estar alineados a la izquierda, y los precios a la derecha.
+• Debe haber un espacio entre el contenido y el borde de la celda.
+• Las filas pares tendrán un color y las impares otro. Cuando el cursor se coloque encima de una fila, esta debe cambiar de color.
+
+Desenlace: puedes ver cómo se visualizaría la solución en el navegador en la siguiente figura, y el código que la implementa, en el anexo del tema.
+
+Solución completa: Anexo del tema
+
+[Fig. 11. Visualización en el navegador: Tabla "DESTINOS FRECUENTES" con columnas Origen, Destino y Precio medio, filas alternas en blanco y gris, y cabecera verde]
+
+/ 9. Caso práctico 2: “Tablero de ajedrez”
+
+Planteamiento: Una empresa de juegos tiene un blog dedicado al ajedrez, y se pone en contacto con WebMalagaDesign porque necesita el diseño de un tablero de ajedrez en HTML y CSS para poder mostrar jugadas. Por ahora, solo solicitan un borrador de la solución en el que se muestren algunos peones blancos y negros, para ver cómo quedaría.
+
+Nudo: Alberto habla con Gloria y plantean el código HTML y CSS muy estructurado para que sea fácilmente escalable y, así, poder incluir nuevas jugadas en un futuro. Para realizarlo, han llegado a las siguientes conclusiones de diseño:
+• Tabla 8x8
+• Cabeceras que muestren las columnas(letras) y las filas(números) con un formato diferente.
+
+
+--- PÁGINA 15 ---
+• Las celdas negras y las celdas blancas se indicarán con clases CSS con un color de fondo (blanco o negro)
+• Cada celda tiene que estar referenciada con identificadores CS, por ejemplo, id=”A7”
+• Cuando se quiera poner una figura del ajedrez en el tablero, se indicará asociando a la clase de la celda una clase especial que tendrá el nombre de la figura y su color. Por ejemplo, si se quiere poner un peón blanco, la clase sería class=”peon_blanco”.
+• La clase con la figura tendrá la imagen de fondo asociada a una imagen con la figura en png.
+
+Este último punto Gloria no lo entiende, porque las celdas ya tienen una clase asociada. ¿Cómo se le puede asociar otra? Alberto le comenta que a una misma celda se le pueden aplicar dos clases. Simplemente hay que indicárselas. Por ejemplo: td{class=”blanco peon_blanco”}
+
+Desenlace: Puedes ver la visualización de la solución en el navegador en la siguiente figura, y el código que la implementa, en el anexo del tema.
+
+También puedes ver en funcionamiento el caso práctico en el apartado de proyectos de la web WebMalagaDesign.
+
+[Fig. 12. Visualización en el navegador del tablero de ajedrez]
+
+/ 10. Resumen y resolución del caso práctico de la unidad
+
+[Fig. 13. Tabla resumen: PROPIEDADES CSS -> Texto, Fuentes, Tablas, Pseudoclases y pseudoelementos, Modelo de cajas]
+
+En este tema, hemos detallado las propiedades CSS asociadas a los textos, fuentes, listas y tablas. También hemos explicado el funcionamiento de las pseudoclases y de los pseudoelementos, además de su diferencia con respecto al uso de una clase normal.
+
+Por último, hemos detallado el modelo de cajas que nos permite controlar la disposición y estructura de la web. También hemos conocido la relación entre contenido y espacios entre elementos.
+
+Resolución del Caso práctico de la unidad
+
+La información sobre los itinerarios que solicitaba la agencia de viajes podría quedar representada en la web de la siguiente forma:
+
+Solución: El código completo lo encontrarás en el anexo del tema.
+
+[Fig. 14. Visualización en el navegador del itinerario "DÍA 2: VACACIONES EN ROMA"]
+
+
+--- PÁGINA 16 ---
+/ 11. Webgrafía
+
+- CSS Minifer: herramientas de minificación.
+- Open Source Web Design: sitio web que ofrece cientos de plantillas gratuitas con posibilidad de utilizarlas libremente en aplicaciones personales y comerciales.
+- CSS Zen Garden: es una galería distinta a las tradicionales, pero se ha convertido en un referente en lo que se refiere a diseños complejos realizados mediante CSS.
+- Tutorial de CSS: escuela online de CSS.

@@ -3,32 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 8 - Modelo de caja y estilos</title>
+    <title>Tema 8 - Propiedades CSS</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 8: Modelo de caja y estilos</h1>
+        <p class="etiqueta">Tema 8 · Lenguajes de Marcas</p>
+        <h1>Propiedades CSS</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>El modelo de caja</h2>
-        <p>En CSS, cada elemento se representa como una caja. Sus partes son el contenido, el relleno, el borde y el margen.</p>
-        <ul>
-            <li><strong>Contenido:</strong> texto, imagen u otro elemento.</li>
-            <li><strong>Padding:</strong> espacio entre el contenido y el borde.</li>
-            <li><strong>Border:</strong> borde que rodea el contenido y el relleno.</li>
-            <li><strong>Margin:</strong> espacio exterior que separa las cajas.</li>
-        </ul>
-        <pre class="ejemplo"><code>.caja {
-    padding: 20px;
-    border: 2px solid green;
-    margin: 10px;
-}</code></pre>
-        <h2>Otras propiedades</h2>
-        <p><code>display</code> define cómo se muestra un elemento. <code>overflow</code> controla el contenido que no cabe dentro de una caja. También se pueden cambiar bordes, fondos y fuentes.</p>
-        <p><a class="volver" href="tema9.html">Ir al tema 9: Flexbox y Grid</a></p>
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Propiedades CSS</a>
+                    <ul><li><a href="#subpunto-2-1">2.1. Propiedades del texto</a></li></ul>
+                </li>
+                <li><a href="#punto-3">3. Propiedades de las fuentes</a></li>
+                <li><a href="#punto-4">4. Propiedades de las listas</a></li>
+                <li>
+                    <a href="#punto-5">5. Pseudoclases y pseudoelementos</a>
+                    <ul>
+                        <li><a href="#subpunto-5-1">5.1. Pseudoclases para hijos o hermanos</a></li>
+                        <li><a href="#subpunto-5-2">5.2. Pseudoclases de estado</a></li>
+                        <li><a href="#subpunto-5-3">5.3. Pseudoelementos</a></li>
+                        <li><a href="#subpunto-5-4">5.4. Ejemplo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-6">6. Propiedades de las tablas</a></li>
+                <li>
+                    <a href="#punto-7">7. Modelo de cajas</a>
+                    <ul>
+                        <li><a href="#subpunto-7-1">7.1. Propiedades asociadas a las cajas</a></li>
+                        <li><a href="#subpunto-7-2">7.2. Tamaño de las cajas</a></li>
+                        <li><a href="#subpunto-7-3">7.3. Propiedades del modelo de cajas</a></li>
+                        <li><a href="#subpunto-7-4">7.4. Ejemplo de propiedades de cajas</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-8">8. Caso práctico 1: viajes más frecuentes</a></li>
+                <li><a href="#punto-9">9. Caso práctico 2: tablero de ajedrez</a></li>
+                <li><a href="#punto-10">10. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer las propiedades CSS.</li>
+                    <li>Distinguir entre clases, pseudoclases y pseudoelementos.</li>
+                    <li>Practicar el modelo de cajas.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>CSS está en continua evolución y el número de propiedades que se pueden usar en las reglas CSS es cada vez más elevado, lo cual permite un mayor control del aspecto visual de la página web. Conocer estas propiedades, así como saber cómo se aplican a los elementos HTML, es importante.</p>
+                <p>Existen propiedades asociadas a las tablas, a las imágenes, a los textos, etc. Algunas de ellas son generales y otras son específicas de los elementos HTML, las cuales nos van a posibilitar controlar no solo su aspecto visual, sino también su disposición dentro de la página web.</p>
+                <p>La agencia de viajes Sol y Mar le solicita a Alberto que incluya en su web información sobre los itinerarios de los viajes.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-01.png" alt="Vista previa del itinerario «Día 2: Vacaciones en Roma», con origen y destino, horario y visita.">
+                    <figcaption>Fig. 1. Vista previa del itinerario «Día 2: Vacaciones en Roma», con origen y destino, horario y visita.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Propiedades CSS</h2></div>
+                <p>Las propiedades CSS estarán condicionadas al elemento HTML al que queramos aplicar un estilo. Las propiedades de las que se dispone en las versiones CSS 2.1 y CSS3 son numerosas. En este apartado vamos a nombrar las más importantes.</p>
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Propiedades del texto</h3>
+                    <p>Con estas propiedades podremos cambiar características del texto que se incluya en la web. Algunas de ellas son:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 1. Propiedades del texto</caption>
+                            <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>text-align</code></th><td>Alinear el texto.</td><td><code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code></td></tr>
+                                <tr><th scope="row"><code>color</code></th><td>Indica el color del texto.</td><td>Valor RGB, HEX o nombre.</td></tr>
+                                <tr><th scope="row"><code>background-color</code></th><td>Indica el color de fondo.</td><td>Valor RGB, HEX o nombre.</td></tr>
+                                <tr><th scope="row"><code>text-decoration</code></th><td>Efectos de tachado, subrayado, etc.</td><td><code>none</code>, <code>underline</code>, <code>overline</code>, etc.</td></tr>
+                                <tr><th scope="row"><code>letter-spacing</code></th><td>Espacio entre caracteres.</td><td><code>normal</code> o una longitud.</td></tr>
+                                <tr><th scope="row"><code>word-spacing</code></th><td>Espacio entre palabras.</td><td><code>normal</code> o una longitud.</td></tr>
+                                <tr><th scope="row"><code>text-transform</code></th><td>Mayúsculas o minúsculas.</td><td><code>uppercase</code>, <code>lowercase</code></td></tr>
+                                <tr><th scope="row"><code>line-height</code></th><td>Espacio entre líneas.</td><td>Longitud o porcentaje.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4>2.1.1. Ejemplo de propiedades del texto</h4>
+                    <p>En el siguiente ejemplo se aplican algunas de estas propiedades:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    #p1 {
+        text-align: right;
+        color: rgb(255, 0, 0);
+        text-decoration: underline;
+        word-spacing: 20px;
+    }
+    #p2 {
+        text-align: left;
+        color: blue;
+        letter-spacing: 10px;
+        line-height: 5rem;
+    }
+    #p3 {
+        text-align: center;
+        background-color: #00FF00;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+&lt;/style&gt;
+&lt;p id="p1"&gt;Esto es un ejemplo&lt;/p&gt;
+&lt;p id="p2"&gt;para ver cómo funcionan&lt;/p&gt;
+&lt;p id="p3"&gt;las propiedades del texto&lt;/p&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 1. Propiedades del texto.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema8/figura-02.png" alt="Visualización en el navegador del código 1.">
+                        <figcaption>Fig. 2. Visualización en el navegador del código 1.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Propiedades de las fuentes</h2></div>
+                <p>Estas propiedades van a controlar las características de las fuentes con las que trabajaremos en la web. Las propiedades principales son:</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 2. Propiedades de las fuentes</caption>
+                        <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><code>font-family</code></th><td>Familia de la fuente.</td><td>Nombre de familia.</td></tr>
+                            <tr><th scope="row"><code>font-style</code></th><td>Estilo de la fuente.</td><td><code>normal</code>, <code>italic</code></td></tr>
+                            <tr><th scope="row"><code>font-weight</code></th><td>Grosor de la fuente.</td><td><code>bold</code>, <code>100</code>, <code>200</code>, etc.</td></tr>
+                            <tr><th scope="row"><code>font-size</code></th><td>Tamaño de la fuente.</td><td>Longitud, porcentaje, <code>medium</code>, <code>large</code>, etc.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>A continuación, se muestra un ejemplo:</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    #palabra1 {
+        font-family: "Helvetica";
+        font-size: 24px;
+    }
+    #palabra2 {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    #palabra3 {
+        font-family: "Brush Script MT";
+        font-weight: 300;
+        font-size: 300%;
+        color: red;
+    }
+&lt;/style&gt;
+&lt;p&gt;Esto es un &lt;span id="palabra1"&gt;ejemplo&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;para ver cómo &lt;span id="palabra2"&gt;funcionan&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;las propiedades de las &lt;span id="palabra3"&gt;fuentes&lt;/span&gt;&lt;/p&gt;</code></pre>
+                <p class="descripcion-codigo">Código 2. Propiedades de las fuentes.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-03.png" alt="Visualización en el navegador del código 2.">
+                    <figcaption>Fig. 3. Visualización en el navegador del código 2.</figcaption>
+                </figure>
+
+                <p>Existe la posibilidad de cargar fuentes de familias diferentes a las fuentes seguras (<em>Safe Fonts</em>), descargando la fuente o con un enlace a sitios de descarga como Google Fonts. En el apartado dedicado a CSS3 detallaremos cómo hacerlo.</p>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Propiedades de las listas</h2></div>
+                <p>Las listas pueden configurarse para cambiar su viñeta o alineación, entre otras cosas. Estas son las principales propiedades:</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 3. Propiedades de las listas</caption>
+                        <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><code>list-style-type</code></th><td>Estilo de las viñetas.</td><td><code>none</code>, <code>disc</code>, <code>circle</code>, etc.</td></tr>
+                            <tr><th scope="row"><code>list-style-image</code></th><td>Imagen de la viñeta.</td><td><code>url("...")</code></td></tr>
+                            <tr><th scope="row"><code>list-style-position</code></th><td>Posición de la viñeta.</td><td><code>inside</code>, <code>outside</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Como se observa, se puede indicar una imagen como viñeta, elegir algunas viñetas predefinidas o indicar cierto sangrado en la lista.</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    #lista1 {
+        list-style-type: square;
+        list-style-position: inside;
+    }
+    #lista2 {
+        list-style-image: url("vinyeta.png");
+    }
+&lt;/style&gt;
+&lt;b&gt;PAÍSES&lt;/b&gt;
+&lt;ul id="lista1"&gt;
+    &lt;li&gt;España: Lorem Ipsum is simply dummy text&lt;/li&gt;
+    &lt;li&gt;Bélgica&lt;/li&gt;
+    &lt;li&gt;Francia&lt;/li&gt;
+&lt;/ul&gt;
+&lt;b&gt;DEPORTES&lt;/b&gt;
+&lt;ul id="lista2"&gt;
+    &lt;li&gt;Baloncesto&lt;/li&gt;
+    &lt;li&gt;Fútbol&lt;/li&gt;
+    &lt;li&gt;Ciclismo&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-04.png" alt="Visualización en el navegador del código 3.">
+                    <figcaption>Fig. 4. Visualización en el navegador del código 3.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Pseudoclases y pseudoelementos</h2></div>
+                <p>Con las pseudoclases y los pseudoelementos podremos acceder a ciertas partes de los elementos HTML sin tener que crear nuevas clases o identificadores. Las pseudoclases se indican con dos puntos (<code>:</code>) y los pseudoelementos con dos puntos dobles (<code>::</code>).</p>
+
+                <div class="subpunto" id="subpunto-5-1">
+                    <h3>5.1. Pseudoclases para acceder a hijos o hermanos</h3>
+                    <p>Con estas pseudoclases accederemos a elementos contiguos al elemento padre.</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 4. Pseudoclases para acceder a hijos</caption>
+                            <thead><tr><th>Pseudoclase</th><th>Significado</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>:first-child</code></th><td>Primer hijo.</td></tr>
+                                <tr><th scope="row"><code>:last-child</code></th><td>Último hijo.</td></tr>
+                                <tr><th scope="row"><code>:nth-child(n)</code></th><td>Enésimo hijo. Se pueden indicar valores como <code>odd</code> y <code>even</code> para los hijos impares o pares.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-2">
+                    <h3>5.2. Pseudoclases de estado</h3>
+                    <p>Dependiendo de su estado, se van a poder asociar características a ciertos elementos HTML. Es muy frecuente usarlas en etiquetas de enlace <code>&lt;a&gt;</code>, pero se pueden aplicar a otros elementos.</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 5. Pseudoclases de estado</caption>
+                            <thead><tr><th>Pseudoclase</th><th>Significado</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>:link</code></th><td>El enlace aún no ha sido visitado.</td></tr>
+                                <tr><th scope="row"><code>:visited</code></th><td>El usuario ha visitado el enlace.</td></tr>
+                                <tr><th scope="row"><code>:hover</code></th><td>El cursor pasa por encima.</td></tr>
+                                <tr><th scope="row"><code>:active</code></th><td>Se activa cuando el usuario pulsa en el elemento.</td></tr>
+                                <tr><th scope="row"><code>:focus</code></th><td>El elemento recibe el foco, por ejemplo, al seleccionarlo con la tecla Tab.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-3">
+                    <h3>5.3. Pseudoelementos</h3>
+                    <p>Con los pseudoelementos podremos acceder a partes concretas del elemento HTML para complementarlas o modificarlas.</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 6. Pseudoelementos</caption>
+                            <thead><tr><th>Pseudoelemento</th><th>Significado</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>::first-line</code></th><td>Primera línea de texto.</td></tr>
+                                <tr><th scope="row"><code>::first-letter</code></th><td>Primera letra del texto.</td></tr>
+                                <tr><th scope="row"><code>::before</code></th><td>Inserta contenido antes del texto.</td></tr>
+                                <tr><th scope="row"><code>::after</code></th><td>Inserta contenido después del texto.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Con los pseudoelementos <code>::before</code> y <code>::after</code> podremos añadir contenido con la propiedad <code>content</code>. En el siguiente ejemplo se muestra cómo usar esta propiedad.</p>
+
+                </div>
+
+                <div class="subpunto" id="subpunto-5-4">
+                    <h3>5.4. Ejemplo de pseudoclases y pseudoelementos</h3>
+                    <p>En este ejemplo se muestra cómo se aplican pseudoclases y pseudoelementos a los elementos de la página web:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    ul li:first-child { color: red; }
+    ul li:last-child { color: green; }
+    ul li:nth-child(2) { color: blue; }
+    a:link { color: blue; }
+    a:visited { color: red; }
+    a:hover { background-color: yellow; }
+    li::first-letter { text-transform: uppercase; }
+    p::after { content: " - Esto es un párrafo"; }
+&lt;/style&gt;
+&lt;p&gt;PAÍSES&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;españa&lt;/li&gt;
+    &lt;li&gt;bélgica&lt;/li&gt;
+    &lt;li&gt;francia&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;MENÚ&lt;/p&gt;
+&lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+&lt;a href="#servicios"&gt;Servicios&lt;/a&gt;
+&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 4. Uso de pseudoclases y pseudoelementos.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema8/figura-05.png" alt="Visualización en el navegador del código 4.">
+                        <figcaption>Fig. 5. Visualización en el navegador del código 4.</figcaption>
+                    </figure>
+                    <p>Con <code>:first-child</code> se aplica el color rojo al primer elemento de la lista; con <code>:last-child</code>, el verde al último; y con <code>:nth-child(2)</code>, el azul al segundo. A este último caso podríamos haberle indicado <code>even</code> y, como el 2 es par, tendría el mismo efecto.</p>
+                    <p>En el ejemplo, cuando el enlace aún no ha sido visitado (<code>:link</code>) se muestra azul; cuando se ha visitado (<code>:visited</code>), rojo; y cuando se pasa el cursor por encima (<code>:hover</code>), se muestra amarillo el color de fondo.</p>
+                    <p>Por último, se ponen en mayúsculas las iniciales de los países (<code>::first-letter</code>) y se añade después de todos los párrafos (<code>::after</code>) el contenido «- Esto es un párrafo».</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Propiedades de las tablas</h2></div>
+                <p>Al igual que en otros elementos HTML, en las tablas se podrá cambiar el color del fondo, del texto, el ancho, la altura, etc. Las tablas también disponen de propiedades que nos van a permitir controlar ciertos aspectos propios de este elemento HTML.</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 7. Propiedades de las tablas</caption>
+                        <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><code>caption-side</code></th><td>Ubicación del título.</td><td><code>top</code>, <code>bottom</code></td></tr>
+                            <tr><th scope="row"><code>table-layout</code></th><td>Formato de la tabla.</td><td><code>auto</code>, <code>fixed</code></td></tr>
+                            <tr><th scope="row"><code>border-collapse</code></th><td>Indica la unión o no de los bordes.</td><td><code>collapse</code>, <code>separate</code></td></tr>
+                            <tr><th scope="row"><code>border-spacing</code></th><td>Espacio entre celdas.</td><td>Longitud.</td></tr>
+                            <tr><th scope="row"><code>empty-cells</code></th><td>Indica si se muestran los bordes de las celdas vacías.</td><td><code>show</code>, <code>hide</code></td></tr>
+                            <tr><th scope="row"><code>width</code></th><td>Ancho del elemento.</td><td>Longitud.</td></tr>
+                            <tr><th scope="row"><code>height</code></th><td>Alto del elemento.</td><td>Longitud.</td></tr>
+                            <tr><th scope="row"><code>vertical-align</code></th><td>Alineación vertical.</td><td><code>top</code>, <code>bottom</code>, <code>middle</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>En el siguiente ejemplo se ponen en práctica las propiedades mostradas en la tabla. Fíjate en <code>vertical-align</code>, que alinea el contenido verticalmente, y en la separación entre celdas (<code>border-spacing</code>). Si se unieran los bordes (<code>border-collapse</code>), la separación entre celdas no tendría efecto.</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    table {
+        caption-side: bottom;
+        border-spacing: 15px;
+        width: 100%;
+        border: solid 3px blue;
+    }
+    th, td {
+        border: solid 1px black;
+        height: 40px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    th { background-color: cyan; }
+&lt;/style&gt;
+&lt;table&gt;
+    &lt;caption&gt;&lt;b&gt;Fig. 1.-&lt;/b&gt; Precio de las naranjas&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;Provincia&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                <p class="descripcion-codigo">Código 5. Propiedades de las tablas.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-06.png" alt="Visualización de la tabla Precio de las naranjas en el navegador.">
+                    <figcaption>Fig. 6. Visualización de la tabla Precio de las naranjas en el navegador.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Modelo de cajas</h2></div>
+                <p>El modelo de cajas es uno de los aspectos más importantes a la hora de diseñar y ubicar elementos en una página web. Este modelo se basa en que todos los elementos de una página HTML son considerados cajas rectangulares. De esta manera, cuando insertamos un párrafo, un <code>div</code>, una imagen o una tabla, se crean cajas con las características que se muestran en la siguiente figura:</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-07.png" alt="Modelo de cajas: content, padding, border, background-image, background-color y margin.">
+                    <figcaption>Fig. 7. Modelo de cajas: content, padding, border, background-image, background-color y margin.</figcaption>
+                </figure>
+                <p>En el modelo podemos observar:</p>
+                <ul>
+                    <li><strong>Contenido (content):</strong> se trata del contenido propiamente dicho y puede ser texto, una imagen, una tabla, etc.</li>
+                    <li><strong>Relleno (padding):</strong> espacio existente entre el contenido y el borde. Es transparente.</li>
+                    <li><strong>Borde (border):</strong> línea que encierra tanto el contenido como el relleno.</li>
+                    <li><strong>Imagen de fondo (background-image).</strong></li>
+                    <li><strong>Color de fondo (background-color).</strong></li>
+                    <li><strong>Margen (margin):</strong> espacio que va a existir con el resto de cajas contiguas al elemento HTML. Es transparente.</li>
+                </ul>
+                <p>El orden de las capas es importante. Si se indican tanto la imagen de fondo como el color de fondo, la imagen tendrá prioridad porque está por delante en la jerarquía. Si la imagen consta de partes transparentes, permitirá ver el color de fondo.</p>
+                <p>Para el relleno, el borde y el margen se pueden definir valores diferentes para los lados superior, inferior, izquierdo y derecho.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-08.png" alt="Propiedades independientes por lado: padding, border y margin top, right, bottom y left.">
+                    <figcaption>Fig. 8. Propiedades independientes por lado: padding, border y margin top, right, bottom y left.</figcaption>
+                </figure>
+
+                <div class="subpunto" id="subpunto-7-1">
+                    <h3>7.1. Propiedades asociadas a las cajas</h3>
+                    <p>Las propiedades que nos van a permitir modificar el aspecto y el comportamiento de la caja son:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 8. Propiedades de las cajas</caption>
+                            <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>padding</code></th><td>Tamaño del relleno de la caja.</td><td>Longitud o porcentaje.</td></tr>
+                                <tr><th scope="row"><code>margin</code></th><td>Tamaño del margen de la caja.</td><td>Longitud, porcentaje o <code>auto</code>.</td></tr>
+                                <tr><th scope="row"><code>border-width</code></th><td>Ancho del borde.</td><td>Longitud, <code>thin</code>, etc.</td></tr>
+                                <tr><th scope="row"><code>border-color</code></th><td>Color del borde.</td><td>Color o <code>transparent</code>.</td></tr>
+                                <tr><th scope="row"><code>border-style</code></th><td>Estilo del borde.</td><td><code>none</code>, <code>hidden</code>, <code>dotted</code>, etc.</td></tr>
+                                <tr><th scope="row"><code>background-image</code></th><td>Imagen de fondo.</td><td><code>url(...)</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Para indicar valores independientes a los lados de la caja, simplemente hay que añadir los sufijos <code>-top</code>, <code>-right</code>, <code>-bottom</code> y <code>-left</code> a la propiedad deseada.</p>
+                    <p>En el caso del borde, existe una versión reducida (<em>shorthand</em>) que permite indicar el ancho, el estilo y el color en una misma propiedad:</p>
+                    <pre class="bloque-codigo"><code>p { border: 4px solid blue; }</code></pre>
+                    <p>Existen también propiedades asociadas a la imagen de fondo:</p>
+                    <ul>
+                        <li><code>background-position</code>: indica dónde ubicar la imagen.</li>
+                        <li><code>background-size</code>: indica el tamaño de la imagen.</li>
+                        <li><code>background-repeat</code>: indica si se repite o no la imagen.</li>
+                        <li><code>background-attachment</code>: indica si la imagen permanece fija aunque se haga scroll.</li>
+                    </ul>
+                    <p>Todos los elementos HTML de una página son cajas, incluido <code>body</code>. Por lo tanto, podemos asociar una imagen de fondo a un <code>div</code> o colocarla como fondo de la página:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    body {
+        background-image: url("raton.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: 150px 100px;
+    }
+&lt;/style&gt;</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema8/figura-09.png" alt="Ejemplo de background y visualización en el navegador.">
+                        <figcaption>Fig. 9. Ejemplo de background y visualización en el navegador.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-7-2">
+                    <h3>7.2. Tamaño de las cajas</h3>
+                    <p>A las cajas les podemos dar un tamaño mediante las siguientes propiedades:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Propiedades para definir el tamaño de las cajas</caption>
+                            <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>width</code></th><td>Ancho de la caja.</td><td><code>auto</code> o tamaño.</td></tr>
+                                <tr><th scope="row"><code>max-width</code></th><td>Ancho máximo que puede tener la caja.</td><td><code>none</code> o tamaño.</td></tr>
+                                <tr><th scope="row"><code>min-width</code></th><td>Ancho mínimo.</td><td><code>0</code> o tamaño.</td></tr>
+                                <tr><th scope="row"><code>height</code></th><td>Altura de la caja.</td><td><code>auto</code> o tamaño.</td></tr>
+                                <tr><th scope="row"><code>max-height</code></th><td>Altura máxima de la caja.</td><td><code>none</code> o tamaño.</td></tr>
+                                <tr><th scope="row"><code>min-height</code></th><td>Altura mínima.</td><td><code>0</code> o tamaño.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Cuando se indica un valor <code>auto</code> en alguna propiedad, el navegador se encarga de calcular el tamaño dependiendo del contenido del elemento y del espacio existente en la página web. Con los prefijos <code>max-</code> y <code>min-</code> se puede limitar la medida de las cajas.</p>
+                    <p>Por ejemplo, si la caja tiene un tamaño expresado en porcentaje y modificamos el de la ventana, dicha caja nunca se reducirá o ampliará más allá de los límites indicados:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    p {
+        border: solid 2px blue;
+        padding: 10px;
+        width: 50%;
+        max-width: 300px;
+    }
+&lt;/style&gt;
+&lt;p&gt;Este párrafo no va a crecer más de 300px.&lt;/p&gt;</code></pre>
+                    <p>El párrafo intentará tener un tamaño del 50 % con respecto al de la ventana, salvo que se amplíe tanto que supere los 300 px. En ese caso, su tamaño se limitará a esos 300 px.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema8/figura-10.png" alt="Se sobrepasa el límite y el párrafo ya no ocupa el 50 %, sino un máximo de 300 px.">
+                        <figcaption>Fig. 10. Se sobrepasa el límite y el párrafo ya no ocupa el 50 %, sino un máximo de 300 px.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-7-3">
+                    <h3>7.3. Propiedades que debemos considerar en el modelo de cajas</h3>
+                    <p>Hay ciertas propiedades que afectan a la visualización de las cajas. Cabe destacar las siguientes:</p>
+                    <ul>
+                        <li><strong><code>box-sizing</code>:</strong> permite indicar cómo se va a calcular el ancho y el alto de una caja:
+                            <ul>
+                                <li><code>content-box</code>: los valores de <code>width</code> y <code>height</code> se refieren al contenido; el relleno y el borde se añaden al tamaño final.</li>
+                                <li><code>border-box</code>: los valores de <code>width</code> y <code>height</code> incluyen el contenido, el relleno y el borde.</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>display</code>:</strong> permite modificar el comportamiento de una caja. Algunos valores principales son:
+                            <ul>
+                                <li><code>none</code>: se oculta el elemento y no ocupa espacio en el diseño.</li>
+                                <li><code>block</code>: se crea la caja como un bloque.</li>
+                                <li><code>inline</code>: la caja se muestra en línea, dentro del flujo del texto.</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>visibility</code>:</strong> permite ocultar elementos. A diferencia de <code>display: none</code>, el elemento con <code>visibility: hidden</code> se hace invisible, pero continúa ocupando espacio. Sus valores son <code>visible</code> y <code>hidden</code>.</li>
+                        <li><strong><code>overflow</code>:</strong> controla qué debe hacerse cuando el contenido desborda el tamaño de una caja:
+                            <ul>
+                                <li><code>visible</code>: el contenido se muestra fuera de la caja.</li>
+                                <li><code>hidden</code>: se oculta lo que no cabe.</li>
+                                <li><code>scroll</code>: se generan barras de desplazamiento.</li>
+                                <li><code>auto</code>: el navegador añade barras de desplazamiento si son necesarias.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="subpunto" id="subpunto-7-4">
+                    <h3>7.4. Ejemplo de las propiedades de las cajas</h3>
+                    <p><code>border-radius</code> pertenece a CSS3. Permite que los bordes de las cajas sean redondeados.</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-8">
+                <div class="titulo-punto"><span class="numero-punto">8</span><h2>Caso práctico 1: «Viajes más frecuentes»</h2></div>
+                <p><strong>Planteamiento:</strong> la agencia de viajes Sol y Mar se pone en contacto de nuevo con WebMalagaDesign y le comenta a Gloria que quiere incluir más contenido en la web.</p>
+                <p><strong>Nudo:</strong> la responsable de la agencia quiere añadir una tabla con los destinos más frecuentes. La tabla debe estar incluida en la parte superior de la web y debe cumplir las siguientes características:</p>
+                <ul>
+                    <li>Siempre debe ocupar el 50 % del ancho de la página y estar centrada.</li>
+                    <li>Tanto el título de la tabla como la cabecera deben tener el tipo de fuente Verdana. El título debe tener las letras más separadas que el texto normal de la página.</li>
+                    <li>El tamaño de la fuente de la cabecera debe ser 1,5 veces el tamaño de la fuente normal de la página.</li>
+                    <li>Dentro de la tabla, los orígenes y los destinos deben estar alineados a la izquierda, y los precios, a la derecha.</li>
+                    <li>Debe haber un espacio entre el contenido y el borde de la celda.</li>
+                    <li>Las filas pares tendrán un color y las impares otro. Cuando el cursor se coloque encima de una fila, esta debe cambiar de color.</li>
+                </ul>
+                <p><strong>Desenlace:</strong> puedes ver cómo se visualizaría la solución en el navegador en la siguiente figura. El código que la implementa está en el anexo del tema.</p>
+                <p><strong>Solución completa:</strong> anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-11.png" alt="Tabla Destinos frecuentes con columnas Origen, Destino y Precio medio, filas alternas y cabecera verde.">
+                    <figcaption>Fig. 11. Tabla Destinos frecuentes con columnas Origen, Destino y Precio medio, filas alternas y cabecera verde.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-9">
+                <div class="titulo-punto"><span class="numero-punto">9</span><h2>Caso práctico 2: «Tablero de ajedrez»</h2></div>
+                <p><strong>Planteamiento:</strong> una empresa de juegos tiene un blog dedicado al ajedrez y se pone en contacto con WebMalagaDesign porque necesita el diseño de un tablero de ajedrez en HTML y CSS para poder mostrar jugadas. Por ahora, solo solicitan un borrador de la solución en el que se muestren algunos peones blancos y negros.</p>
+                <p><strong>Nudo:</strong> Alberto habla con Gloria y plantean un código HTML y CSS muy estructurado para que sea fácilmente escalable y así poder incluir nuevas jugadas en un futuro. Para realizarlo, han llegado a las siguientes conclusiones de diseño:</p>
+                <ul>
+                    <li>El tablero tendrá 8 × 8 celdas.</li>
+                    <li>Las cabeceras mostrarán las columnas (letras) y las filas (números) con un formato diferente.</li>
+                    <li>Las celdas negras y blancas se indicarán con clases CSS con un color de fondo.</li>
+                    <li>Cada celda tiene que estar referenciada con identificadores, por ejemplo, <code>id="A7"</code>.</li>
+                    <li>Para poner una figura del ajedrez en el tablero, se asociará a la clase de la celda otra clase especial con el nombre de la figura y su color. Por ejemplo, <code>class="blanco peon_blanco"</code>.</li>
+                    <li>La clase de la figura tendrá una imagen de fondo asociada a una imagen PNG.</li>
+                </ul>
+                <p>Gloria no entiende cómo se puede asociar otra clase si las celdas ya tienen una. Alberto le comenta que a un mismo elemento se le pueden aplicar dos clases; simplemente hay que indicarlas separadas por un espacio en el atributo <code>class</code>.</p>
+                <pre class="bloque-codigo"><code>&lt;td id="A7" class="blanco peon_blanco"&gt;&lt;/td&gt;</code></pre>
+                <p><strong>Desenlace:</strong> puedes ver la visualización de la solución en el navegador en la siguiente figura, y el código que la implementa, en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-12.png" alt="Visualización en el navegador del tablero de ajedrez.">
+                    <figcaption>Fig. 12. Visualización en el navegador del tablero de ajedrez.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-10">
+                <div class="titulo-punto"><span class="numero-punto">10</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-13.png" alt="Esquema de propiedades CSS: texto, fuentes, tablas, pseudoclases y pseudoelementos y modelo de cajas.">
+                    <figcaption>Fig. 13. Esquema de propiedades CSS: texto, fuentes, tablas, pseudoclases y pseudoelementos y modelo de cajas.</figcaption>
+                </figure>
+                <p>En este tema hemos detallado las propiedades CSS asociadas a los textos, las fuentes, las listas y las tablas. También hemos explicado el funcionamiento de las pseudoclases y de los pseudoelementos, además de su diferencia con respecto al uso de una clase normal.</p>
+                <p>Por último, hemos detallado el modelo de cajas, que nos permite controlar la disposición y estructura de la web. También hemos conocido la relación entre el contenido y los espacios entre elementos.</p>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>La información sobre los itinerarios que solicitaba la agencia de viajes podría quedar representada en la web de la siguiente forma. El código completo lo encontrarás en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema8/figura-14.png" alt="Visualización en el navegador del itinerario «Día 2: Vacaciones en Roma».">
+                    <figcaption>Fig. 14. Visualización en el navegador del itinerario «Día 2: Vacaciones en Roma».</figcaption>
+                </figure>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 8 · Modelo de caja y estilos</p></footer>
+    <footer><p>Tema 8 · <a class="volver" href="tema7.html">Volver al tema 7</a> · <a class="volver" href="tema9.html">Ir al tema 9</a></p></footer>
 </body>
 </html>

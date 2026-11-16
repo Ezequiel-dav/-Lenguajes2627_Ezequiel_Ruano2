@@ -3,33 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 3 - Lenguajes de la web</title>
+    <title>Tema 3 - Estructura de un documento HTML</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 3: Los lenguajes de la web</h1>
+        <p class="etiqueta">Tema 3 · Lenguajes de Marcas</p>
+        <h1>Estructura de un documento HTML</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>Varias tecnologías, diferentes funciones</h2>
-        <p>En una página web se pueden combinar varios lenguajes. Cada uno cumple una función distinta.</p>
-        <ul>
-            <li><strong>HTML:</strong> estructura el contenido.</li>
-            <li><strong>CSS:</strong> define el aspecto visual de la página.</li>
-            <li><strong>JavaScript:</strong> permite añadir interactividad en el navegador.</li>
-            <li><strong>PHP:</strong> puede procesar información en el servidor.</li>
-        </ul>
-        <h2>Ejemplo</h2>
-        <p>HTML crea un título, y CSS puede cambiar su color:</p>
-        <pre class="ejemplo"><code>&lt;h1&gt;Mi página&lt;/h1&gt;
 
-h1 {
-    color: green;
-}</code></pre>
-        <p>HTML es un lenguaje de marcado, no un lenguaje de programación.</p>
-        <p><a class="volver" href="tema4.html">Ir al tema 4: Documentos HTML</a></p>
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li><a href="#punto-2">2. Estructura de un documento HTML</a></li>
+                <li><a href="#punto-3">3. Tipo de documento (DTD)</a></li>
+                <li>
+                    <a href="#punto-4">4. Cabecera</a>
+                    <ul><li><a href="#subpunto-4-1">4.1. Charset (juego de caracteres)</a></li></ul>
+                </li>
+                <li><a href="#punto-5">5. Cuerpo: párrafo</a></li>
+                <li><a href="#punto-6">6. Cuerpo: separador y división</a></li>
+                <li><a href="#punto-7">7. Divisiones anidadas</a></li>
+                <li><a href="#punto-8">8. Cita larga</a></li>
+                <li><a href="#punto-9">9. Formateo</a></li>
+                <li><a href="#punto-10">10. Secciones</a></li>
+                <li><a href="#punto-11">11. Caso práctico 1: información de la empresa</a></li>
+                <li><a href="#punto-12">12. Caso práctico 2: mejora de plantilla</a></li>
+                <li><a href="#punto-13">13. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer la estructura de un documento HTML.</li>
+                    <li>Diferenciar los tipos de documentos existentes.</li>
+                    <li>Trabajar con las etiquetas de la cabecera y las primeras etiquetas del cuerpo del documento HTML.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>El documento HTML y su estructura nos permiten dotar de contenido a nuestra página web. Para que los navegadores sepan interpretar correctamente esa información, debemos seguir unos estándares y prototipos que nos aseguren su correcta visualización.</p>
+                <p>A lo largo de los últimos años han surgido variaciones de las versiones de HTML para aportar mayor funcionalidad y flexibilidad con respecto a las primeras versiones que aparecieron.</p>
+                <p>WebMálagaDesign ha recibido el encargo de realizar una página web para una agencia de viajes. El primer módulo que deben realizar será una página donde se muestren los datos principales de la empresa.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-01.png" alt="Introducción.">
+                    <figcaption>Fig. 1. Introducción.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Estructura de un documento HTML</h2></div>
+                <p>Un documento HTML tiene tres partes claramente diferenciadas:</p>
+                <ul>
+                    <li>Una primera línea que contiene información sobre la versión de HTML que estamos usando (no siempre aparece).</li>
+                    <li>Una cabecera con información sobre la página web que estamos creando.</li>
+                    <li>Un cuerpo que abarca la información del documento.</li>
+                </ul>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-02.png" alt="Estructura de un documento HTML.">
+                    <figcaption>Fig. 2. Estructura de un documento HTML.</figcaption>
+                </figure>
+                <p>Como indicamos en el tema anterior, definiremos el contenido a través de marcas que indicarán formato, partes del documento, referencias, etc.</p>
+                <p>Todo documento tiene que ir acotado entre las etiquetas <code>&lt;html&gt;</code> y <code>&lt;/html&gt;</code>; esta será la primera etiqueta que encontraremos tras indicar la versión de HTML y representará la raíz de nuestra estructura.</p>
+                <p>Después, nos encontraremos con la etiqueta <code>&lt;head&gt;</code>, que contendrá información del documento, como el título o ciertas palabras clave que permitirán que los motores de búsqueda encuentren la página. Dentro de la cabecera tendremos la etiqueta <code>&lt;title&gt;</code>, donde indicamos el título de la página. Es importante que elijamos uno adecuado, relacionado con el contenido de la web. Por último, tendríamos la etiqueta <code>&lt;body&gt;</code>, donde iremos incluyendo otras etiquetas para crear el contenido.</p>
+                <p>Por lo tanto, la estructura básica de una página web sería:</p>
+                <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Contenido del documento
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-03.png" alt="Estructura básica de un documento HTML.">
+                    <figcaption>Fig. 3. Estructura básica de un documento HTML.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Tipo de documento (DTD)</h2></div>
+                <p>Como ya hemos visto, un documento HTML está estructurado en tres partes claramente diferenciadas, cada una de las cuales contendrá diferentes etiquetas. Estas etiquetas las vamos a definir en los siguientes puntos.</p>
+                <p>La etiqueta <code>&lt;!DOCTYPE ...&gt;</code> nos indica el tipo de documento con el que trabajaremos. Según el tipo de documento que sea, se aplicarán una serie de reglas mediante las que podremos saber si el documento creado es válido o no.</p>
+                <p>Los tipos de documentos posibles para la versión de HTML 4.01 son los siguientes:</p>
+                <div class="subpunto">
+                    <h3>Estricto</h3>
+                    <p>Permite usar etiquetas HTML 4.01, pero no va a admitir etiquetas obsoletas.</p>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd"&gt;</code></pre>
+                </div>
+                <div class="subpunto">
+                    <h3>Transicional</h3>
+                    <p>En este se pueden usar etiquetas de cualquier versión de HTML.</p>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;</code></pre>
+                </div>
+                <div class="subpunto">
+                    <h3>Frameset</h3>
+                    <p>Tendría soporte para frames (marcos que se crean en las páginas web). Actualmente lo podemos considerar desfasado, pues los frames se usan cada vez menos.</p>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+  "http://www.w3.org/TR/html4/frameset.dtd"&gt;</code></pre>
+                </div>
+                <p>En caso de que trabajemos con la versión de HTML5, la manera de indicarlo se simplifica, porque simplemente tendríamos que poner la etiqueta <code>&lt;!DOCTYPE html&gt;</code>.</p>
+                <p>Si no se indica el tipo de documento, el navegador pasa a un modo no estándar y se activa el modo de compatibilidad con páginas antiguas. Esto puede ser peligroso porque algunas etiquetas se pueden interpretar de forma diferente. Si queremos que nuestro código use etiquetas HTML 4.01 y que no admita obsoletas, necesitaríamos el siguiente código:</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-04.png" alt="Código HTML 4.01 estricto.">
+                    <figcaption>Fig. 4. Código HTML 4.01 estricto.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Cabecera</h2></div>
+                <p>Dentro de las etiquetas <code>&lt;head&gt;</code> y <code>&lt;/head&gt;</code> vamos a incluir elementos de la cabecera. Algunas de esas etiquetas son:</p>
+                <ul>
+                    <li><code>&lt;title&gt;</code>: se indica el título de la página y aparecerá en las pestañas de los navegadores.</li>
+                    <li><code>&lt;meta&gt;</code>: define metadatos que no se pueden crear con otras etiquetas de HTML. Algunos ejemplos son:
+                        <ul>
+                            <li><code>&lt;meta charset="UTF-8"&gt;</code>: indica el conjunto de caracteres usado. En este caso se usa UTF-8.</li>
+                            <li><code>&lt;meta name="description" content="Contenido"&gt;</code>: permite indicar qué tipo de información va a contener la página web.</li>
+                            <li><code>&lt;meta name="keywords" content="palabras clave"&gt;</code>: permite indicar palabras clave para los motores de búsqueda.</li>
+                            <li><code>&lt;meta name="author" content="nombre del autor"&gt;</code>: indica el autor de la web.</li>
+                        </ul>
+                    </li>
+                    <li><code>&lt;link&gt;</code>: se utiliza para enlazar CSS externo.</li>
+                    <li><code>&lt;style&gt;</code>: aquí escribiríamos el CSS y no en un fichero externo.</li>
+                    <li><code>&lt;script&gt;</code>: se indica un script en línea o la referencia a un fichero externo con el script, normalmente JavaScript.</li>
+                </ul>
+                <p>Ejemplo de cabecera:</p>
+                <pre class="bloque-codigo"><code>&lt;head&gt;
+    &lt;title&gt;Mi página web&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="description" content="Contenido de la página"&gt;
+    &lt;meta name="keywords" content="HTML, ejemplo"&gt;
+    &lt;meta name="author" content="Nombre del autor"&gt;
+    &lt;link rel="stylesheet" href="estilos.css"&gt;
+    &lt;style&gt;
+        /* Estilos CSS */
+    &lt;/style&gt;
+    &lt;script src="archivo.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-05.png" alt="Código con cabecera detallada.">
+                    <figcaption>Fig. 5. Código con cabecera detallada.</figcaption>
+                </figure>
+                <p>Para el caso del script y del CSS, siempre es una buena práctica indicarlos en ficheros externos, por lo que es más aconsejable utilizar <code>&lt;link rel&gt;</code> para indicar el CSS externo y <code>&lt;script src&gt;</code> para el fichero que contiene el script utilizado.</p>
+                <p>Tanto CSS como JavaScript los veremos en temas posteriores, en los cuales detallaremos su uso y sintaxis.</p>
+
+                <div class="subpunto" id="subpunto-4-1">
+                    <h3>4.1. Charset (juego de caracteres)</h3>
+                    <p>Para que un documento HTML se muestre de manera correcta en el navegador, debemos indicarle el conjunto de caracteres a utilizar para que no haya errores de interpretación. Como hemos visto, esto se indica con la etiqueta <code>&lt;meta charset="UTF-8"&gt;</code>.</p>
+                    <h4>¿En qué consiste la codificación de caracteres?</h4>
+                    <p>Un ordenador solo entiende el 0 (sin paso de corriente) y el 1 (con paso de corriente). Para representar los caracteres con los que vamos a trabajar en el documento HTML, debemos relacionar esos ceros y unos con el juego de caracteres que se necesite.</p>
+                    <p>ASCII (American Standard Code for Information Interchange) fue el primer estándar para codificar los caracteres. Definió 128 caracteres alfanuméricos, aunque actualmente admite más. Algunos de esos caracteres son:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 1. Ejemplos del código ASCII</caption>
+                            <thead><tr><th>DEC</th><th>OCT</th><th>HEX</th><th>BIN</th><th>Símbolo</th><th>HTML Number</th></tr></thead>
+                            <tbody>
+                                <tr><td>32</td><td>040</td><td>20</td><td><code>00100000</code></td><td>espacio</td><td><code>&amp;#32;</code></td></tr>
+                                <tr><td>33</td><td>041</td><td>21</td><td><code>00100001</code></td><td>!</td><td><code>&amp;#33;</code></td></tr>
+                                <tr><td>34</td><td>042</td><td>22</td><td><code>00100010</code></td><td>"</td><td><code>&amp;#34;</code></td></tr>
+                                <tr><td>35</td><td>043</td><td>23</td><td><code>00100011</code></td><td>#</td><td><code>&amp;#35;</code></td></tr>
+                                <tr><td>36</td><td>044</td><td>24</td><td><code>00100100</code></td><td>$</td><td><code>&amp;#36;</code></td></tr>
+                                <tr><td>37</td><td>045</td><td>25</td><td><code>00100101</code></td><td>%</td><td><code>&amp;#37;</code></td></tr>
+                                <tr><td>38</td><td>046</td><td>26</td><td><code>00100110</code></td><td>&amp;</td><td><code>&amp;#38;</code></td></tr>
+                                <tr><td>39</td><td>047</td><td>27</td><td><code>00100111</code></td><td>'</td><td><code>&amp;#39;</code></td></tr>
+                                <tr><td>40</td><td>050</td><td>28</td><td><code>00101000</code></td><td>(</td><td><code>&amp;#40;</code></td></tr>
+                                <tr><td>41</td><td>051</td><td>29</td><td><code>00101001</code></td><td>)</td><td><code>&amp;#41;</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Por ejemplo, al carácter <code>$</code> le corresponde la codificación binaria <code>00100100</code>, que también se puede indicar en notación decimal (36), octal (044) o hexadecimal (24). Otros juegos de caracteres son:</p>
+                    <ul>
+                        <li><strong>ISO-8859-1:</strong> era el juego de caracteres usado para HTML4. Admite 256 caracteres diferentes.</li>
+                        <li><strong>ANSI:</strong> fue el juego original de Windows. Es igual que ISO-8859-1, pero tiene 32 caracteres más.</li>
+                        <li><strong>UTF-8:</strong> salva las limitaciones de los dos juegos anteriores, pues cubre casi todos los caracteres y símbolos del mundo. Para HTML5 este es el conjunto de caracteres predeterminado.</li>
+                    </ul>
+                    <p>Cuando tenemos que incluir en una página HTML algunos símbolos que no tengamos en el teclado, podemos usar el número HTML correspondiente a ese carácter. Por ejemplo, en la tabla vemos que el símbolo <code>!</code> tiene el HTML number <code>&amp;#33;</code>. Si queremos que ese símbolo aparezca en el documento, tendríamos que poner el siguiente código HTML:</p>
+                    <pre class="bloque-codigo"><code>&lt;p&gt;Voy a mostrar el signo de admiración &amp;#33;&lt;/p&gt;</code></pre>
+
+                </div>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Cuerpo: bloques de contenido. Párrafo</h2></div>
+                <p>Dentro de las etiquetas <code>&lt;body&gt;</code> y <code>&lt;/body&gt;</code> vamos a incluir elementos del cuerpo. En esta sección tendremos el mayor número de etiquetas, ya que aquí se define el contenido total de nuestra página web.</p>
+                <p>Podemos clasificar los tipos de etiquetas en los siguientes grupos:</p>
+                <ul>
+                    <li>Bloques de contenido</li>
+                    <li>Secciones</li>
+                    <li>Texto</li>
+                    <li>Enlaces</li>
+                    <li>Listas</li>
+                    <li>Contenido incrustado</li>
+                    <li>Tablas</li>
+                    <li>Formularios</li>
+                    <li>Elementos interactivos</li>
+                </ul>
+                <p>Vamos a comenzar estudiando las etiquetas pertenecientes a los bloques de contenido. Estas etiquetas nos van a permitir crear bloques de elementos que podremos distribuir a lo largo de la página web.</p>
+                <h3>Párrafo</h3>
+                <ul>
+                    <li><strong>Etiqueta:</strong> <code>&lt;p&gt;</code></li>
+                    <li><strong>Función:</strong> esta etiqueta nos va a permitir crear párrafos de texto o imágenes.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-06.png" alt="Ejemplo de etiqueta p.">
+                    <figcaption>Fig. 6. Ejemplo de etiqueta p.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-07.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 7. Vista en el navegador.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Cuerpo: bloques de contenido. Separador y división</h2></div>
+                <h3>Separador</h3>
+                <ul>
+                    <li><strong>Etiqueta:</strong> <code>&lt;hr&gt;</code></li>
+                    <li><strong>Función:</strong> nos permite separar elementos con una línea horizontal. No es necesaria una etiqueta de cierre.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;p&gt;Primer bloque&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Segundo bloque&lt;/p&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-08.png" alt="Ejemplo de etiqueta hr.">
+                    <figcaption>Fig. 8. Ejemplo de etiqueta hr.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-09.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 9. Vista en el navegador.</figcaption>
+                </figure>
+                <h3>División</h3>
+                <ul>
+                    <li><strong>Etiqueta:</strong> <code>&lt;div&gt;</code></li>
+                    <li><strong>Función:</strong> esta etiqueta nos va a permitir agrupar otros elementos HTML (párrafos, tablas, otras divisiones, etc.) para crear una agrupación mayor. A las divisiones también se les suele llamar capas.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;div&gt;
+    &lt;p&gt;Contenido agrupado en una división.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-10.png" alt="Ejemplo de etiqueta div.">
+                    <figcaption>Fig. 10. Ejemplo de etiqueta div.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-11.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 11. Vista en el navegador.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Cuerpo: bloques de contenido. Divisiones anidadas</h2></div>
+                <p>Las divisiones se pueden anidar, lo cual nos permitirá estructurar el contenido de nuestra página web en bloques mayores. Veamos un ejemplo:</p>
+                <pre class="bloque-codigo"><code>&lt;div&gt;
+    &lt;h2&gt;Primer bloque&lt;/h2&gt;
+    &lt;div&gt;
+        &lt;p&gt;Contenido de una división anidada.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-12.png" alt="Ejemplo de div anidado.">
+                    <figcaption>Fig. 12. Ejemplo de div anidado.</figcaption>
+                </figure>
+                <p>Es muy útil usar divisiones, pero no hay que abusar de ello. Es una buena práctica usarlas solo cuando hay que agrupar más de un elemento. En cambio, una división será innecesaria si solo va a contener un párrafo. Veamos la vista producida en el navegador:</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-13.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 13. Vista en el navegador.</figcaption>
+                </figure>
+                <p>El resultado que obtenemos en el navegador es el mismo que si no hubiéramos usado divisiones, es decir, solo con etiquetas <code>&lt;p&gt;</code>. Sin embargo, ya veremos en próximos apartados que, al haber hecho divisiones, podemos aplicar diferentes colores con CSS a los <code>div</code>.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-14.png" alt="Vista en el navegador usando CSS.">
+                    <figcaption>Fig. 14. Vista en el navegador usando CSS.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-8">
+                <div class="titulo-punto"><span class="numero-punto">8</span><h2>Cuerpo: bloques de contenido. Cita larga</h2></div>
+                <h3>Cita larga</h3>
+                <ul>
+                    <li><strong>Etiqueta:</strong> <code>&lt;blockquote&gt;</code></li>
+                    <li><strong>Función:</strong> permite incluir un texto «largo» que, a su vez, puede contener varios párrafos o incluso otras etiquetas. Como regla general, los navegadores suelen mostrar este bloque con un margen a izquierda y derecha.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;blockquote&gt;
+    &lt;p&gt;Este es un texto citado que puede extenderse
+    durante varios párrafos.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-15.png" alt="Ejemplo de etiqueta blockquote.">
+                    <figcaption>Fig. 15. Ejemplo de etiqueta blockquote.</figcaption>
+                </figure>
+                <p>En el navegador obtendríamos la siguiente vista:</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-16.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 16. Vista en el navegador.</figcaption>
+                </figure>
+
+                <p>Como se puede observar, sin haber indicado ningún estilo aparecen márgenes tanto en la parte derecha como en la izquierda. En este caso se han incluido párrafos, pero podría haber contenido imágenes, divisiones, separadores, etc.</p>
+            </section>
+
+            <section class="punto" id="punto-9">
+                <div class="titulo-punto"><span class="numero-punto">9</span><h2>Cuerpo: bloques de contenido. Formateo</h2></div>
+                <h3>Formateo</h3>
+                <ul>
+                    <li><strong>Etiqueta:</strong> <code>&lt;pre&gt;</code></li>
+                    <li><strong>Función:</strong> esta etiqueta se utiliza cuando se quiere mantener los espacios, tabuladores y diseño del texto original.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;pre&gt;
+    Este texto mantiene
+    los espacios y los saltos de línea.
+&lt;/pre&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-17.png" alt="Ejemplo de etiqueta pre.">
+                    <figcaption>Fig. 17. Ejemplo de etiqueta pre.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-18.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 18. Vista en el navegador.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-10">
+                <div class="titulo-punto"><span class="numero-punto">10</span><h2>Secciones</h2></div>
+                <p>Las secciones nos permiten fraccionar el contenido en partes que comparten un tema común. En HTML4 y XHTML 1 la única etiqueta para hacer agrupaciones y darles un significado común es <code>&lt;div&gt;</code>. En HTML5 se han incluido nuevas etiquetas que resuelven este problema.</p>
+                <p>En el tema que dediquemos específicamente a las mejoras de HTML5 se incluirán estas etiquetas. Ahora solo se van a referenciar los títulos como elemento de sección.</p>
+                <h3>Títulos</h3>
+                <ul>
+                    <li><strong>Etiquetas:</strong> <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> y <code>&lt;h6&gt;</code>.</li>
+                    <li><strong>Función:</strong> se utilizan para identificar títulos y subtítulos en nuestro contenido.</li>
+                </ul>
+                <pre class="bloque-codigo"><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Apartado&lt;/h2&gt;
+&lt;h3&gt;Subapartado&lt;/h3&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-19.png" alt="Ejemplo de etiquetas h.">
+                    <figcaption>Fig. 19. Ejemplo de etiquetas h.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-20.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 20. Vista en el navegador.</figcaption>
+                </figure>
+                <p>Si al documento HTML no se le indica alguna hoja de estilo, el navegador trabaja con la hoja de estilo por defecto. En esta, las etiquetas de título se muestran en tamaño inverso al número indicado en su etiqueta: a menor número, mayor tamaño. Por lo tanto, <code>&lt;h1&gt;</code> será la etiqueta que mostrará el título más grande y <code>&lt;h6&gt;</code>, el más pequeño.</p>
+                <p>Las etiquetas <code>&lt;h1&gt;</code> deben usarse de manera jerárquica; es decir, no podemos saltarnos niveles. De esta manera, no debemos anteponer un <code>&lt;h2&gt;</code> a un <code>&lt;h1&gt;</code>, por ejemplo. El uso más frecuente de un nivel u otro es el siguiente:</p>
+                <ul>
+                    <li><code>&lt;h1&gt;</code> suele usarse para un apartado principal.</li>
+                    <li><code>&lt;h2&gt;</code>, para un apartado dentro del apartado principal.</li>
+                    <li><code>&lt;h3&gt;</code>, para un subapartado incluido en el anterior, y así sucesivamente.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-11">
+                <div class="titulo-punto"><span class="numero-punto">11</span><h2>Caso práctico 1: «Información de la empresa»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto le comenta a Gloria que necesita un contenido en HTML donde se muestre información acerca de ella.</p>
+                <p><strong>Nudo:</strong> Para tener información de todos los empleados de la empresa en la intranet, Alberto necesita ciertos datos en formato HTML. Por este motivo, le pide a Gloria que lo haga con sus datos y le pase la plantilla. Los datos que debe incluir son:</p>
+                <ul>
+                    <li>Nombre y apellidos.</li>
+                    <li>Estudios.</li>
+                    <li>E-mail.</li>
+                </ul>
+                <p>Para ello, utiliza las etiquetas vistas en el tema.</p>
+                <p><strong>Desenlace:</strong> Se puede plantear una estructura HTML como la que veremos en el siguiente ejemplo. En la figura 21 puedes observar el desarrollo del código que se podría generar y en la 22, la vista que produciría en el navegador.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-21.png" alt="Código de plantilla de datos HTML.">
+                    <figcaption>Fig. 21. Código de plantilla de datos HTML.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-22.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 22. Vista en el navegador.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-12">
+                <div class="titulo-punto"><span class="numero-punto">12</span><h2>Caso práctico 2: «Mejora de plantilla de trabajadores»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto ve la plantilla que ha hecho Gloria y le comenta algunas cuestiones para que las revise y la vuelva a hacer.</p>
+                <p><strong>Nudo:</strong> Gloria, debes incluir comentarios en el código y también quiero algo de formato mediante la etiqueta <code>&lt;pre&gt;</code> para que los datos personales y los estudios tengan un cierto sangrado.</p>
+                <p>Utiliza también <code>div</code>, porque más adelante vamos a cambiar el color de cada apartado. Por último, incluye el teléfono en los datos personales.</p>
+                <p><strong>Desenlace:</strong></p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-23.png" alt="Solución del caso práctico.">
+                    <figcaption>Fig. 23. Solución del caso práctico.</figcaption>
+                </figure>
+                <p>Podemos observar una posible solución a los cambios que pide Alberto en la figura 23, y cómo se comporta el navegador ante ellos en la figura 24.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-24.png" alt="Vista en el navegador.">
+                    <figcaption>Fig. 24. Vista en el navegador.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-13">
+                <div class="titulo-punto"><span class="numero-punto">13</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <p>Como hemos estudiado en el tema, un documento HTML se estructura en tres partes claramente diferenciadas: el tipo de documento, la cabecera y el cuerpo. El tipo de documento nos indicará la versión de HTML con la que trabajamos; en la cabecera damos información relativa al contenido y en el cuerpo incluimos las etiquetas necesarias para dotar de contenido a la página web.</p>
+                <p>También hemos visto la importancia de elegir un correcto juego de caracteres para que no haya problemas en la visualización de ciertos símbolos poco frecuentes.</p>
+                <p>Finalmente, se ha comprobado que la inclusión de etiquetas en el cuerpo nos permitirá añadir riqueza y funcionalidad a la página web.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-25.png" alt="Esquema del tema: tipo de documento, cabecera, juego de caracteres y cuerpo.">
+                    <figcaption>Fig. 25. Esquema del tema: tipo de documento, cabecera, juego de caracteres y cuerpo.</figcaption>
+                </figure>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>Te proponemos a continuación la resolución del caso práctico planteado al inicio del tema, en donde se planteaba crear una página web que mostrara información sobre una agencia de viajes. Aquí puedes ver la vista que tendríamos en el navegador, y en el anexo adjunto, el código para generarlo.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema3/figura-26.png" alt="Vista en el navegador del caso práctico inicial.">
+                    <figcaption>Fig. 26. Vista en el navegador del caso práctico inicial.</figcaption>
+                </figure>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 3 · Los lenguajes de la web</p></footer>
+    <footer><p>Tema 3 · <a class="volver" href="tema2.html">Volver al tema 2</a> · <a class="volver" href="tema4.html">Ir al tema 4</a></p></footer>
 </body>
 </html>

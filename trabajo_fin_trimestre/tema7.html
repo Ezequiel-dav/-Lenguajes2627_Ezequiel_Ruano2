@@ -3,29 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 7 - Introducción a CSS</title>
+    <title>Tema 7 - Hojas de estilo. CSS</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 7: Introducción a CSS</h1>
+        <p class="etiqueta">Tema 7 · Lenguajes de Marcas</p>
+        <h1>Hojas de estilo. CSS</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>¿Qué es CSS?</h2>
-        <p>CSS es el lenguaje que define la presentación de los documentos HTML. Permite cambiar colores, tamaños, bordes y distribución.</p>
-        <h2>Conectar una hoja de estilos</h2>
-        <p>La forma habitual es guardar las reglas en un archivo externo y enlazarlo desde el elemento <code>head</code>.</p>
-        <pre class="ejemplo"><code>&lt;link rel="stylesheet" href="estilos.css"&gt;</code></pre>
-        <h2>Reglas CSS</h2>
-        <p>Una regla contiene un selector y una o varias declaraciones de propiedad y valor.</p>
-        <pre class="ejemplo"><code>p {
-    color: darkgreen;
-    font-size: 18px;
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Introducción a CSS</a>
+                    <ul>
+                        <li><a href="#subpunto-2-1">2.1. Historia de CSS</a></li>
+                        <li><a href="#subpunto-2-2">2.2. CSS y los navegadores</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#punto-3">3. Características de CSS</a>
+                    <ul>
+                        <li><a href="#subpunto-3-1">3.1. Formas de incluir CSS en HTML</a></li>
+                        <li><a href="#subpunto-3-2">3.2. Sintaxis de CSS</a></li>
+                        <li><a href="#subpunto-3-3">3.3. Comentarios</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#punto-4">4. Selectores</a>
+                    <ul><li><a href="#subpunto-4-1">4.1. Ejemplo del uso de selectores</a></li></ul>
+                </li>
+                <li>
+                    <a href="#punto-5">5. Herencia</a>
+                    <ul><li><a href="#subpunto-5-1">5.1. Colisiones de los estilos</a></li></ul>
+                </li>
+                <li>
+                    <a href="#punto-6">6. Unidades de medida</a>
+                    <ul>
+                        <li><a href="#subpunto-6-1">6.1. Unidades absolutas</a></li>
+                        <li><a href="#subpunto-6-2">6.2. Unidades relativas</a></li>
+                        <li><a href="#subpunto-6-3">6.3. Ejemplo de unidades</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-7">7. Colores</a></li>
+                <li><a href="#punto-8">8. Caso práctico 1: test sobre CSS</a></li>
+                <li><a href="#punto-9">9. Caso práctico 2: aplicar CSS a HTML</a></li>
+                <li><a href="#punto-10">10. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer las características de las hojas de estilo.</li>
+                    <li>Aprender su sintaxis.</li>
+                    <li>Diferenciar los numerosos selectores.</li>
+                    <li>Aprender el concepto de herencia.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>En los temas anteriores hemos construido el contenido de la página web. Sin embargo, han quedado en un segundo plano temas como la disposición de los elementos, los colores y las fuentes. Ese diseño se realizará con las hojas de estilo y permitirá personalizar un documento web tanto en la pantalla como a la hora de imprimirlo.</p>
+                <p>Las hojas de estilo han supuesto un avance muy importante en el diseño web, ya que ofrecen un rango de posibilidades muy amplio para conseguir mejoras en los documentos HTML. Inicialmente no se le daba tanta importancia al aspecto. No obstante, desde que la web se democratizó, la presentación ha ganado un papel muy importante en la creación de sitios web.</p>
+                <p>Alberto quiere dotar de más contenido a la intranet de la empresa y, para ello, quiere tener los CV de todos los trabajadores en formato web. Se pone manos a la obra y le pide a Gloria que le ayude con la plantilla.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-01.png" alt="Introducción.">
+                    <figcaption>Fig. 1. Introducción.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Introducción a CSS</h2></div>
+                <p>CSS representa las siglas de Cascading Style Sheets (hojas de estilo en cascada), que podemos definir como el lenguaje que nos permite controlar el aspecto visual de nuestro documento HTML. HTML y CSS se complementan para separar el contenido y su presentación.</p>
+                <p>Esta división nos aporta numerosas ventajas, puesto que, al ser independientes el contenido y el aspecto visual, para un mismo contenido podremos tener diferentes visualizaciones. Esta característica es fundamental para poder trabajar en distintos dispositivos.</p>
+                <p>En la siguiente web verás un ejemplo de cómo cambia visualmente un mismo contenido cuando se le aplican diferentes hojas de estilo. Te sorprenderán los cambios.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-02.png" alt="Unión de HTML y CSS: HTML5 + CSS3 = diseño web.">
+                    <figcaption>Fig. 2. Unión de HTML y CSS: HTML5 + CSS3 = diseño web.</figcaption>
+                </figure>
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Historia de CSS</h3>
+                    <p>Al igual que HTML, CSS ha evolucionado a lo largo de estos años, por lo que han aparecido diferentes versiones, cada una de las cuales mejoraba la anterior, incluyendo la corrección de errores y mejoras en su funcionalidad. En el organismo oficial W3C puedes consultar la evolución de este lenguaje.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-03.png" alt="Evolución de CSS: CSS1 → CSS2 → CSS2.1 → CSS3.">
+                        <figcaption>Fig. 3. Evolución de CSS: CSS1 → CSS2 → CSS2.1 → CSS3.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-2-2">
+                    <h3>2.2. CSS y los navegadores</h3>
+                    <p>Los navegadores interpretan de manera distinta el CSS. Por ello, es muy importante conocer las posibles limitaciones del navegador para conseguir la máxima compatibilidad. Es posible que con ciertos navegadores tengamos que incluir una sintaxis específica para alcanzar la correcta visualización de la página web.</p>
+                    <p>Chrome, Safari, Firefox y Opera se encuentran entre los navegadores que ofrecen amplia compatibilidad con CSS. El material de referencia destaca el soporte completo de CSS 2.1 y muchas características de CSS3. Conviene comprobar la compatibilidad de las propiedades que se utilicen en los navegadores más populares.</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Características de CSS</h2></div>
+                <p>Antes de usar CSS, cuando se quería modificar el aspecto visual de los elementos HTML, se incluían en la propia etiqueta algunos atributos como color, fuente, etc. Hoy en día esta forma de trabajar todavía se permite, pero es una práctica obsoleta, y todo lo relacionado con el aspecto visual debe llevarse a la hoja de estilos.</p>
+
+                <div class="subpunto" id="subpunto-3-1">
+                    <h3>3.1. Formas de incluir CSS en HTML</h3>
+                    <p>Hay tres formas de indicar al documento HTML qué estilo queremos aplicar y cómo:</p>
+                    <ul>
+                        <li><strong>En el propio elemento HTML:</strong> se indica el estilo en la propia etiqueta. Este método no es el más adecuado, pues hay que indicar el estilo etiqueta a etiqueta.</li>
+                        <li><strong>En el documento HTML:</strong> se puede incluir el estilo en la cabecera del documento utilizando la etiqueta <code>&lt;style&gt;</code>.</li>
+                        <li><strong>En un fichero externo:</strong> es el método que más se utiliza, porque podemos tener los estilos del documento separados en un fichero externo. Se indica en la cabecera con la etiqueta <code>&lt;link&gt;</code>, que tiene los siguientes atributos:
+                            <ul>
+                                <li><code>rel</code>: relación entre HTML y el fichero externo. En este caso se indica que es una hoja de estilo mediante el valor <code>stylesheet</code>.</li>
+                                <li><code>type</code>: indica el tipo de recurso. En este caso, el valor es <code>text/css</code>.</li>
+                                <li><code>href</code>: dirección URL donde se encuentra el fichero externo. Puede estar en local o ser una dirección de Internet.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;CSS en elemento HTML&lt;/title&gt;
+    &lt;style&gt;
+        h2 { color: green; }
+    &lt;/style&gt;
+    &lt;link rel="stylesheet" type="text/css" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 style="color: blue"&gt;Estilo en el propio elemento&lt;/h1&gt;
+    &lt;h2&gt;Estilo en el documento HTML&lt;/h2&gt;
+    &lt;h3&gt;Estilo con archivo externo&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 1. Formas de incluir CSS en HTML. En el archivo externo <code>estilos.css</code> se podría incluir la regla <code>h3 { color: red; }</code>.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-04.png" alt="Ejemplo de archivo estilos.css.">
+                        <figcaption>Fig. 4. Ejemplo de archivo estilos.css.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-3-2">
+                    <h3>3.2. Sintaxis de CSS</h3>
+                    <p>Tal y como sucedía con los documentos HTML, el fichero CSS es un fichero de texto plano en el que se van incluyendo las reglas propias de CSS. El navegador interpreta este fichero y lo aplica al HTML.</p>
+                    <p>La sintaxis sigue el siguiente patrón:</p>
+                    <pre class="bloque-codigo"><code>selector {
+    propiedad: valor;
 }</code></pre>
-        <p>En este ejemplo, <code>p</code> es el selector. <code>color</code> y <code>font-size</code> son propiedades.</p>
-        <p><a class="volver" href="tema8.html">Ir al tema 8: Modelo de caja y estilos</a></p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-05.png" alt="Sintaxis CSS: selector { propiedad: valor } (la propiedad y el valor forman una declaración).">
+                        <figcaption>Fig. 5. Sintaxis CSS: selector { propiedad: valor } (la propiedad y el valor forman una declaración).</figcaption>
+                    </figure>
+                    <ul>
+                        <li><strong>Selector:</strong> es el elemento HTML al cual se le va a aplicar el estilo que indiquemos. Por ejemplo, un párrafo <code>&lt;p&gt;</code>.</li>
+                        <li><strong>Propiedad:</strong> es la característica que se va a cambiar. Por ejemplo, el color.</li>
+                        <li><strong>Valor:</strong> es el valor que se le asigna a la propiedad. Por ejemplo, el color rojo.</li>
+                    </ul>
+                    <p>El fichero CSS puede contener cientos de reglas aplicadas a diferentes elementos HTML. Cuando queramos aplicar más de un estilo a un elemento, debemos separarlos con punto y coma. El material de referencia contabiliza 115 propiedades en CSS 2.1 y 239 en CSS3.</p>
+                </div>
+
+                <div class="subpunto" id="subpunto-3-3">
+                    <h3>3.3. Comentarios</h3>
+                    <p>En CSS también se pueden incluir comentarios, lo cual es altamente recomendable, porque a medida que se van creando reglas, el fichero aumenta de tamaño y es complicado seguir el flujo de reglas que debemos aplicar.</p>
+                    <p>Los comentarios se indican con los caracteres <code>/*</code> para iniciar el comentario y <code>*/</code> para finalizarlo. El navegador ignorará todo lo que se encuentre entre esos caracteres, pero nos servirá para incluir información que contribuirá a una mejor interpretación de cómo se aplican las reglas CSS.</p>
+                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: red; /* Indicar el color rojo */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Cabecera&lt;/h2&gt;
+    &lt;!-- Estos párrafos se muestran en rojo --&gt;
+    &lt;p&gt;Hola Mundo!&lt;/p&gt;
+    &lt;p&gt;Los párrafos tienen aplicado estilo.&lt;/p&gt;
+    &lt;p&gt;Los comentarios HTML y CSS no se muestran en el navegador.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 2. Comentarios en CSS.</p>
+
+                </div>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Selectores</h2></div>
+                <p>Gracias a los selectores podremos escoger a qué elemento o grupo de elementos HTML le vamos a aplicar la declaración de la regla CSS. Los selectores se pueden clasificar en los siguientes tipos:</p>
+                <ul>
+                    <li><strong>Universal:</strong> selecciona todos los elementos HTML de la página. Se indica por medio de un asterisco (<code>*</code>).</li>
+                    <li><strong>Etiqueta:</strong> selecciona todos los elementos HTML que coinciden con la etiqueta indicada.</li>
+                    <li><strong>Clase:</strong> permite agrupar elementos a los que interese aplicar un cierto estilo. En el elemento HTML se utiliza el atributo <code>class</code>; en las reglas CSS se antepone un punto (<code>.</code>) al nombre de la clase.</li>
+                    <li><strong>Identificador:</strong> se utiliza cuando queremos aplicar un estilo a un solo elemento HTML. A diferencia de las clases, que se pueden utilizar con varios elementos, el identificador debe ser único. En el elemento HTML se indica el atributo <code>id</code> y en la regla se antepone la almohadilla (<code>#</code>).</li>
+                    <li><strong>Descendente:</strong> selecciona elementos incluidos en otros elementos. Los elementos se indican separados por un espacio en blanco.</li>
+                    <li><strong>Agrupación de selectores:</strong> permite indicar un estilo a la lista de selectores. Se separan por comas (<code>,</code>).</li>
+                    <li><strong>Hijo:</strong> selecciona un elemento que es hijo directo de la etiqueta padre. Se indica con el signo «mayor que» (<code>&gt;</code>).</li>
+                    <li><strong>Adyacente:</strong> selecciona elementos hermanos cuando uno se encuentra justo al lado de otro. Se indica con el signo más (<code>+</code>).</li>
+                    <li><strong>Atributos:</strong> permite seleccionar elementos HTML en función de los atributos que tengan asignados. <code>[nombre_atributo]</code> selecciona los elementos que tienen ese atributo, independientemente de su valor; <code>[nombre_atributo=valor]</code> selecciona los que tienen ese atributo con ese valor.</li>
+                </ul>
+
+
+                <div class="subpunto" id="subpunto-4-1">
+                    <h3>4.1. Ejemplo del uso de selectores</h3>
+                    <p>El siguiente documento HTML contiene elementos a los que se aplicarán distintos selectores:</p>
+                    <pre class="bloque-codigo"><code>&lt;body&gt;
+    &lt;p&gt;P1: El selector universal pone todos los elementos en azul&lt;/p&gt;
+    &lt;p&gt;P2: Los elementos p están centrados&lt;/p&gt;
+    &lt;p class="miclase"&gt;P3: Este párrafo es de la clase miclase&lt;/p&gt;
+    &lt;p id="miidentificador"&gt;P4: Este párrafo tiene un identificador&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;opción1&lt;/li&gt;
+        &lt;li&gt;opción2&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h1&gt;Ejemplos de selectores&lt;/h1&gt;
+    &lt;h2&gt;Diferentes tipos de selectores&lt;/h2&gt;
+    &lt;p&gt;
+        &lt;a&gt;Un enlace&lt;/a&gt;
+        &lt;span&gt;&lt;a&gt;Otro enlace&lt;/a&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;div&gt;div adyacente al párrafo anterior&lt;/div&gt;
+    &lt;p lang="es"&gt;P5: Este párrafo está escrito en español&lt;/p&gt;
+    &lt;p lang="en"&gt;P6: This paragraph is written in English.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+                    <p>El siguiente CSS externo se aplica al código:</p>
+                    <pre class="bloque-codigo"><code>* { color: blue; }
+p { text-align: center; }
+.miclase { border: solid 1px red; }
+#miidentificador { background-color: cyan; }
+ul li { background-color: gray; }
+h1, h2 { border: solid 3px green; }
+p &gt; a { background-color: yellow; }
+p + div { border: solid 2px blue; }
+p[lang="es"] { background-color: red; }
+p[lang="en"] { background-color: orange; }</code></pre>
+                    <p class="descripcion-codigo">Código 3. Ejemplo de uso de selectores y Código 4. Fichero externo estilos_selectores.css.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-06.png" alt="Visualización en el navegador de los elementos con sus estilos.">
+                        <figcaption>Fig. 5. Visualización en el navegador de los elementos con sus estilos.</figcaption>
+                    </figure>
+                    <h4>4.1.1. Explicación del ejemplo</h4>
+                    <ul>
+                        <li><code>* { color: blue; }</code>: todos los elementos tendrán el color azul.</li>
+                        <li><code>p { text-align: center; }</code>: todos los párrafos están alineados al centro.</li>
+                        <li><code>.miclase { border: solid 1px red; }</code>: se aplica un borde rojo de 1 px al párrafo de la clase <code>miclase</code>.</li>
+                        <li><code>#miidentificador { background-color: cyan; }</code>: se aplica fondo cian al elemento con ese identificador.</li>
+                        <li><code>ul li { background-color: gray; }</code>: se aplica fondo gris a los elementos <code>li</code> descendientes de <code>ul</code>.</li>
+                        <li><code>h1, h2 { border: solid 3px green; }</code>: se aplica un borde verde a <code>h1</code> y <code>h2</code>.</li>
+                        <li><code>p &gt; a { background-color: yellow; }</code>: selecciona los enlaces que son hijos directos de <code>p</code>. El primer enlace sí lo es; el segundo no, porque entre ambos está <code>span</code>.</li>
+                        <li><code>p + div { border: solid 2px blue; }</code>: aplica un borde azul al <code>div</code> que es hermano adyacente de un párrafo.</li>
+                        <li><code>p[lang="es"]</code> y <code>p[lang="en"]</code>: aplican fondos distintos según el valor del atributo <code>lang</code>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Herencia</h2></div>
+                <p>Uno de los aspectos que debemos considerar en CSS es que los estilos se heredan. Esto implica que, si un elemento HTML se encuentra dentro de otro, el elemento hijo hereda los estilos que se hayan podido definir para la etiqueta padre. Por eso a las hojas de estilo se les suele llamar «hojas de estilo en cascada».</p>
+                <p>Si para la etiqueta hija se define un estilo que modifica el del padre, se aplicará el estilo de la etiqueta hija.</p>
+                <p>Por herencia, los dos párrafos deberían tener el color azul, puesto que heredan el estilo del <code>&lt;div&gt;</code>. Sin embargo, al segundo párrafo le indicamos otro estilo y por eso se muestra en rojo.</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    div { color: blue; }
+    #p2 { color: red; }
+&lt;/style&gt;
+&lt;div&gt;Este div es el padre
+    &lt;p&gt;Un párrafo hijo&lt;/p&gt;
+    &lt;p id="p2"&gt;Otro párrafo hijo&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-07.png" alt="Herencia en el navegador: el padre y el primer párrafo aparecen en azul; el segundo párrafo, en rojo.">
+                    <figcaption>Fig. 6. Herencia en el navegador: el padre y el primer párrafo aparecen en azul; el segundo párrafo, en rojo.</figcaption>
+                </figure>
+
+
+                <div class="subpunto" id="subpunto-5-1">
+                    <h3>5.1. Colisiones de los estilos</h3>
+                    <p>Si tenemos muchas reglas CSS en un fichero de estilos, puede suceder que se intenten aplicar estilos diferentes a un mismo elemento HTML. En este caso, el mecanismo para determinar el estilo que se debe aplicar depende de aspectos como la especificidad del selector, la importancia de la regla y el orden de las declaraciones.</p>
+                    <p>Como norma general:</p>
+                    <ul>
+                        <li>Cuanto más concreto sea un selector, mayor importancia tendrá y, por lo tanto, será el que se aplique.</li>
+                        <li>Si la especificidad y la importancia son iguales, se aplicará la última regla creada.</li>
+                    </ul>
+                    <p>Por ejemplo, si tenemos las siguientes reglas:</p>
+                    <pre class="bloque-codigo"><code>div { color: red; }
+div#destacado { color: black; }
+* { color: yellow; }</code></pre>
+                    <p>El texto incluido en <code>div#destacado</code> se mostraría de color negro, puesto que ese selector es más concreto. El selector universal (<code>*</code>) tiene menor especificidad y pierde frente a los otros selectores.</p>
+                    <p>Si activamos el inspector de la página en un navegador como Mozilla, que se activa con F12, podremos ver los estilos que se aplican. Al colocarnos sobre <code>&lt;div&gt;</code>, aparecen a la derecha los estilos activos y el navegador tacha el resto.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-08.png" alt="Inspector de página con la regla div#destacado activa y div tachada.">
+                        <figcaption>Fig. 7. Inspector de página con la regla div#destacado activa y div tachada.</figcaption>
+                    </figure>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-09.png" alt="Esquema de aplicación de estilos presentado en el material: reglas externas, reglas en head, reglas en una parte de la página y estilos en elementos concretos.">
+                        <figcaption>Fig. 8. Esquema de aplicación de estilos presentado en el material: reglas externas, reglas en head, reglas en una parte de la página y estilos en elementos concretos.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Unidades de medida</h2></div>
+                <p>Muchas de las propiedades que podemos aplicar a los elementos seleccionados en las reglas CSS se basan en medidas. Por ejemplo, estas se pueden usar para indicar la altura de un elemento, el tamaño de la letra o la anchura de un <code>&lt;div&gt;</code>. Por este motivo, es muy importante conocer qué tipos de medidas existen y sus características. Las unidades se pueden dividir en absolutas y relativas.</p>
+
+                <div class="subpunto" id="subpunto-6-1">
+                    <h3>6.1. Unidades de medida absolutas</h3>
+                    <p>Cuando se trabaja con unidades absolutas, su valor se define de manera completa y no depende de otras referencias. Las unidades absolutas más importantes son:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 1. Unidades absolutas</caption>
+                            <thead><tr><th>Sigla</th><th>Significado</th><th>Equivalencia</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>in</code></th><td>Pulgadas</td><td>Una pulgada equivale a 2,54 cm.</td></tr>
+                                <tr><th scope="row"><code>cm</code></th><td>Centímetros</td><td>1 cm equivale a 10 mm.</td></tr>
+                                <tr><th scope="row"><code>mm</code></th><td>Milímetros</td><td>—</td></tr>
+                                <tr><th scope="row"><code>px</code></th><td>Píxeles</td><td>1 px equivale a 1/96 in, aproximadamente 0,26 mm.</td></tr>
+                                <tr><th scope="row"><code>pt</code></th><td>Puntos</td><td>1 punto equivale a 1/72 in, aproximadamente 0,35 mm.</td></tr>
+                                <tr><th scope="row"><code>pc</code></th><td>Picas</td><td>1 pica equivale a 12 puntos, aproximadamente 4,23 mm.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-6-2">
+                    <h3>6.2. Unidades de medida relativas</h3>
+                    <p>Este tipo de unidades depende de otro valor de referencia. Las unidades relativas más utilizadas son:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 2. Unidades relativas</caption>
+                            <thead><tr><th>Sigla</th><th>Significado</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>em</code></th><td>Se relaciona con el tamaño de la fuente del contenedor padre al que pertenece.</td></tr>
+                                <tr><th scope="row"><code>rem</code></th><td>Se relaciona con el tamaño de la fuente raíz, que suele ser 16 px si no se indica lo contrario.</td></tr>
+                                <tr><th scope="row"><code>%</code></th><td>Relativo al elemento padre.</td></tr>
+                                <tr><th scope="row"><code>vw</code></th><td>1 % del ancho de la ventana.</td></tr>
+                                <tr><th scope="row"><code>vh</code></th><td>1 % del alto de la ventana.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Debemos tener cuidado con el uso de la unidad relativa <code>em</code>, porque al estar relacionada con el contenedor, si tenemos varios contenedores anidados y utilizamos esta unidad en todos, el aumento o disminución del tamaño estaría encadenado.</p>
+                    <p>Cuando se trabaja con móviles, se usan las medidas <code>vw</code> y <code>vh</code> para adaptar el contenido al ancho y alto de la pantalla. Las unidades que más utilizaremos serán <code>px</code>, <code>rem</code> y <code>%</code>.</p>
+                </div>
+
+                <div class="subpunto" id="subpunto-6-3">
+                    <h3>6.3. Ejemplo de unidades absolutas y relativas</h3>
+                    <p>A continuación, se muestra un ejemplo de código con el uso de unidades absolutas y relativas para el tamaño de la fuente:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    div {
+        font-size: 12px;
+        border: solid 2px red;
+        width: 400px;
+        height: 250px;
+    }
+    #p1 { font-size: 1.5em; }
+    #p2 { font-size: 2rem; }
+    #p3 { font-size: 175%; }
+&lt;/style&gt;
+&lt;div&gt;
+    Esto es un div (12px)
+    &lt;p id="p1"&gt;Primer párrafo (1.5 × 12px = 18px)&lt;/p&gt;
+    &lt;p id="p2"&gt;Segundo párrafo (2 × 16px = 32px)&lt;/p&gt;
+    &lt;p id="p3"&gt;Tercer párrafo (175 % de 12px = 21px)&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema7/figura-10.png" alt="Visualización del recuadro con texto de 12 px, 18 px, 32 px y 21 px.">
+                        <figcaption>Fig. 9. Visualización del recuadro con texto de 12 px, 18 px, 32 px y 21 px.</figcaption>
+                    </figure>
+                    <p>Al <code>&lt;div&gt;</code> se le ha aplicado un borde rojo y un tamaño de fuente de 12 px. También se le ha indicado un ancho y un alto con valores absolutos en px. En cambio, para los párrafos incluidos en el propio <code>&lt;div&gt;</code>, que es su contenedor padre, se han indicado los siguientes valores:</p>
+                    <ul>
+                        <li><strong>Párrafo 1:</strong> tamaño de fuente relativo a su padre, porque se usa <code>em</code>.</li>
+                        <li><strong>Párrafo 2:</strong> tamaño de fuente relativo a la fuente raíz, porque se usa <code>rem</code>. 16 px es el tamaño por defecto indicado en el ejemplo.</li>
+                        <li><strong>Párrafo 3:</strong> tamaño de fuente relativo a la fuente de <code>&lt;div&gt;</code>: un 175 % de 12 px, que es 21 px.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Colores</h2></div>
+                <p>Una de las primeras cosas que pensamos cuando queremos darle estilo a una página web es cambiarle el color. Para indicar el color que queremos aplicar a un elemento HTML se puede usar:</p>
+                <ul>
+                    <li><strong>Su nombre:</strong> existen nombres predefinidos asociados con los colores. Por ejemplo, <code>red</code>, <code>green</code> y <code>blue</code>. Existe un total de 140 nombres de colores.</li>
+                    <li><strong>El valor RGB:</strong> estas siglas corresponden a los colores primarios rojo (<em>red</em>), verde (<em>green</em>) y azul (<em>blue</em>). Cada color primario puede tener una intensidad entre 0 y 255. Así, <code>rgb(0, 0, 0)</code> es negro, <code>rgb(255, 255, 255)</code> es blanco y <code>rgb(255, 0, 0)</code> es rojo puro.</li>
+                    <li><strong>El valor hexadecimal:</strong> es la representación en hexadecimal de la codificación RGB. El valor <code>FF</code> corresponde con 255 y <code>00</code> con 0. Por lo tanto, el color rojo en formato hexadecimal sería <code>#FF0000</code>.</li>
+                </ul>
+                <p>Una tabla completa de los colores que se pueden utilizar, indicando su nombre, valor RGB y valor hexadecimal, puede consultarse en los recursos de referencia. Existe una herramienta muy útil que nos permite elegir los colores más adecuados para nuestra página web: Adobe Color CC. Facilita el estudio de los colores análogos, complementarios, compuestos o tonos similares. Hay que tener en cuenta que debe haber un equilibrio entre los colores elegidos en el sitio web para conseguir que visualmente sea atractivo.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-11.png" alt="Colores análogos en la rueda cromática de Adobe Color CC.">
+                    <figcaption>Fig. 10. Colores análogos en la rueda cromática de Adobe Color CC.</figcaption>
+                </figure>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Fig. 11. Ejemplos de colores en CSS</caption>
+                        <thead><tr><th>Nombre</th><th>Hexadecimal</th><th>Nombre</th><th>Hexadecimal</th></tr></thead>
+                        <tbody>
+                            <tr><td>maroon</td><td><code>#800000</code></td><td>red</td><td><code>#ff0000</code></td></tr>
+                            <tr><td>orange</td><td><code>#ffa500</code></td><td>yellow</td><td><code>#ffff00</code></td></tr>
+                            <tr><td>olive</td><td><code>#808000</code></td><td>purple</td><td><code>#800080</code></td></tr>
+                            <tr><td>fuchsia</td><td><code>#ff00ff</code></td><td>white</td><td><code>#ffffff</code></td></tr>
+                            <tr><td>lime</td><td><code>#00ff00</code></td><td>green</td><td><code>#008000</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-8">
+                <div class="titulo-punto"><span class="numero-punto">8</span><h2>Caso práctico 1: «Test sobre CSS»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto habla con Gloria y le comenta que quiere incluir en la intranet el resultado de un test que se hizo en un examen interno para ascender de programador senior a junior.</p>
+                <p><strong>Nudo:</strong> la idea que tiene Alberto es que aparezcan las preguntas con un determinado formato, la respuesta correcta en verde y el resto de respuestas en rojo. Para ello, le pide que use clases, identificadores y selectores de CSS.</p>
+                <p>Alberto necesita, también, que la primera pregunta tenga un formato diferente. Al final del test deben aparecer unas instrucciones indicando cómo se puede descargar el test. La cabecera de este listado de instrucciones debe ser diferente a las anteriores. Importante: las respuestas deben aparecer en negrita, pero no la lista de instrucciones. Para poner el texto en negrita debemos usar la propiedad <code>font-weight: bold;</code>.</p>
+                <p><strong>¿Cómo desarrollarías la solución a este planteamiento?</strong></p>
+                <p><strong>Desenlace:</strong> el código HTML-CSS completo está en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-12.png" alt="Visualización en el navegador de la solución propuesta: test CSS con preguntas, respuestas diferenciadas y bloque de instrucciones.">
+                    <figcaption>Fig. 12. Visualización en el navegador de la solución propuesta: test CSS con preguntas, respuestas diferenciadas y bloque de instrucciones.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-9">
+                <div class="titulo-punto"><span class="numero-punto">9</span><h2>Caso práctico 2: «Aplicar CSS a HTML»</h2></div>
+                <p><strong>Planteamiento:</strong> Gloria tiene que aplicar formato CSS a un documento HTML que le ha pasado Alberto.</p>
+                <p><strong>Nudo:</strong> Alberto ha comenzado a crear un documento HTML y necesita aplicarle estilos, pero no lo podrá terminar porque tiene que seguir con otro proyecto y le pide a Gloria que lo termine ella. En el propio código HTML Alberto ha indicado a qué elementos les quiere aplicar los estilos. El aspecto final que tenía hecho en un borrador se muestra en la figura 13.</p>
+                <p><strong>¿Cómo lo desarrollarías?</strong></p>
+                <p><strong>Desenlace:</strong> el código completo está en el anexo del tema.</p>
+                <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Ejercicio de selectores&lt;/title&gt;
+    &lt;style&gt;
+        /* Todos los elementos de la página */
+        * { font: 1em/1.3 Arial, Helvetica, sans-serif; }
+        /* Todos los párrafos de la página */
+        p { color: #555; }
+        /* Todos los párrafos contenidos en #primero */
+        #primero p { color: #336699; }
+        /* Todos los enlaces de la página */
+        a { color: #CC3300; }
+        /* Los elementos em contenidos en #primero */
+        #primero em { background: #FFFFCC; padding: .1em; }
+        /* Elementos em de clase especial en toda la página */
+        em.especial { background: #FFCC99; border: 1px solid #FF9900; padding: .1em; }
+        /* Elementos span contenidos en .normal */
+        .normal span { font-weight: bold; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="primero"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, &lt;a href="#"&gt;consectetuer adipiscing elit&lt;/a&gt;.
+        Praesent blandit nibh at felis. Sed nec diam in dolor vestibulum aliquet.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="normal"&gt;
+        &lt;p&gt;Phasellus eu velit sed lorem sodales egestas.
+            &lt;span class="a"&gt;Donec porttitor&lt;/span&gt;, magna eu varius luctus.
+            &lt;a href="#"&gt;Maecenas dictum&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;Cum sociis natoque &lt;em class="especial"&gt;penatibus et magnis&lt;/em&gt;
+            parturient montes, nascetur Proin aliquam convallis ante.&lt;/p&gt;
+        &lt;p&gt;Donec facilisis blandit velit. Vestibulum nisi.
+            &lt;em class="especial"&gt;Enim id iaculis congue&lt;/em&gt;,
+            orci justo ultrices tortor, &lt;a href="#"&gt;quis lacinia libero in eros&lt;/a&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p class="descripcion-codigo">Código 8. Documento HTML con los selectores CSS indicados en los comentarios, completados para aplicar los estilos.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-13.png" alt="Visualización en el navegador de la solución propuesta.">
+                    <figcaption>Fig. 13. Visualización en el navegador de la solución propuesta.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-10">
+                <div class="titulo-punto"><span class="numero-punto">10</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <p>En este tema hemos realizado una introducción a la hoja de estilos CSS indicando sus características y su sintaxis. Es muy importante conocer el uso de los selectores, porque permiten acceder de manera muy concreta a los elementos HTML a los que queremos aplicarles estilos.</p>
+                <p>Gracias a la herencia no es necesario reescribir reglas que se aplican al contenedor padre, pero hay que tener cuidado con los conflictos entre estilos.</p>
+                <p>Las unidades de medida nos permiten controlar el tamaño y la disposición en el diseño web, y los colores, el aspecto visual.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-14.png" alt="Esquema del tema: sintaxis, selectores, herencia, características, unidades de medida y colores.">
+                    <figcaption>Fig. 12. Esquema del tema: sintaxis, selectores, herencia, características, unidades de medida y colores.</figcaption>
+                </figure>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>El código completo para la solución está en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema7/figura-15.png" alt="Currículum de Pedro Martínez Maldonado con secciones de datos personales, experiencia laboral, educación y formación, idiomas, conocimientos informáticos y permisos de conducción.">
+                    <figcaption>Fig. 14. Currículum de Pedro Martínez Maldonado con secciones de datos personales, experiencia laboral, educación y formación, idiomas, conocimientos informáticos y permisos de conducción.</figcaption>
+                </figure>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 7 · Introducción a CSS</p></footer>
+    <footer><p>Tema 7 · <a class="volver" href="tema6.html">Volver al tema 6</a> · <a class="volver" href="tema8.html">Ir al tema 8</a></p></footer>
 </body>
 </html>

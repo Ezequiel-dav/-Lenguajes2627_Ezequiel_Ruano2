@@ -3,32 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 6 - HTML semántico y multimedia</title>
+    <title>Tema 6 - La web semántica. HTML5</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 6: HTML semántico y multimedia</h1>
+        <p class="etiqueta">Tema 6 · Lenguajes de Marcas</p>
+        <h1>La web semántica. HTML5</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>Etiquetas semánticas</h2>
-        <p>Las etiquetas semánticas describen la función de cada parte de una página y ayudan a organizar el documento.</p>
-        <ul>
-            <li><code>header</code>: cabecera de una página o sección.</li>
-            <li><code>nav</code>: zona con enlaces de navegación.</li>
-            <li><code>main</code>: contenido principal.</li>
-            <li><code>section</code> y <code>article</code>: contenido organizado por temas.</li>
-            <li><code>footer</code>: información final de la página.</li>
-        </ul>
-        <h2>Audio y vídeo</h2>
-        <p>HTML permite incluir archivos multimedia. El atributo <code>controls</code> muestra controles para reproducir y pausar.</p>
-        <pre class="ejemplo"><code>&lt;video controls&gt;
-    &lt;source src="video.mp4" type="video/mp4"&gt;
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Concepto de web semántica y HTML5</a>
+                    <ul><li><a href="#subpunto-2-1">2.1. Mejoras de HTML5</a></li></ul>
+                </li>
+                <li>
+                    <a href="#punto-3">3. Nuevas etiquetas</a>
+                    <ul>
+                        <li><a href="#subpunto-3-1">3.1. Etiquetas para la estructura</a></li>
+                        <li><a href="#subpunto-3-1-1">3.1.1. Cabecera</a></li>
+                        <li><a href="#subpunto-3-1-2">3.1.2. Navegación</a></li>
+                        <li><a href="#subpunto-3-1-3">3.1.3. Contenido principal</a></li>
+                        <li><a href="#subpunto-3-1-4">3.1.4. Contenido genérico</a></li>
+                        <li><a href="#subpunto-3-1-5">3.1.5. Contenido específico</a></li>
+                        <li><a href="#subpunto-3-1-6">3.1.6. Contenido independiente</a></li>
+                        <li><a href="#subpunto-3-1-7">3.1.7. Pie de página</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-4">4. Código en estructura de HTML5</a></li>
+                <li>
+                    <a href="#punto-5">5. Nuevos elementos de formulario</a>
+                    <ul>
+                        <li><a href="#subpunto-5-1">5.1. Tipos de input</a></li>
+                        <li><a href="#subpunto-5-2">5.2. Otros elementos</a></li>
+                        <li><a href="#subpunto-5-3">5.3. Ejemplo de uso</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#punto-6">6. Etiquetas multimedia</a>
+                    <ul>
+                        <li><a href="#subpunto-6-1">6.1. Etiqueta audio</a></li>
+                        <li><a href="#subpunto-6-2">6.2. Etiqueta video</a></li>
+                        <li><a href="#subpunto-6-3">6.3. Ejemplo multimedia</a></li>
+                        <li><a href="#subpunto-6-4">6.4. Etiqueta figure</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-7">7. Elementos interactivos</a></li>
+                <li><a href="#punto-8">8. Caso práctico 1: actividades formativas</a></li>
+                <li><a href="#punto-9">9. Caso práctico 2: vídeos explicativos</a></li>
+                <li><a href="#punto-10">10. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer el concepto de web semántica.</li>
+                    <li>Conocer las nuevas funcionalidades y etiquetas incluidas en HTML5.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>La web evoluciona día tras día y las tecnologías deben adaptarse a las nuevas necesidades que van apareciendo. Por ello, el lenguaje HTML ha evolucionado hasta llegar a esta quinta revisión. Esta aporta numerosas novedades que permitirán conseguir aplicaciones web cada vez más parecidas a una aplicación de escritorio.</p>
+                <p>En toda esta evolución trabaja continuamente la comunidad internacional W3C, cuya misión es guiar a la web hacia su máximo potencial. Quién sabe si en breve estaremos hablando de HTML6.</p>
+                <p>La agencia de viajes necesita mejorar el formulario creado en el tema anterior, ya que quiere incluir nuevos controles y consultas. Gloria hablará por teléfono con el responsable de la agencia para saber qué necesita exactamente.</p>
+                <p>Alberto le comenta también a Gloria que ha incluido en el blog de la empresa una entrada donde incluye una guía de HTML5 y un podcast para ayudarle en su trabajo.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-01.png" alt="Introducción.">
+                    <figcaption>Fig. 1. Introducción.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Concepto de web semántica y HTML5</h2></div>
+                <p>HTML5 es la última versión de HTML y aporta nuevas especificaciones relativas al desarrollo web. Por lo tanto, no lo podemos considerar como una simple evolución de HTML 4 que incluye nuevas etiquetas, ya que también agrupa tecnologías de apoyo complementarias.</p>
+                <p>Esta nueva versión permitirá aplicaciones web muy similares a aplicaciones de escritorio, de forma que se consigue una mejor experiencia al usarlas, pues se pretende que el uso del navegador no limite la potencia y funcionalidad de una determinada aplicación informática.</p>
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Mejoras de HTML5</h3>
+                    <p>Como se ha comentado, HTML5 no solo incorpora nuevas etiquetas y atributos en etiquetas ya existentes, sino que incluye mejoras que se pueden clasificar en los siguientes grupos:</p>
+                    <ul>
+                        <li><strong>Semántica:</strong> se dispone de nuevas etiquetas que le darán un valor semántico a la estructura de la web. De esta manera, las partes de la web se podrán agrupar en etiquetas que representen las partes principales del documento HTML.</li>
+                        <li><strong>Etiquetas multimedia:</strong> es posible incluir audio o vídeo sin tener que usar controles externos.</li>
+                        <li><strong>Gráficos 2D/3D:</strong> permite una mayor capacidad de presentación de este tipo de gráficos.</li>
+                        <li><strong>Bases de datos locales:</strong> capacidad de almacenar información localmente, lo cual permite que algunos módulos o aplicaciones web funcionen sin conexión.</li>
+                        <li><strong>Rendimiento e integración:</strong> mayor optimización de la velocidad y del uso del hardware del ordenador.</li>
+                        <li><strong>Geolocalización:</strong> permite localizar nuestra ubicación.</li>
+                        <li><strong>Arrastrar y soltar:</strong> es una funcionalidad que podremos tener en nuestras páginas web.</li>
+                        <li><strong>Desaparecen las etiquetas de presentación:</strong> en HTML5 todo el aspecto visual de la página web se tiene que realizar a través de hojas de estilo CSS, que veremos más adelante.</li>
+                    </ul>
+                    <p>No todos los navegadores soportan todas las funcionalidades de HTML5. Para comprobar la compatibilidad del navegador y consultar un informe sobre qué etiquetas se pueden usar, existe HTML5 Test. Con Can I use podremos consultar si un navegador concreto soporta una etiqueta.</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Nuevas etiquetas</h2></div>
+                <p>HTML5 hereda la gran mayoría de etiquetas que hemos visto en temas anteriores, pero aporta muchas más. Para explicarlas, las agruparemos en la siguiente clasificación:</p>
+                <ul>
+                    <li><strong>Etiquetas para la estructura del documento:</strong> nos van a permitir estructurar la página web a través de su significado semántico.</li>
+                    <li><strong>Nuevos elementos de formulario:</strong> tendremos nuevas etiquetas y atributos para los controles incluidos en el formulario.</li>
+                    <li><strong>Etiquetas multimedia:</strong> podremos integrar contenido incrustado gracias principalmente a las etiquetas <code>&lt;audio&gt;</code> y <code>&lt;video&gt;</code>.</li>
+                    <li><strong>Elementos interactivos:</strong> permitirán interactuar con algunos elementos HTML para generar efectos interesantes.</li>
+                </ul>
+
+                <p>Cuando se trabaje con HTML5 hay que indicarlo en el tipo de documento (DOCTYPE). Todo documento HTML5 debe comenzar con la siguiente línea de código, que se ha simplificado mucho con respecto a otros tipos de documento, como HTML4 o XHTML 1.0:</p>
+                <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+                <div class="subpunto" id="subpunto-3-1">
+                    <h3>3.1. Etiquetas para la estructura del documento</h3>
+                    <p>En HTML4, cuando se quería dividir el documento en secciones, teníamos que usar la etiqueta <code>&lt;div&gt;</code> y no era posible utilizar otra etiqueta. Por lo tanto, nos veíamos muy limitados a la hora de dar significado a contenidos agrupados.</p>
+                    <p>Con HTML5 podremos dividir el documento HTML tal y como se muestra en la siguiente figura. Todas estas etiquetas las usaremos dentro de <code>&lt;body&gt;</code> y, a su vez, podemos incluir todos los elementos HTML que hemos visto en temas anteriores.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema6/figura-02.png" alt="Estructura típica de un documento HTML5: header, nav, main, section, article, aside y footer.">
+                        <figcaption>Fig. 2. Estructura típica de un documento HTML5: header, nav, main, section, article, aside y footer.</figcaption>
+                    </figure>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema6/figura-03.png" alt="Ejemplo visual en el navegador: cabecera, navegación, contenido principal, secciones, artículos, aside y pie.">
+                        <figcaption>Fig. 3. Ejemplo visual en el navegador: cabecera, navegación, contenido principal, secciones, artículos, aside y pie.</figcaption>
+                    </figure>
+
+                    <div class="subpunto" id="subpunto-3-1-1">
+                        <h4>3.1.1. Cabecera (&lt;header&gt;)</h4>
+                        <p>Normalmente se ubica al principio de la página. No debemos confundir esta etiqueta con la cabecera principal del documento HTML, que indicamos con la etiqueta <code>&lt;head&gt;</code> y que se encuentra al principio de nuestra página web.</p>
+                        <p>Dentro de esta etiqueta se colocará el contenido que queremos dedicar a la cabecera del documento, como puede ser el logo de la empresa, el nombre, el eslogan o la navegación. El encabezado también se puede utilizar dentro de otros elementos semánticos, como la cabecera de una sección, aportando datos sobre esa parte del documento. En este caso su ubicación no es el principio de la página.</p>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-2">
+                        <h4>3.1.2. Navegación (&lt;nav&gt;)</h4>
+                        <p>Define la parte del documento donde tendremos los enlaces que nos van a permitir acceder a los diferentes apartados del documento HTML. Normalmente se asocia con el menú superior que podemos ver en numerosas páginas web.</p>
+                        <p>Al igual que ocurre con la etiqueta <code>&lt;header&gt;</code>, también podremos disponer de esta etiqueta en otras partes del documento HTML, por ejemplo, en un menú que tengamos en el pie de página o en un lateral.</p>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-3">
+                        <h4>3.1.3. Contenido principal (&lt;main&gt;)</h4>
+                        <p>Dentro de esta etiqueta tenemos el contenido principal de nuestra página. Tiene las siguientes características:</p>
+                        <ul>
+                            <li>Es única en la página. No se puede repetir.</li>
+                            <li>No puede formar parte de otra capa.</li>
+                            <li>Contendrá el contenido que varía de una página a otra. Normalmente, el resto de etiquetas semánticas se repiten en todas las páginas de nuestro sitio web.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-4">
+                        <h4>3.1.4. Contenido genérico (&lt;section&gt;)</h4>
+                        <p>El contenido que incluyamos en esta etiqueta serán secciones de información similares. Por ejemplo, si tenemos un blog sobre deportes, podremos crear una sección de baloncesto, otra de fútbol y otra de ciclismo.</p>
+                        <p>Las etiquetas <code>&lt;section&gt;</code> se pueden repetir en nuestra página y pueden contener, a su vez, otras cajas <code>&lt;div&gt;</code> o <code>&lt;article&gt;</code>.</p>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-5">
+                        <h4>3.1.5. Contenido específico (&lt;article&gt;)</h4>
+                        <p>Su objetivo también es albergar contenido de nuestra página web. Muestra información más concreta y suele tener un carácter autónomo. Normalmente se incluye dentro de la etiqueta <code>&lt;section&gt;</code>. Siguiendo con el ejemplo anterior, podríamos tener uno o varios artículos relacionados con la sección de fútbol.</p>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-6">
+                        <h4>3.1.6. Contenido independiente (&lt;aside&gt;)</h4>
+                        <p>Es la parte de la web donde vamos a mostrar un contenido secundario que es independiente del contenido principal. Suele mostrar información como un anuncio, un calendario o publicidad. Casi siempre se ubica en un lateral de la web.</p>
+                    </div>
+
+                    <div class="subpunto" id="subpunto-3-1-7">
+                        <h4>3.1.7. Pie de página (&lt;footer&gt;)</h4>
+                        <p>Dentro de esta etiqueta generalmente se indica el copyright, el autor, la fecha, las redes sociales, el contacto, etc.</p>
+                        <p>El <code>&lt;footer&gt;</code> no es propio de la página web en su conjunto, dado que también podríamos tener un pie de página en una sección donde mostrar la fecha de creación, el autor, etc.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Código en estructura de HTML5</h2></div>
+                <p>La distribución de los bloques mostrados en la figura 3 no es la más habitual: el bloque de publicidad suele estar a la derecha, el menú a la derecha o centrado, los artículos uno al lado del otro, etc. Para colocar cada una de esas cajas en su lugar usaremos CSS. Para entender la distribución del contenido en HTML5, este código muestra una estructura posible:</p>
+                <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Estructura HTML5&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Cabecera --&gt;
+    &lt;header&gt;
+        &lt;h1&gt;TÍTULO PÁGINA WEB&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="seccion1.html"&gt;SECCIÓN 1&lt;/a&gt;
+            &lt;a href="seccion2.html"&gt;SECCIÓN 2&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;SECCIÓN&lt;/h2&gt;
+            &lt;article&gt;
+                &lt;h3&gt;PRIMER ARTÍCULO de la sección única&lt;/h3&gt;
+                &lt;p&gt;Este es el contenido del primer artículo&lt;/p&gt;
+                &lt;div&gt;
+                    &lt;p&gt;Una imagen.&lt;/p&gt;
+                    &lt;img src="html5.png" alt="Icono HTML5" width="100" height="100"&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;h3&gt;SEGUNDO ARTÍCULO de la sección única&lt;/h3&gt;
+                &lt;p&gt;Este es el contenido del segundo artículo&lt;/p&gt;
+                &lt;div&gt;
+                    &lt;p&gt;Otra imagen.&lt;/p&gt;
+                    &lt;img src="css3.png" alt="Icono CSS3" width="100" height="100"&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+        &lt;aside&gt;
+            &lt;h3&gt;Publicidad&lt;/h3&gt;
+            &lt;a href="https://www.diariosur.es"&gt;
+                &lt;img src="diariosur.png" alt="Publicidad"&gt;
+            &lt;/a&gt;
+            &lt;h3&gt;Fecha actual&lt;/h3&gt;
+            &lt;p&gt;Hoy es 30/05/2020.&lt;/p&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;h4&gt;Avisos legales&lt;/h4&gt;
+        &lt;a href="cookies.html"&gt;Política de cookies&lt;/a&gt;
+        &lt;h4&gt;Redes sociales&lt;/h4&gt;
+        &lt;a href="mitwitter.html"&gt;Conecta con mi Twitter&lt;/a&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p class="descripcion-codigo">Código 1 y Código 2. Código HTML con estructura HTML5.</p>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Nuevos elementos de formulario</h2></div>
+                <p>La especificación HTML5 nos va a permitir incluir nuevos controles en nuestro formulario. A continuación se muestran algunos de los más importantes.</p>
+
+                <div class="subpunto" id="subpunto-5-1">
+                    <h3>5.1. Tipos de input</h3>
+                    <p>En la siguiente tabla se muestran algunos de los nuevos tipos de <code>&lt;input&gt;</code>:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 1. Tipos de input</caption>
+                            <thead><tr><th>Control</th><th>Función</th><th>Atributo</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row">email</th><td>No se va a permitir enviar el formulario si la dirección de correo electrónico no es correcta.</td><td><code>type="email"</code></td></tr>
+                                <tr><th scope="row">url</th><td>No se va a permitir enviar el formulario si la dirección URL no es correcta.</td><td><code>type="url"</code></td></tr>
+                                <tr><th scope="row">fecha</th><td>Muestra un calendario para elegir fecha.</td><td><code>type="date"</code></td></tr>
+                                <tr><th scope="row">hora</th><td>Permite introducir una hora en formato de 24 horas.</td><td><code>type="time"</code></td></tr>
+                                <tr><th scope="row">fecha y hora</th><td>Combina fecha y hora.</td><td><code>type="datetime-local"</code></td></tr>
+                                <tr><th scope="row">número</th><td>Comprueba que el dato introducido sea un número.</td><td><code>type="number"</code></td></tr>
+                                <tr><th scope="row">rango</th><td>Muestra un control deslizante que nos permitirá elegir un valor.</td><td><code>type="range"</code></td></tr>
+                                <tr><th scope="row">color</th><td>Permite elegir un color de una paleta.</td><td><code>type="color"</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>El material de referencia menciona <code>type="datetime"</code>; para seleccionar una fecha y hora local en formularios actuales se utiliza <code>datetime-local</code>.</p>
+                    <p>Los elementos <code>input</code> también tienen nuevos atributos que controlan su funcionamiento:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 2. Atributos asociados a los nuevos controles</caption>
+                            <thead><tr><th>Atributo</th><th>Función</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row"><code>placeholder</code></th><td>Texto de ayuda en el propio campo, que desaparece cuando empezamos a escribir.</td></tr>
+                                <tr><th scope="row"><code>multiple</code></th><td>El campo admite varios valores.</td></tr>
+                                <tr><th scope="row"><code>autocomplete</code></th><td>Permite el autocompletado de algunos campos.</td></tr>
+                                <tr><th scope="row"><code>min</code> y <code>max</code></th><td>Controlan que un valor numérico esté limitado al mínimo y máximo indicados.</td></tr>
+                                <tr><th scope="row"><code>step</code></th><td>Controla el incremento del aumento o disminución de un valor numérico.</td></tr>
+                                <tr><th scope="row"><code>pattern</code></th><td>Limita el contenido introducido al patrón indicado. Suele utilizar expresiones regulares.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-2">
+                    <h3>5.2. Otros elementos</h3>
+                    <p>Además de los nuevos tipos de <code>input</code>, también se han añadido nuevos elementos de formulario:</p>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-tema">
+                            <caption>Tabla 3. Elementos de progreso y medida</caption>
+                            <thead><tr><th>Control</th><th>Etiqueta</th><th>Función</th><th>Atributos</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row">Progreso</th><td><code>&lt;progress&gt;</code></td><td>Representa el progreso de una determinada tarea, como descargas o ejecuciones.</td><td><code>max</code>: valor máximo; <code>value</code>: valor actual.</td></tr>
+                                <tr><th scope="row">Medida</th><td><code>&lt;meter&gt;</code></td><td>Similar al anterior, pero con más opciones.</td><td>—</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-3">
+                    <h3>5.3. Ejemplo de uso de los nuevos elementos de formulario</h3>
+                    <p>El formulario del tema anterior se ha mejorado añadiendo:</p>
+                    <ul>
+                        <li>Texto de ayuda con el nombre.</li>
+                        <li>Campo de tipo correo.</li>
+                        <li>Limitación del número de hijos entre 0 y 5.</li>
+                        <li>Rango de sueldo entre 1000 € y 2000 € y elección de color.</li>
+                        <li>Un patrón para la matrícula: cuatro números y tres letras, por ejemplo, 6732KPC.</li>
+                        <li>Progreso del proyecto: el valor total es de 100 % y se ha conseguido el 35 %.</li>
+                    </ul>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema6/figura-04.png" alt="Formulario con nuevos controles HTML5 en el navegador.">
+                        <figcaption>Fig. 4. Formulario con nuevos controles HTML5 en el navegador.</figcaption>
+                    </figure>
+                    <p>Este fragmento muestra el inicio de la estructura del formulario:</p>
+                    <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Datos personales&lt;/legend&gt;
+        &lt;p&gt;Fecha: &lt;input type="date" name="fecha"&gt;&lt;/p&gt;
+        &lt;p&gt;Nombre:
+            &lt;input type="text" name="nombre" size="45"
+                   placeholder="Indica nombre completo"&gt;
+        &lt;/p&gt;
+        &lt;p&gt;Edad: &lt;input type="number" name="edad" min="0"&gt;&lt;/p&gt;
+        &lt;p&gt;Correo: &lt;input type="email" name="correo"&gt;&lt;/p&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Datos de interés&lt;/legend&gt;
+        &lt;p&gt;Matrícula:
+            &lt;input type="text" name="matricula"
+                   pattern="[0-9]{4}[A-Z]{3}"&gt;
+        &lt;/p&gt;
+        &lt;label&gt;Progreso del proyecto:
+            &lt;progress value="35" max="100"&gt;35%&lt;/progress&gt;
+        &lt;/label&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+
+                </div>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Etiquetas multimedia</h2></div>
+                <p>En el tema anterior vimos que con el contenido incrustado podíamos incluir imágenes o iframes. Sin embargo, a la hora de incluir vídeos o audios no teníamos una etiqueta específica para ello y teníamos que acudir a complementos externos.</p>
+                <p>En HTML5 esto se soluciona mediante la inclusión de nuevas etiquetas que integran este tipo de contenidos de manera muy fácil.</p>
+
+                <div class="subpunto" id="subpunto-6-1">
+                    <h3>6.1. Etiqueta audio</h3>
+                    <p>Con esta etiqueta podremos incluir audio en nuestra página web. La etiqueta a utilizar sería <code>&lt;audio&gt;</code> y tiene los siguientes atributos:</p>
+                    <ul>
+                        <li><code>controls</code>: indica si se ha de mostrar una barra de control de la reproducción del audio (play, stop, etc.).</li>
+                        <li><code>loop</code>: indica si al acabar el audio debe comenzar de nuevo.</li>
+                        <li><code>preload</code>: indica si el audio se precarga con la carga de la página o se carga al darle a reproducir.</li>
+                    </ul>
+                    <p>Dentro de la etiqueta <code>&lt;audio&gt;</code> podemos tener la etiqueta <code>&lt;source&gt;</code>, que nos va a permitir indicar los diferentes formatos del audio. Esta tiene el atributo <code>src</code>, donde se indica la ubicación del fichero. Puede estar en local o ser una dirección de Internet.</p>
+                    <p>En la web se utilizan mayoritariamente los formatos MP3 y Ogg. Debido a que no todos los navegadores son compatibles con estos formatos, habría que incluir ambos para garantizar su reproducción.</p>
+                </div>
+
+                <div class="subpunto" id="subpunto-6-2">
+                    <h3>6.2. Etiqueta video</h3>
+                    <p>Con esta etiqueta podremos incluir vídeo en nuestra página web. La etiqueta que tendremos que usar es <code>&lt;video&gt;</code>, que utiliza las mismas etiquetas y atributos que <code>&lt;audio&gt;</code>, pero también incluye los siguientes atributos:</p>
+                    <ul>
+                        <li><code>width</code> y <code>height</code>: configuran el ancho y el alto del vídeo.</li>
+                        <li><code>autoplay</code>: indica si comienza al cargar la página o no.</li>
+                        <li><code>muted</code>: indica si el audio se reproduce o no.</li>
+                        <li><code>poster</code>: indica el fotograma inicial del vídeo.</li>
+                    </ul>
+                    <p>En la web se utilizan formatos como MP4, Ogg y WebM. Como no todos los navegadores son compatibles con los mismos formatos, habrá que incluir varias fuentes con la etiqueta <code>&lt;source&gt;</code> para intentar garantizar la reproducción.</p>
+                </div>
+
+                <div class="subpunto" id="subpunto-6-3">
+                    <h3>6.3. Ejemplo de uso de etiquetas multimedia</h3>
+                    <pre class="bloque-codigo"><code>&lt;h1&gt;Audio del mar&lt;/h1&gt;
+&lt;audio controls preload="metadata" loop&gt;
+    &lt;source src="mar.mp3" type="audio/mpeg"&gt;
+    &lt;source src="mar.ogg" type="audio/ogg"&gt;
+    El navegador no admite audio HTML5.
+&lt;/audio&gt;
+
+&lt;h1&gt;Vídeo de Big Buck Bunny&lt;/h1&gt;
+&lt;video width="384" height="288" controls
+       preload="metadata" loop poster="portada.jpg"&gt;
+    &lt;source src="bunny.ogv" type="video/ogg"&gt;
+    &lt;source src="bunny.webm" type="video/webm"&gt;
+    El navegador no admite vídeo HTML5.
 &lt;/video&gt;</code></pre>
-        <p>Es importante ofrecer alternativas accesibles, como subtítulos en los vídeos.</p>
-        <p><a class="volver" href="tema7.html">Ir al tema 7: Introducción a CSS</a></p>
+                    <p class="descripcion-codigo">Código 3. Código HTML de las etiquetas audio y video.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema6/figura-05.png" alt="Reproductores de audio «Audio del mar» y vídeo «Big Buck Bunny» en el navegador.">
+                        <figcaption>Fig. 5. Reproductores de audio «Audio del mar» y vídeo «Big Buck Bunny» en el navegador.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-6-4">
+                    <h3>6.4. Etiqueta figure</h3>
+                    <p>Con esta etiqueta podemos incluir una descripción de una imagen, que se va a mostrar en el navegador. La etiqueta que hay que utilizar es <code>&lt;figure&gt;</code> y debe contener estas otras etiquetas:</p>
+                    <ul>
+                        <li><code>&lt;img&gt;</code>: indica la imagen a mostrar.</li>
+                        <li><code>&lt;figcaption&gt;</code>: proporciona la descripción de la imagen.</li>
+                    </ul>
+                    <pre class="bloque-codigo"><code>&lt;figure&gt;
+    &lt;img src="portada.jpg" alt="Portada del vídeo"
+         width="150" height="150"&gt;
+    &lt;figcaption&gt;Fig. 1 - Portada&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 4. Código HTML de la etiqueta figure.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema6/figura-06.png" alt="Imagen con su pie de foto «Fig. 1 - Portada».">
+                        <figcaption>Fig. 6. Imagen con su pie de foto «Fig. 1 - Portada».</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Elementos interactivos</h2></div>
+                <p>HTML5 incluye algunas etiquetas que nos permiten cierta interactividad con los elementos HTML. Entre esas etiquetas se encuentra <code>&lt;details&gt;</code>, que nos permitirá ocultar parte de nuestra página web y volverá a ser visible cuando pinchemos en un icono que representa al elemento.</p>
+                <p>Dentro de la etiqueta <code>&lt;details&gt;</code> se incluye la etiqueta <code>&lt;summary&gt;</code>. El contenido que se indique en <code>&lt;summary&gt;</code> es lo que se muestra inicialmente, y el resto de contenido que se incluya en <code>&lt;details&gt;</code> es lo que se oculta hasta que pulsemos en el icono.</p>
+                <pre class="bloque-codigo"><code>&lt;h1&gt;Test HTML&lt;/h1&gt;
+&lt;details&gt;
+    &lt;summary&gt;¿Qué etiqueta utilizamos para las imágenes?&lt;/summary&gt;
+    &lt;p&gt;La etiqueta &amp;lt;img&amp;gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;br&gt;
+&lt;details open&gt;
+    &lt;summary&gt;¿Qué etiqueta utilizamos para los enlaces?&lt;/summary&gt;
+    &lt;p&gt;La etiqueta &amp;lt;a&amp;gt;&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-07.png" alt="Visualización de los elementos details en el navegador; una pregunta está desplegada.">
+                    <figcaption>Fig. 7. Visualización de los elementos details en el navegador; una pregunta está desplegada.</figcaption>
+                </figure>
+                <p>En el ejemplo, se ha abierto la segunda pregunta y por eso se visualiza la respuesta. La etiqueta <code>&lt;details&gt;</code> tiene un atributo <code>open</code> que, al incluirse, muestra visible el contenido al cargar la página, aunque después podamos ocultarlo.</p>
+                <p>En el código se han incluido las entidades HTML <code>&amp;lt;</code> y <code>&amp;gt;</code>, que representan los caracteres <code>&lt;</code> y <code>&gt;</code>, respectivamente. Al ser caracteres reservados del lenguaje, si los queremos incluir en el contenido se debe hacer a través de entidades HTML.</p>
+
+            </section>
+
+            <section class="punto" id="punto-8">
+                <div class="titulo-punto"><span class="numero-punto">8</span><h2>Caso práctico 1: «Actividades formativas»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto ha pensado que quiere incluir un apartado de preguntas frecuentes en la intranet de la empresa, y habla con Gloria para hacerlo.</p>
+                <p><strong>Nudo:</strong> Alberto llama a Gloria y le comenta su idea. Ha pensado que la etiqueta ideal sería <code>&lt;details&gt;</code>. De esta manera, el sumario sería la pregunta frecuente y el contenido sería la respuesta.</p>
+                <p>A Gloria le gusta mucho la idea y se pone a ello. Alberto le comenta que él hará las preguntas sobre el correo electrónico y que ella las haga sobre el uso de la impresora.</p>
+                <p><strong>Desenlace:</strong> en la siguiente figura puedes ver una representación de lo que visualizaría el navegador. El código HTML lo encontrarás en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-08.png" alt="Preguntas frecuentes sobre la impresora, con preguntas desplegables y una imagen.">
+                    <figcaption>Fig. 8. Preguntas frecuentes sobre la impresora, con preguntas desplegables y una imagen.</figcaption>
+                </figure>
+                <p><strong>Solución completa del código:</strong> anexo del tema.</p>
+            </section>
+
+            <section class="punto" id="punto-9">
+                <div class="titulo-punto"><span class="numero-punto">9</span><h2>Caso práctico 2: «Vídeos explicativos»</h2></div>
+                <p><strong>Planteamiento:</strong> Gloria ha terminado las preguntas frecuentes, pero ha pensado incluir una última pregunta.</p>
+                <p><strong>Nudo:</strong> ha detectado que le preguntan con mucha frecuencia cómo usar las funciones de las impresoras, y ha pensado incluir un apartado con algunos vídeos.</p>
+                <p><strong>Desenlace:</strong> Gloria busca vídeos en YouTube para añadir demostraciones de cómo imprimir una página de prueba en las impresoras HP y Epson. Empieza a utilizar la etiqueta <code>&lt;video&gt;</code> y pensaba incluir en <code>src</code> la dirección web de YouTube. Sin embargo, le da problemas de permiso, incompatibilidad con el navegador, etc.</p>
+                <p>Por este motivo, investiga un poco y ve que en los vídeos de YouTube, en el apartado de «Compartir», se ofrece un código con la etiqueta <code>&lt;iframe&gt;</code>. Copia este código y lo utiliza en sus preguntas frecuentes.</p>
+                <p>En la siguiente figura puedes ver una representación de lo que visualizaría el navegador. El código HTML lo encontrarás en el anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-09.png" alt="Preguntas frecuentes con vídeos incrustados de YouTube para las impresoras HP y Epson.">
+                    <figcaption>Fig. 9. Preguntas frecuentes con vídeos incrustados de YouTube para las impresoras HP y Epson.</figcaption>
+                </figure>
+                <p><strong>Solución completa del código:</strong> anexo del tema.</p>
+            </section>
+
+            <section class="punto" id="punto-10">
+                <div class="titulo-punto"><span class="numero-punto">10</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-10.png" alt="Esquema resumen de HTML5: estructura semántica, nuevos controles de formulario, etiquetas multimedia y elementos interactivos.">
+                    <figcaption>Fig. 10. Esquema resumen de HTML5: estructura semántica, nuevos controles de formulario, etiquetas multimedia y elementos interactivos.</figcaption>
+                </figure>
+                <p>En este tema hemos visto las peculiaridades de HTML5 y cómo ofrece numerosas funcionalidades nuevas: etiquetas para la estructura semántica del documento HTML, nuevos controles para los formularios, inclusión directa de elementos multimedia y elementos interactivos.</p>
+                <p>Es importante indicar que HTML5 sigue en evolución y que los navegadores se van adaptando poco a poco. Por este motivo, es importante saber si una determinada etiqueta nueva se puede usar en los navegadores más populares.</p>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>En la siguiente figura puedes ver una representación de lo que visualizaría el navegador tras incluir los nuevos controles que la agencia de viajes Sol y Mar necesitaba añadir en su formulario.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema6/figura-11.png" alt="Formulario actualizado de Sol y Mar con fecha, rango de precios, color del regalo y grado de ocupación.">
+                    <figcaption>Fig. 11. Formulario actualizado de Sol y Mar con fecha, rango de precios, color del regalo y grado de ocupación.</figcaption>
+                </figure>
+                <p>El código completo lo encontrarás en el anexo del tema.</p>
+                <p><strong>Solución completa del código:</strong> anexo del tema.</p>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 6 · HTML semántico y multimedia</p></footer>
+    <footer><p>Tema 6 · <a class="volver" href="tema5.html">Volver al tema 5</a> · <a class="volver" href="tema7.html">Ir al tema 7</a></p></footer>
 </body>
 </html>

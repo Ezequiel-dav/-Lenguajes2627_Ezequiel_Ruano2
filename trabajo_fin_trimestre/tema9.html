@@ -3,33 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 9 - Flexbox y Grid</title>
+    <title>Tema 9 - Disposición de los elementos HTML. CSS3</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="temas.css">
 </head>
 <body>
     <header>
-        <h1>Tema 9: Flexbox y Grid</h1>
+        <p class="etiqueta">Tema 9 · Lenguajes de Marcas</p>
+        <h1>Disposición de los elementos HTML. CSS3</h1>
+        <p>Lenguajes de marcas y sistemas de gestión de información</p>
     </header>
     <nav><a href="index.html">Volver al índice</a></nav>
-    <main>
-        <h2>Flexbox</h2>
-        <p>Flexbox permite distribuir elementos en una fila o una columna. Se activa con <code>display: flex</code>.</p>
-        <pre class="ejemplo"><code>.contenedor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    <main class="tema-layout">
+        <aside class="indice-tema" aria-label="Contenido del tema">
+            <h2>En este tema</h2>
+            <ol>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#punto-1">1. Introducción y contextualización práctica</a></li>
+                <li>
+                    <a href="#punto-2">2. Disposición de los elementos</a>
+                    <ul><li><a href="#subpunto-2-1">2.1. Ejemplo de disposición</a></li></ul>
+                </li>
+                <li><a href="#punto-3">3. Posicionamiento flotante</a></li>
+                <li><a href="#punto-4">4. Caso práctico 1: menú horizontal</a></li>
+                <li>
+                    <a href="#punto-5">5. Propiedades CSS3</a>
+                    <ul>
+                        <li><a href="#subpunto-5-1">5.1. Bordes redondeados</a></li>
+                        <li><a href="#subpunto-5-2">5.2. Sombras</a></li>
+                        <li><a href="#subpunto-5-3">5.3. Opacidad</a></li>
+                        <li><a href="#subpunto-5-4">5.4. Gradientes</a></li>
+                        <li><a href="#subpunto-5-5">5.5. Fuentes web</a></li>
+                        <li><a href="#subpunto-5-6">5.6. Multicolumnas</a></li>
+                        <li><a href="#subpunto-5-7">5.7. Transformaciones, transiciones y animaciones</a></li>
+                        <li><a href="#subpunto-5-8">5.8. Ejemplo de propiedades CSS3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#punto-6">6. Caso práctico 2: viajes más frecuentes</a></li>
+                <li><a href="#punto-7">7. Resumen y resolución del caso práctico</a></li>
+
+            </ol>
+        </aside>
+
+        <article class="contenido-tema">
+            <section class="objetivos" id="objetivos">
+                <div class="titulo-punto">
+                    <span class="numero-punto" aria-hidden="true">★</span>
+                    <h2>Objetivos</h2>
+                </div>
+                <ul>
+                    <li>Conocer los diferentes métodos para posicionar elementos HTML en la página web.</li>
+                    <li>Conocer algunas propiedades CSS3.</li>
+                </ul>
+            </section>
+
+            <section class="punto" id="punto-1">
+                <div class="titulo-punto"><span class="numero-punto">1</span><h2>Introducción y contextualización práctica</h2></div>
+                <p>En temas anteriores hemos detallado la sintaxis CSS. También hemos visto los diferentes selectores y las propiedades más importantes que se pueden utilizar en las reglas CSS.</p>
+                <p>En este tema trataremos el último bloque de propiedades relacionado con la manera en la que podemos ubicar los párrafos, las imágenes o las tablas, pero sin seguir la colocación por defecto que tienen estos elementos.</p>
+                <p>Las propiedades CSS3 complementan las propiedades básicas de versiones anteriores y dotan, asimismo, de una mayor versatilidad a las páginas web.</p>
+                <p>Alberto está muy preocupado por la situación del COVID-19 y quiere incluir un banner con información sobre el uso de la mascarilla en la web de la empresa WebMalagaDesign.</p>
+
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-01.png" alt="Banner informativo sobre el uso obligatorio de la mascarilla, con información, ilustración y secciones de recomendaciones y excepciones.">
+                    <figcaption>Fig. 1. Banner informativo sobre el uso obligatorio de la mascarilla, con información, ilustración y secciones de recomendaciones y excepciones.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="punto" id="punto-2">
+                <div class="titulo-punto"><span class="numero-punto">2</span><h2>Disposición de los elementos</h2></div>
+                <p>Uno de los aspectos fundamentales de CSS es la colocación de los elementos HTML en la página. Como hemos visto en temas anteriores, los elementos se pueden dividir en elementos en línea y elementos en bloque.</p>
+                <p>Por defecto, los elementos en línea aparecerán de izquierda a derecha, mientras que los elementos en bloque se visualizarán de arriba abajo.</p>
+                <p>La propiedad <code>position</code> nos permitirá cambiar la posición de los elementos HTML a lo largo de la página. Los valores que puede tener esta propiedad son:</p>
+                <ul>
+                    <li><code>static</code>: utiliza el orden por defecto.</li>
+                    <li><code>relative</code>: se puede desplazar el elemento respecto a su posición estática original.</li>
+                    <li><code>absolute</code>: se puede desplazar el elemento respecto a su contenedor de referencia posicionado más cercano.</li>
+                    <li><code>fixed</code>: se comporta como un elemento posicionado respecto a la ventana; si hacemos scroll en la página, permanece fijo. Este valor es útil, por ejemplo, para fijar un menú en la parte superior.</li>
+                </ul>
+                <p>Cuando indicamos un posicionamiento diferente al estático debemos especificar qué desplazamiento queremos aplicar. Para ello contamos con las siguientes propiedades, que pueden tener valores positivos o negativos:</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 1. Posicionamiento del elemento HTML</caption>
+                        <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><code>top</code></th><td>Espacio en la parte superior del elemento.</td><td><code>auto</code> o tamaño.</td></tr>
+                            <tr><th scope="row"><code>bottom</code></th><td>Espacio en la parte inferior del elemento.</td><td><code>auto</code> o tamaño.</td></tr>
+                            <tr><th scope="row"><code>left</code></th><td>Espacio en la parte izquierda del elemento.</td><td><code>auto</code> o tamaño.</td></tr>
+                            <tr><th scope="row"><code>right</code></th><td>Espacio en la parte derecha del elemento.</td><td><code>auto</code> o tamaño.</td></tr>
+                            <tr><th scope="row"><code>z-index</code></th><td>Indica el orden en el apilamiento.</td><td><code>auto</code> u orden numérico.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Cuando tenemos varios elementos apilados, con la propiedad <code>z-index</code> podemos indicar en qué orden se deben mostrar. Así, dentro del mismo contexto de apilamiento, el elemento que tenga un valor mayor aparecerá por delante.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-02.png" alt="Tres capas superpuestas ordenadas con z-index: 15, 5 y -10.">
+                    <figcaption>Fig. 2. Tres capas superpuestas ordenadas con z-index: 15, 5 y -10.</figcaption>
+                </figure>
+
+
+                <div class="subpunto" id="subpunto-2-1">
+                    <h3>2.1. Ejemplo de disposición de los elementos</h3>
+                    <p>En el siguiente ejemplo se muestra la disposición de diferentes elementos mediante el uso de las propiedades que hemos visto:</p>
+                    <pre class="bloque-codigo"><code>&lt;style&gt;
+    * { box-sizing: border-box; }
+    p {
+        border: solid 4px blue;
+        width: 100px;
+        height: 100px;
+        padding: 25px;
+        font-weight: bold;
+    }
+    #p1 { background-color: cyan; }
+    #p2 {
+        background-color: yellow;
+        position: relative;
+        top: 10px;
+        left: 30px;
+    }
+    #p3 {
+        background-color: green;
+        position: absolute;
+        top: 200px;
+        left: 85px;
+        z-index: -3;
+    }
+    #p4 {
+        background-color: orange;
+        position: relative;
+        top: -45px;
+    }
+&lt;/style&gt;
+&lt;p id="p1"&gt;Caja 1&lt;/p&gt;
+&lt;p id="p2"&gt;Caja 2&lt;/p&gt;
+&lt;p id="p3"&gt;Caja 3&lt;/p&gt;
+&lt;p id="p4"&gt;Caja 4&lt;/p&gt;</code></pre>
+                    <p class="descripcion-codigo">Código 1. Uso de la propiedad position.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-03.png" alt="Cajas posicionadas: Caja 1 cian; Caja 2 amarilla desplazada; Caja 4 naranja superpuesta; Caja 3 verde detrás por su z-index.">
+                        <figcaption>Fig. 3. Cajas posicionadas: Caja 1 cian; Caja 2 amarilla desplazada; Caja 4 naranja superpuesta; Caja 3 verde detrás por su z-index.</figcaption>
+                    </figure>
+                    <p>En el código 1, como al párrafo le hemos indicado un <code>z-index</code> de <code>-3</code>, aparecerá detrás de las demás cajas que se encuentren en el mismo contexto de apilamiento.</p>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-3">
+                <div class="titulo-punto"><span class="numero-punto">3</span><h2>Posicionamiento flotante</h2></div>
+                <p>Existe un tipo de posicionamiento especial que nos va a permitir sacar los elementos HTML del flujo normal y conseguir, además, que el resto de elementos que los rodean fluyan a izquierda o derecha. Para ello se utilizan las propiedades <code>float</code> y <code>clear</code>.</p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-tema">
+                        <caption>Tabla 2. Posicionamiento flotante</caption>
+                        <thead><tr><th>Propiedad</th><th>Significado</th><th>Valores</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row"><code>float</code></th><td>El elemento flota a la izquierda o a la derecha.</td><td><code>none</code>, <code>left</code>, <code>right</code></td></tr>
+                            <tr><th scope="row"><code>clear</code></th><td>No permite que los elementos floten en la orientación indicada.</td><td><code>none</code>, <code>left</code>, <code>right</code>, <code>both</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>En el siguiente ejemplo veremos mejor su funcionamiento:</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    * { box-sizing: border-box; }
+    p {
+        border: solid 4px blue;
+        width: 150px;
+        height: 50px;
+        padding: 10px;
+        font-weight: bold;
+        float: left;
+        margin: 10px;
+    }
+    #p1 { background-color: cyan; }
+    #p2 { background-color: yellow; }
+    #p3 { background-color: green; }
+    #p4 {
+        background-color: orange;
+        clear: both;
+    }
+&lt;/style&gt;
+&lt;p id="p1"&gt;Caja 1&lt;/p&gt;
+&lt;p id="p2"&gt;Caja 2&lt;/p&gt;
+&lt;p id="p3"&gt;Caja 3&lt;/p&gt;
+&lt;p id="p4"&gt;Caja 4&lt;/p&gt;</code></pre>
+                <p class="descripcion-codigo">Código 2. Uso de float y clear.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-04.png" alt="Las cajas 1, 2 y 3 flotan a la izquierda; Caja 4 pasa a otra línea por clear: both.">
+                    <figcaption>Fig. 4. Las cajas 1, 2 y 3 flotan a la izquierda; Caja 4 pasa a otra línea por clear: both.</figcaption>
+                </figure>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-05.png" alt="Al reducir la ventana, las cajas flotantes se acomodan en nuevas filas.">
+                    <figcaption>Fig. 5. Al reducir la ventana, las cajas flotantes se acomodan en nuevas filas.</figcaption>
+                </figure>
+                <p>En la primera visualización, las cajas se alinean a la izquierda (<code>float: left</code>) hasta llegar a la caja 4, que no permite que los elementos fluyan a su alrededor (<code>clear: both</code>) y pasa a formar parte de otra línea. Si las cajas flotan a la derecha, se colocarán a la derecha siempre que haya espacio. Al reducir la ventana, las cajas que ya no caben pasan a otra línea.</p>
+
+            </section>
+
+            <section class="punto" id="punto-4">
+                <div class="titulo-punto"><span class="numero-punto">4</span><h2>Caso práctico 1: «Menú horizontal»</h2></div>
+                <p><strong>Planteamiento:</strong> Alberto está trabajando en el diseño de una web y necesita crear un menú horizontal.</p>
+                <p><strong>Nudo:</strong> se lo comenta a Gloria y ella le dice que anteriormente ha creado menús verticales, pero no horizontales. Alberto le comenta que es muy similar y que solo debe fijarse en usar adecuadamente la propiedad <code>float</code>. El menú debe tener un fondo negro y, cuando pase el cursor por encima de las opciones, debe ponerse un fondo de color chocolate.</p>
+                <p>Las opciones que se deben mostrar son:</p>
+                <ul>
+                    <li>Inicio.</li>
+                    <li>Novedades.</li>
+                    <li>Contacto.</li>
+                    <li>Acerca, alineada a la derecha.</li>
+                </ul>
+                <p><strong>Desenlace:</strong> el ejemplo crea los elementos del menú como una lista, los hace flotar a la izquierda y aplica <code>float: right</code> a la opción especial:</p>
+                <pre class="bloque-codigo"><code>&lt;style&gt;
+    * { font-family: Verdana; }
+    ul {
+        list-style-type: none;
+        overflow: hidden;
+        background-color: #333;
+    }
+    li { float: left; }
+    .especial { float: right; }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover { background-color: chocolate; }
+&lt;/style&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#news"&gt;Novedades&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#contact"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="especial"&gt;&lt;a href="#about"&gt;Acerca&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                <p class="descripcion-codigo">Código 3. Menú horizontal con el uso de float.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-06.png" alt="Barra de navegación oscura con Inicio, Novedades y Contacto a la izquierda, y Acerca a la derecha.">
+                    <figcaption>Fig. 5. Barra de navegación oscura con Inicio, Novedades y Contacto a la izquierda, y Acerca a la derecha.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-5">
+                <div class="titulo-punto"><span class="numero-punto">5</span><h2>Propiedades CSS3</h2></div>
+                <p>A lo largo de los apartados anteriores hemos detallado propiedades que, en su mayoría, pertenecen a la versión 2.1, aunque hemos descrito algunas de CSS3, como la selección de elementos por atributos o descendientes enésimos con la pseudoclase <code>nth-child()</code>.</p>
+                <p>La versión 3 de CSS dispone de nuevas propiedades que aumentan la funcionalidad de la web sin tener que acudir a complementos externos. CSS3 se revisa continuamente y, para saber si nuestro navegador soporta las nuevas propiedades, se puede consultar la compatibilidad de las funciones concretas.</p>
+                <p>Entre las novedades principales podemos destacar:</p>
+                <ul>
+                    <li>Colocar varias imágenes de fondo.</li>
+                    <li>Esquinas redondeadas y bordes con imágenes.</li>
+                    <li>Sombras y transparencias.</li>
+                    <li>Varias columnas en el contenido.</li>
+                    <li>Nuevos posicionamientos de cajas y nuevos selectores.</li>
+                    <li>Transformaciones, transiciones y animaciones.</li>
+                </ul>
+
+                <div class="subpunto" id="subpunto-5-1">
+                    <h3>5.1. Bordes redondeados</h3>
+                    <p>Permite crear esquinas redondeadas. Se puede aplicar a todos los bordes o indicar solo los que nos interesen. Las propiedades de cada esquina son:</p>
+                    <ul>
+                        <li><code>border-top-left-radius</code>: esquina superior izquierda.</li>
+                        <li><code>border-top-right-radius</code>: esquina superior derecha.</li>
+                        <li><code>border-bottom-left-radius</code>: esquina inferior izquierda.</li>
+                        <li><code>border-bottom-right-radius</code>: esquina inferior derecha.</li>
+                    </ul>
+                    <p>Si lo queremos aplicar a todas las esquinas por igual, podemos utilizar la versión reducida <code>border-radius</code>. El nivel de redondeo se indica en píxeles.</p>
+                    <pre class="bloque-codigo"><code>.caja {
+    border-radius: 20px;
+}
+.caja-especial {
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }</code></pre>
-        <h2>Grid</h2>
-        <p>CSS Grid permite organizar elementos en filas y columnas al mismo tiempo.</p>
-        <pre class="ejemplo"><code>.rejilla {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-07.png" alt="Caja verde con las esquinas redondeadas.">
+                        <figcaption>Fig. 6. Caja verde con las esquinas redondeadas.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-2">
+                    <h3>5.2. Sombras</h3>
+                    <p>Permite aplicar el efecto de sombra a elementos HTML, incluidos los textos. Para las cajas se utiliza <code>box-shadow</code> y se indican cinco valores:</p>
+                    <ul>
+                        <li>Separación horizontal de la sombra.</li>
+                        <li>Separación vertical de la sombra.</li>
+                        <li>Radio del desenfoque.</li>
+                        <li>Distancia de propagación.</li>
+                        <li>Color.</li>
+                    </ul>
+                    <pre class="bloque-codigo"><code>.caja {
+    box-shadow: 8px 8px 8px 1px gray;
 }</code></pre>
-        <h2>Diseño adaptable</h2>
-        <p>Un diseño adaptable se ajusta a distintos tamaños de pantalla. Se pueden combinar medidas flexibles con consultas de medios <code>@media</code>.</p>
-        <p><a class="volver" href="index.html">Volver al índice de temas</a></p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-08.png" alt="Rectángulo amarillo con sombra gris hacia abajo y a la derecha.">
+                        <figcaption>Fig. 7. Rectángulo amarillo con sombra gris hacia abajo y a la derecha.</figcaption>
+                    </figure>
+                    <p>Si queremos aplicar sombras a los textos hay que usar la propiedad <code>text-shadow</code> y, excepto el radio de desenfoque, se indican los mismos valores que con <code>box-shadow</code>.</p>
+                    <pre class="bloque-codigo"><code>h1 { text-shadow: 3px 3px 3px chocolate; }</code></pre>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-3">
+                    <h3>5.3. Opacidad</h3>
+                    <p>Gracias a la propiedad <code>opacity</code> podemos indicar el grado de opacidad de los elementos de la página web. Esta propiedad abarca los valores desde la total transparencia (<code>0</code>) hasta la total opacidad (<code>1</code>).</p>
+                    <pre class="bloque-codigo"><code>.caja-transparente { opacity: 0.5; }</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-09.png" alt="Dos rectángulos superpuestos con transparencia parcial.">
+                        <figcaption>Fig. 8. Dos rectángulos superpuestos con transparencia parcial.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-4">
+                    <h3>5.4. Gradientes</h3>
+                    <p>Permiten crear gradientes de colores. Pueden ser lineales o radiales y se indican con las funciones <code>linear-gradient()</code> y <code>radial-gradient()</code>, respectivamente.</p>
+                    <p>Los parámetros principales de <code>linear-gradient()</code> son la dirección (por ejemplo, <code>to right</code> o <code>to bottom right</code>) y los colores inicial y final.</p>
+                    <p>Los parámetros de <code>radial-gradient()</code> incluyen la figura (<code>ellipse</code> o <code>circle</code>), el tamaño, la posición de inicio y los colores inicial y final.</p>
+                    <pre class="bloque-codigo"><code>.degradado-lineal {
+    background: linear-gradient(to right, chocolate, white);
+}
+.degradado-radial {
+    background: radial-gradient(circle, chocolate, white);
+}</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-10.png" alt="Cuadro con un degradado vertical de tono marrón o naranja a blanco.">
+                        <figcaption>Fig. 9. Cuadro con un degradado vertical de tono marrón o naranja a blanco.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-5">
+                    <h3>5.5. Fuentes web</h3>
+                    <p>Con CSS3 tenemos la posibilidad de utilizar fuentes nuevas en los documentos web. Para ello se hace uso de la regla <code>@font-face</code>:</p>
+                    <pre class="bloque-codigo"><code>@font-face {
+    font-family: nombre-de-la-fuente;
+    src: url("origen-de-la-fuente");
+    font-weight: normal;
+    font-style: normal;
+}</code></pre>
+                    <ul>
+                        <li><code>font-family</code>: indica el nombre de la fuente que luego se usará en reglas CSS.</li>
+                        <li><code>src</code>: URL donde se encuentra la fuente. Puede estar en local o ser una dirección web.</li>
+                        <li><code>font-weight</code>: grosor de la fuente (por ejemplo, normal o negrita).</li>
+                        <li><code>font-style</code>: estilo de la fuente, por ejemplo, itálica.</li>
+                    </ul>
+                    <p>Las fuentes se pueden descargar de Google Fonts. Si no queremos descargar la fuente y optamos por indicar la dirección URL, debemos acceder al apartado Embed de la fuente elegida y copiar el enlace para incluirlo en el código HTML. Para aplicar esa fuente a un elemento HTML se indica con la propiedad <code>font-family</code>.</p>
+                    <pre class="bloque-codigo"><code>&lt;!-- Fuente enlazada desde Google Fonts --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Righteous&amp;display=swap"
+      rel="stylesheet"&gt;
+
+/* Alternativa: fuente descargada localmente */
+@font-face {
+    font-family: mifuente;
+    src: url("Righteous-Regular.ttf");
+}
+h1 {
+    text-shadow: 3px 3px 3px chocolate;
+    font-family: "mifuente";
+}</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-11.png" alt="Ejemplo de uso de la fuente Righteous y sombra en el título.">
+                        <figcaption>Fig. 10. Ejemplo de uso de la fuente Righteous y sombra en el título.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-6">
+                    <h3>5.6. Multicolumnas</h3>
+                    <p>En CSS3 podemos crear columnas con el texto que tengamos en un párrafo o en un <code>div</code>. Para ello disponemos de las siguientes propiedades:</p>
+                    <ul>
+                        <li><code>column-count</code>: indica el número de columnas.</li>
+                        <li><code>column-gap</code>: indica el hueco entre columnas.</li>
+                        <li><code>column-rule</code>: indica el ancho, el estilo y el color de la línea que separa las columnas.</li>
+                    </ul>
+                    <pre class="bloque-codigo"><code>.texto-columnas {
+    column-count: 2;
+    column-gap: 24px;
+    column-rule: 1px solid #999;
+}</code></pre>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-12.png" alt="Ejemplo de párrafo Lorem ipsum dividido en dos columnas.">
+                        <figcaption>Fig. 11. Ejemplo de párrafo Lorem ipsum dividido en dos columnas.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subpunto" id="subpunto-5-7">
+                    <h3>5.7. Transformaciones, transiciones y animaciones</h3>
+                    <p>Con CSS3 podemos crear transformaciones en los elementos HTML mediante la propiedad <code>transform</code>. Algunos de sus valores más importantes son:</p>
+                    <ul>
+                        <li><code>translate(x, y)</code>: mueve el elemento x píxeles a la derecha e y píxeles hacia abajo. Si los valores son negativos, el movimiento será a la izquierda y hacia arriba, respectivamente.</li>
+                        <li><code>rotate(x)</code>: rota el elemento x grados. Por ejemplo, <code>rotate(20deg)</code>.</li>
+                        <li><code>scale(x, y)</code>: escala x veces el ancho e y veces el alto.</li>
+                    </ul>
+                    <pre class="bloque-codigo"><code>.caja-movida { transform: translate(20px, 10px); }
+.caja-girada { transform: rotate(20deg); }
+.caja-escalada { transform: scale(1.2, 1.2); }</code></pre>
+                    <p>También se pueden crear efectos de movimiento mediante transiciones y animaciones. Se pueden consultar sus propiedades y ejemplos en los recursos de referencia.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-13.png" alt="Ejemplo de transformación de rotación: una caja normal junto a otra rotada.">
+                        <figcaption>Fig. 12. Ejemplo de transformación de rotación: una caja normal junto a otra rotada.</figcaption>
+                    </figure>
+
+                </div>
+
+                <div class="subpunto" id="subpunto-5-8">
+                    <h3>5.8. Ejemplo de propiedades CSS3</h3>
+                    <p>En el siguiente ejemplo el fondo es una imagen de agua que se repite. Es muy habitual usar patrones y repetirlos para conseguir llenar el fondo. El título tiene sombra y una fuente web, y las cajas tienen degradado, esquinas redondeadas y sombra.</p>
+                    <pre class="bloque-codigo"><code>@font-face {
+    font-family: mifuente;
+    src: url("Righteous-Regular.ttf");
+}
+* { box-sizing: border-box; }
+body { background: url("agua.jpg") repeat; }
+h1 {
+    text-shadow: 3px 3px 3px chocolate;
+    font-family: "mifuente";
+}
+#p1 {
+    background: linear-gradient(to right, chocolate, white);
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 8px 8px 8px 1px gray;
+    float: left;
+    margin: 20px;
+}</code></pre>
+                    <p class="descripcion-codigo">Código 6. Fragmento del código asociado al ejemplo.</p>
+                    <figure class="figura-documento">
+                        <img src="imagenes/tema9/figura-14.png" alt="Página con patrón de agua, título con sombra, cajas con degradado y columnas de texto.">
+                        <figcaption>Fig. 13. Página con patrón de agua, título con sombra, cajas con degradado y columnas de texto.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="punto" id="punto-6">
+                <div class="titulo-punto"><span class="numero-punto">6</span><h2>Caso práctico 2: «Viajes más frecuentes»</h2></div>
+                <p><strong>Planteamiento:</strong> a la empresa de Alberto y Gloria le llegan muy a menudo peticiones de diseños web con características similares.</p>
+                <p><strong>Nudo:</strong> Alberto plantea crear una plantilla que sirva de punto de partida para realizar los diseños pedidos. Esta plantilla debe tener la siguiente estructura:</p>
+                <ul>
+                    <li>Estructura HTML5 con todas las secciones incluidas.</li>
+                    <li>Un título con sombra.</li>
+                    <li>Un menú horizontal con efecto <code>hover</code>.</li>
+                    <li>Sección central con dos artículos y con sombra.</li>
+                    <li>Cada artículo debe llevar una imagen alineada a la izquierda en el primer artículo y a la derecha en el segundo. Se ha de utilizar la propiedad <code>float</code>.</li>
+                    <li>Sección lateral con enlaces de interés y sombra.</li>
+                    <li><code>footer</code> indicando el autor.</li>
+                </ul>
+                <p><strong>Desenlace:</strong> puedes ver cómo se visualizaría la solución en el navegador en la siguiente figura. El código que la implementa está en el anexo del tema.</p>
+                <p><strong>Solución:</strong> anexo del tema.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-15.png" alt="Plantilla con cabecera Lenguaje de marcas, menú horizontal, dos artículos con imágenes, columna de enlaces y pie de página.">
+                    <figcaption>Fig. 14. Plantilla con cabecera Lenguaje de marcas, menú horizontal, dos artículos con imágenes, columna de enlaces y pie de página.</figcaption>
+                </figure>
+            </section>
+
+            <section class="punto" id="punto-7">
+                <div class="titulo-punto"><span class="numero-punto">7</span><h2>Resumen y resolución del caso práctico de la unidad</h2></div>
+                <p>En este tema hemos estudiado las posibilidades que ofrece CSS para poder sacar del flujo normal los elementos HTML de nuestra página web. Esos elementos pueden tener una posición fija, relativa y también pueden flotar con respecto a otras cajas.</p>
+                <p>Las propiedades CSS3 que hemos explicado en el tema son algunas de las que existen en esta versión y permiten ampliar las propiedades de versiones anteriores. Entre las últimas novedades cabe destacar las transformaciones, las transiciones y las animaciones.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-16.png" alt="Esquema resumen: disposición de elementos, propiedades CSS3 y posicionamiento flotante.">
+                    <figcaption>Fig. 15. Esquema resumen: disposición de elementos, propiedades CSS3 y posicionamiento flotante.</figcaption>
+                </figure>
+                <h3>Resolución del caso práctico de la unidad</h3>
+                <p>A continuación, se muestra el resultado del banner diseñado por Alberto y Gloria sobre el uso de la mascarilla.</p>
+                <figure class="figura-documento">
+                    <img src="imagenes/tema9/figura-17.png" alt="Banner «La mascarilla es obligatoria», con título inclinado, ilustración, recomendaciones, excepciones y mensaje final.">
+                    <figcaption>Fig. 16. Banner «La mascarilla es obligatoria», con título inclinado, ilustración, recomendaciones, excepciones y mensaje final.</figcaption>
+                </figure>
+                <p><strong>Solución:</strong> el código completo se encuentra en el anexo del tema.</p>
+            </section>
+
+
+        </article>
     </main>
-    <footer><p>Tema 9 · Flexbox y Grid</p></footer>
+    <footer><p>Tema 9 · <a class="volver" href="tema8.html">Volver al tema 8</a> · <a class="volver" href="index.html">Volver al índice</a></p></footer>
 </body>
 </html>
