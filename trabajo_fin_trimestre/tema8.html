@@ -333,34 +333,6 @@
                     </table>
                 </div>
                 <p>En el siguiente ejemplo se ponen en práctica las propiedades mostradas en la tabla. Fíjate en <code>vertical-align</code>, que alinea el contenido verticalmente, y en la separación entre celdas (<code>border-spacing</code>). Si se unieran los bordes (<code>border-collapse</code>), la separación entre celdas no tendría efecto.</p>
-                <pre class="bloque-codigo"><code>&lt;style&gt;
-    table {
-        caption-side: bottom;
-        border-spacing: 15px;
-        width: 100%;
-        border: solid 3px blue;
-    }
-    th, td {
-        border: solid 1px black;
-        height: 40px;
-        vertical-align: middle;
-        text-align: center;
-    }
-    th { background-color: cyan; }
-&lt;/style&gt;
-&lt;table&gt;
-    &lt;caption&gt;&lt;b&gt;Fig. 1.-&lt;/b&gt; Precio de las naranjas&lt;/caption&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;&lt;th&gt;Provincia&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
-    &lt;/tfoot&gt;
-&lt;/table&gt;</code></pre>
                 <p class="descripcion-codigo">Código 5. Propiedades de las tablas.</p>
                 <figure class="figura-documento">
                     <img src="imagenes/tema8/figura-06.png" alt="Visualización de la tabla Precio de las naranjas en el navegador.">

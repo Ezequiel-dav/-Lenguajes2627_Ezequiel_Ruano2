@@ -258,34 +258,6 @@
                 <p><strong>Planteamiento:</strong> Se quiere tener información sobre los libros de informática que hay en las bibliotecas de Málaga y Granada.</p>
                 <p><strong>Nudo:</strong> Según el formato indicado en el ejemplo, podemos añadir dos libros por ciudad, teniendo como nodo raíz la etiqueta <code>&lt;bibliotecas&gt;</code>.</p>
                 <p><strong>Desenlace:</strong> El resultado sería el siguiente.</p>
-                <pre class="bloque-codigo"><code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
-&lt;!-- Bibliotecas de Málaga y Granada --&gt;
-&lt;bibliotecas&gt;
-    &lt;biblioteca ciudad="Málaga"&gt;
-        &lt;libro&gt;
-            &lt;titulo&gt;Componentes en java&lt;/titulo&gt;
-            &lt;autor&gt;Jose Luis Ruiz&lt;/autor&gt;
-            &lt;paginas&gt;350&lt;/paginas&gt;
-        &lt;/libro&gt;
-        &lt;libro&gt;
-            &lt;titulo&gt;El libro de javascript&lt;/titulo&gt;
-            &lt;autor&gt;Francisco Sanchez&lt;/autor&gt;
-            &lt;paginas&gt;200&lt;/paginas&gt;
-        &lt;/libro&gt;
-    &lt;/biblioteca&gt;
-    &lt;biblioteca ciudad="Granada"&gt;
-        &lt;libro&gt;
-            &lt;titulo&gt;Introducción a XML&lt;/titulo&gt;
-            &lt;autor&gt;Pedro Gonzalez&lt;/autor&gt;
-            &lt;paginas&gt;200&lt;/paginas&gt;
-        &lt;/libro&gt;
-        &lt;libro&gt;
-            &lt;titulo&gt;Bases de datos&lt;/titulo&gt;
-            &lt;autor&gt;Gloria Martinez&lt;/autor&gt;
-            &lt;paginas&gt;150&lt;/paginas&gt;
-        &lt;/libro&gt;
-    &lt;/biblioteca&gt;
-&lt;/bibliotecas&gt;</code></pre>
                 <figure class="figura-documento">
                     <img src="imagenes/tema1/figura-05.png" alt="Ejemplo de biblioteca interprovincial en XML.">
                     <figcaption>Fig. 8. Ejemplo de biblioteca interprovincial en XML.</figcaption>
@@ -346,26 +318,6 @@
                 <h3>Resolución del caso práctico de la unidad</h3>
                 <p>El formato ideal sería XML porque nos va a permitir que se pueda visualizar en cualquier plataforma o aplicación. La información que vamos a incluir son los datos personales, departamento al que pertenece, cargo y sueldo.</p>
                 <p>En el ejemplo se muestran dos empleados y un departamento, pero se podría escalar según necesitemos.</p>
-                <pre class="bloque-codigo"><code>&lt;empresa&gt;
-    &lt;departamento dept="marketing"&gt;
-        &lt;empleado&gt;
-            &lt;nombre&gt;Federico&lt;/nombre&gt;
-            &lt;apellidos&gt;Huércano Ruiz&lt;/apellidos&gt;
-            &lt;dni&gt;33358698T&lt;/dni&gt;
-            &lt;telefono&gt;650596415&lt;/telefono&gt;
-            &lt;cargo&gt;Director&lt;/cargo&gt;
-            &lt;sueldo&gt;2400&lt;/sueldo&gt;
-        &lt;/empleado&gt;
-        &lt;empleado&gt;
-            &lt;nombre&gt;Gloria&lt;/nombre&gt;
-            &lt;apellidos&gt;Martínez Pérez&lt;/apellidos&gt;
-            &lt;dni&gt;30515453T&lt;/dni&gt;
-            &lt;telefono&gt;607788923&lt;/telefono&gt;
-            &lt;cargo&gt;Jefe departamento&lt;/cargo&gt;
-            &lt;sueldo&gt;1800&lt;/sueldo&gt;
-        &lt;/empleado&gt;
-    &lt;/departamento&gt;
-&lt;/empresa&gt;</code></pre>
                 <figure class="figura-documento">
                     <img src="imagenes/tema1/figura-07.png" alt="Resolución del caso práctico de la unidad.">
                     <figcaption>Fig. 11. Resolución del caso práctico de la unidad.</figcaption>

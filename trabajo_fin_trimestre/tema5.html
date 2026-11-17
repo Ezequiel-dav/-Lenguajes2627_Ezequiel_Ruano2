@@ -122,33 +122,6 @@
                     <h3>2.1. Estructura típica de tabla</h3>
                     <p>Los elementos <code>thead</code>, <code>tbody</code> y <code>tfoot</code> nos sirven para agrupar una o varias filas. Si no necesitamos esta agrupación no es necesario incluirlos, y solo deberíamos indicar filas (<code>&lt;tr&gt;</code>), celdas de datos (<code>&lt;td&gt;</code>) y celdas de cabecera (<code>&lt;th&gt;</code>).</p>
                     <p>Normalmente, las celdas de cabecera (<code>&lt;th&gt;</code>) se muestran en la cabecera (<code>&lt;thead&gt;</code>), pero pueden utilizarse en otros lugares de la tabla, como en este caso, en el que las hemos utilizado en el pie (<code>&lt;tfoot&gt;</code>).</p>
-                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;title&gt;Tablas&lt;/title&gt;
-    &lt;style&gt;
-        table, th, td {
-            border: 1px solid black;
-            text-align: center;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;table&gt;
-        &lt;caption&gt;Precio de las naranjas&lt;/caption&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;&lt;th&gt;Provincia&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-            &lt;tr&gt;&lt;td&gt;Málaga&lt;/td&gt;&lt;td&gt;0,54 €&lt;/td&gt;&lt;/tr&gt;
-            &lt;tr&gt;&lt;td&gt;Granada&lt;/td&gt;&lt;td&gt;0,45 €&lt;/td&gt;&lt;/tr&gt;
-        &lt;/tbody&gt;
-        &lt;tfoot&gt;
-            &lt;tr&gt;&lt;th&gt;Promedio&lt;/th&gt;&lt;th&gt;0,5 €&lt;/th&gt;&lt;/tr&gt;
-        &lt;/tfoot&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema5/figura-04.png" alt="Código HTML de la tabla.">
                         <figcaption>Fig. 4. Código HTML de la tabla.</figcaption>
@@ -297,17 +270,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
-    Nombre: &lt;input type="text" name="nombre"&gt;
-    &lt;p&gt;
-        &lt;input type="radio" name="sexo" value="h"&gt;Hombre
-        &lt;input type="radio" name="sexo" value="m"&gt;Mujer
-    &lt;/p&gt;
-    &lt;input type="submit" value="Enviar"&gt;
-    &lt;input type="reset" value="Borrar"&gt;
-    &lt;input type="button" value="Hola Mundo"
-           onclick="alert('¡Hola Mundo!')"&gt;
-&lt;/form&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema5/figura-12.png" alt="Código HTML de ejemplo de botones.">
                             <figcaption>Fig. 12. Código HTML de ejemplo de botones.</figcaption>
@@ -338,13 +300,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
-    &lt;p&gt;Nombre: &lt;input type="text" name="nombre" size="25"&gt;&lt;/p&gt;
-    &lt;p&gt;Contraseña: &lt;input type="password"
-       name="contrasena" size="22"&gt;&lt;/p&gt;
-    &lt;p&gt;Comentario&lt;/p&gt;
-    &lt;p&gt;&lt;textarea name="comentario" rows="4" cols="27"&gt;&lt;/textarea&gt;&lt;/p&gt;
-&lt;/form&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema5/figura-15.png" alt="Código HTML de ejemplo de cajas de texto.">
                             <figcaption>Fig. 15. Código HTML de ejemplo de cajas de texto.</figcaption>
@@ -365,11 +320,6 @@
                             <li>Si no se indica un valor con el atributo <code>value</code>, al marcarla se enviaría el valor <code>on</code>; en caso contrario, se enviaría el valor indicado. Si no se marca la casilla, no se enviaría nada.</li>
                         </ul>
                         <p>En el siguiente ejemplo se usa el control <code>checked</code> para marcar dos opciones de tres posibles:</p>
-                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
-    &lt;input type="checkbox" name="opcion1" checked&gt; Opción 1&lt;br&gt;
-    &lt;input type="checkbox" name="opcion2"&gt; Opción 2&lt;br&gt;
-    &lt;input type="checkbox" name="opcion3" checked&gt; Opción 3&lt;br&gt;
-&lt;/form&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema5/figura-17.png" alt="Código HTML de ejemplo de casilla de verificación.">
                             <figcaption>Fig. 17. Código HTML de ejemplo de casilla de verificación.</figcaption>
@@ -390,11 +340,6 @@
                             <li><code>value</code> indica el valor que se enviará si se marca la opción; si no se indica, se enviaría <code>on</code>. Si no se marca una opción, no se envía nada.</li>
                             <li><code>checked</code> se puede utilizar, al igual que con las casillas de verificación, para marcar una opción inicialmente.</li>
                         </ul>
-                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
-    &lt;input type="radio" name="opciones" value="1"&gt; Opción 1&lt;br&gt;
-    &lt;input type="radio" name="opciones" value="2" checked&gt; Opción 2&lt;br&gt;
-    &lt;input type="radio" name="opciones" value="3"&gt; Opción 3&lt;br&gt;
-&lt;/form&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema5/figura-19.png" alt="Código HTML de ejemplo de botones radio.">
                             <figcaption>Fig. 19. Código HTML de ejemplo de botones radio.</figcaption>
@@ -416,14 +361,6 @@
                             <li><code>selected</code> se asocia a <code>&lt;option&gt;</code> e indica la opción seleccionada por defecto.</li>
                         </ul>
                         <p>Observa cómo se han utilizado las listas desplegables en el siguiente ejemplo:</p>
-                        <pre class="bloque-codigo"><code>&lt;form action="proceso.php" method="post"&gt;
-    &lt;p&gt;Opciones a elegir:&lt;/p&gt;
-    &lt;select name="opciones" size="3"&gt;
-        &lt;option value="1"&gt;opcion1&lt;/option&gt;
-        &lt;option value="2"&gt;opcion2&lt;/option&gt;
-        &lt;option value="3"&gt;opcion3&lt;/option&gt;
-    &lt;/select&gt;
-&lt;/form&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema5/figura-21.png" alt="Código HTML de ejemplo de lista desplegable.">
                             <figcaption>Fig. 21. Código HTML de ejemplo de lista desplegable.</figcaption>

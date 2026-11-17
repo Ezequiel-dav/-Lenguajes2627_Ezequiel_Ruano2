@@ -98,18 +98,6 @@
                         <li><strong>Etiqueta:</strong> <code>&lt;br&gt;</code></li>
                         <li><strong>Función:</strong> permite insertar saltos de línea.</li>
                     </ul>
-                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;title&gt;Etiquetas br&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;Ejemplo de&lt;br&gt;
-       varios&lt;br&gt;
-       saltos de línea
-    &lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-02.png" alt="Código HTML y vista en el navegador: «Ejemplo de / varios / saltos de línea».">
                         <figcaption>Fig. 2. Código HTML y vista en el navegador: «Ejemplo de / varios / saltos de línea».</figcaption>
@@ -122,23 +110,6 @@
                         <li><strong>Etiqueta:</strong> <code>&lt;span&gt;</code></li>
                         <li><strong>Función:</strong> no tiene un significado definido y se usa cuando no existe ninguna etiqueta adecuada. Se le suele asociar una clase en CSS para modificar su aspecto; lo veremos en el apartado de CSS.</li>
                     </ul>
-                    <pre class="bloque-codigo"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;title&gt;Etiqueta span&lt;/title&gt;
-    &lt;style&gt;
-        .destacado {
-            color: red;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;
-        &lt;span class="destacado"&gt;Texto de la clase destacado.&lt;/span&gt;
-        Este texto no sería de la clase destacado.
-    &lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-03.png" alt="Ejemplo de etiqueta span.">
                         <figcaption>Fig. 3. Ejemplo de etiqueta span.</figcaption>
@@ -199,15 +170,6 @@
                 </div>
 
                 <p>En el siguiente ejemplo se muestran las etiquetas de énfasis, importancia, subíndice, superíndice, atención, tachado y tecnicismo:</p>
-                <pre class="bloque-codigo"><code>&lt;p&gt;
-    Quiero enfatizar que soy de &lt;em&gt;Málaga&lt;/em&gt;&lt;br&gt;
-    Es muy importante que leas &lt;strong&gt;ESTO&lt;/strong&gt;&lt;br&gt;
-    La fórmula del agua es H&lt;sub&gt;2&lt;/sub&gt;O.&lt;br&gt;
-    El cuadrado de X es X&lt;sup&gt;2&lt;/sup&gt;&lt;br&gt;
-    &lt;b&gt;Córdoba&lt;/b&gt; es la ciudad de mi mujer.&lt;br&gt;
-    &lt;s&gt;Esto lo quiero tachar&lt;/s&gt;&lt;br&gt;
-    El nombre técnico es &lt;i&gt;lapsus&lt;/i&gt;&lt;br&gt;
-&lt;/p&gt;</code></pre>
 
                 <figure class="figura-documento">
                     <img src="imagenes/tema4/figura-05.png" alt="Ejemplos de etiquetas de formato.">
@@ -224,7 +186,6 @@
                         <li><strong>Etiqueta:</strong> <code>&lt;small&gt;</code></li>
                         <li><strong>Función:</strong> se utiliza para indicar información que es secundaria y, por lo tanto, se suele mostrar en letra más pequeña en comparación con el resto del párrafo.</li>
                     </ul>
-                    <pre class="bloque-codigo"><code>&lt;p&gt;Camisa roja &lt;small&gt;100% algodón&lt;/small&gt;&lt;/p&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-07.png" alt="Ejemplo de etiqueta small.">
                         <figcaption>Fig. 7. Ejemplo de etiqueta small.</figcaption>
@@ -241,7 +202,6 @@
                         <li><strong>Etiqueta:</strong> <code>&lt;mark&gt;</code></li>
                         <li><strong>Función:</strong> nos va a permitir resaltar un texto que originalmente no lo estaba. El efecto es igual que si usáramos un rotulador fluorescente para marcar una parte del contenido. Se suele marcar en amarillo.</li>
                     </ul>
-                    <pre class="bloque-codigo"><code>&lt;p&gt;Esta camisa es &lt;mark&gt;roja&lt;/mark&gt;&lt;/p&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-09.png" alt="Ejemplo de etiqueta mark.">
                         <figcaption>Fig. 9. Ejemplo de etiqueta mark.</figcaption>
@@ -267,10 +227,6 @@
                 <div class="subpunto" id="subpunto-3-1">
                     <h3>3.1. La etiqueta &lt;a&gt;</h3>
                     <p>La etiqueta <code>&lt;a&gt;</code> dispone del atributo <code>href</code>, que va a indicar el destino de ese enlace en formato URI.</p>
-                    <pre class="bloque-codigo"><code>&lt;p&gt;
-    Para acceder a un listado completo de las etiquetas HTML
-    puedes pulsar &lt;a href="https://www.w3schools.com"&gt;aquí&lt;/a&gt;.
-&lt;/p&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-11.png" alt="Ejemplo de etiqueta a.">
                         <figcaption>Fig. 11. Ejemplo de etiqueta a.</figcaption>
@@ -280,12 +236,6 @@
                         <figcaption>Fig. 12. Vista en el navegador del enlace.</figcaption>
                     </figure>
                     <p>El enlace también podría estar asociado a una imagen. Por ejemplo:</p>
-                    <pre class="bloque-codigo"><code>&lt;p&gt;
-    &lt;b&gt;Academia W3Schools&lt;/b&gt;
-    &lt;a href="https://www.w3schools.com"&gt;
-        &lt;img src="logo.png" alt="Logo de W3Schools"&gt;
-    &lt;/a&gt;
-&lt;/p&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-13.png" alt="Ejemplo de etiqueta a con imagen.">
                         <figcaption>Fig. 13. Ejemplo de etiqueta a con imagen.</figcaption>
@@ -299,11 +249,6 @@
                         <h4>3.1.1. Destinos del enlace</h4>
                         <p>El destino del enlace puede ser de varios tipos. Cuando direcciona a un archivo, el navegador nos preguntará si lo debe descargar o si lo debe mostrar. En caso de que se trate de un directorio, dependerá de la configuración del servidor, y nos mostrará su contenido o nos pedirá credenciales de acceso. Sin embargo, el destino más frecuente son referencias tanto de la propia página web como de otras páginas de Internet.</p>
                         <p>Cuando queremos acceder a un determinado contenido en la página web, debemos identificar primero ese elemento HTML con el atributo <code>id</code> para, posteriormente, indicar esa referencia en el <code>href</code> del enlace. La referencia en <code>href</code> hay que indicarla con el carácter almohadilla (<code>#</code>) junto con el <code>id</code> del elemento al que queremos acceder. Cuando se pulse en ese enlace, la página hará el desplazamiento necesario hasta visualizar el elemento referenciado.</p>
-                        <pre class="bloque-codigo"><code>&lt;p&gt;
-    &lt;a href="#segundo-parrafo"&gt;Accede&lt;/a&gt; al segundo párrafo.
-    En este párrafo hay más contenido para que se vea el desplazamiento.
-&lt;/p&gt;
-&lt;p id="segundo-parrafo"&gt;Este es el segundo párrafo.&lt;/p&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema4/figura-15.png" alt="Ejemplo de etiqueta a con referencia local.">
                             <figcaption>Fig. 15. Ejemplo de etiqueta a con referencia local.</figcaption>
@@ -334,9 +279,6 @@
                             <li><code>_top</code>: el contenido se abre en el elemento cuyo nivel sea el más alto. En este caso, la ventana del navegador.</li>
                         </ul>
                         <p>En el siguiente ejemplo, al pulsar en el enlace se abre Google en otra pestaña del navegador:</p>
-                        <pre class="bloque-codigo"><code>&lt;p&gt;
-    &lt;a href="https://www.google.com" target="_blank"&gt;Google&lt;/a&gt;
-&lt;/p&gt;</code></pre>
                         <figure class="figura-documento">
                             <img src="imagenes/tema4/figura-18.png" alt="Ejemplo de uso del atributo target.">
                             <figcaption>Fig. 18. Ejemplo de uso del atributo target.</figcaption>
@@ -366,18 +308,6 @@
                 <p>En cuanto a las listas de definición, puedes consultar su descripción y ver un ejemplo de creación en el siguiente vídeo.</p>
 
                 <p>En el siguiente ejemplo se utilizan listas ordenadas y no ordenadas:</p>
-                <pre class="bloque-codigo"><code>&lt;p&gt;Las fases del &lt;b&gt;proyecto&lt;/b&gt; son&lt;/p&gt;
-&lt;ol&gt;
-    &lt;li&gt;Análisis&lt;/li&gt;
-    &lt;li&gt;Diseño&lt;/li&gt;
-    &lt;li&gt;Implementación&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Los &lt;b&gt;recursos&lt;/b&gt; que se utilizarán son&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;Portátil&lt;/li&gt;
-    &lt;li&gt;Tableta gráfica&lt;/li&gt;
-    &lt;li&gt;Software de edición&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
                 <figure class="figura-documento">
                     <img src="imagenes/tema4/figura-20.png" alt="Ejemplo de uso de listas.">
                     <figcaption>Fig. 21. Ejemplo de uso de listas.</figcaption>
@@ -392,26 +322,6 @@
                     <p>Las listas se pueden anidar, lo que nos permitirá crear una cierta jerarquía. Cuando se incluye una lista dentro de otra, el navegador va añadiendo tabuladores que nos facilitarán la visualización de esa jerarquía.</p>
                     <p>En el caso de las listas ordenadas, no se crea una numeración del tipo «subapartado», sino que siempre se va a numerar empezando en el 1 o en la letra a, según el tipo de enumeración que se utilice.</p>
                     <p>Por el contrario, en las listas desordenadas, cada vez que se haga una sublista, se incluirá otro tipo de símbolo para diferenciarla. El símbolo que debamos incluir dependerá del navegador utilizado, pero se puede modificar con CSS.</p>
-                    <pre class="bloque-codigo"><code>&lt;p&gt;Las fases del &lt;b&gt;proyecto&lt;/b&gt; son&lt;/p&gt;
-&lt;ol&gt;
-    &lt;li&gt;Análisis
-        &lt;ol&gt;
-            &lt;li&gt;Reunión&lt;/li&gt;
-            &lt;li&gt;Toma de decisiones&lt;/li&gt;
-        &lt;/ol&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Implementación&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Los &lt;b&gt;recursos&lt;/b&gt; que se utilizarán son&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;Portátil
-        &lt;ul&gt;
-            &lt;li&gt;Intel Core i9 3.6 GHz&lt;/li&gt;
-            &lt;li&gt;500 GB SSD&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Software de edición&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-22.png" alt="Vista en el navegador.">
                         <figcaption>Fig. 23. Vista en el navegador.</figcaption>
@@ -442,10 +352,6 @@
                     </ul>
                     <p>Cabe indicar también que las imágenes son elementos en línea.</p>
                     <p>En este ejemplo se muestra el uso de la etiqueta <code>&lt;img&gt;</code> junto con los atributos comentados:</p>
-                    <pre class="bloque-codigo"><code>&lt;h1&gt;Ejemplo de imagen&lt;/h1&gt;
-&lt;img src="atomo.png" alt="átomo"
-     title="Esto es un átomo"
-     width="125" height="125"&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-24.png" alt="Ejemplo de etiqueta img.">
                         <figcaption>Fig. 25. Ejemplo de etiqueta img.</figcaption>
@@ -465,11 +371,6 @@
                     </ul>
                     <p>Esta etiqueta tiene numerosos atributos, entre los que cabe destacar <code>src</code>, <code>width</code> y <code>height</code>, que tienen el mismo significado que los indicados en la etiqueta <code>&lt;img&gt;</code>, pero también tiene otros, como <code>frameborder="0"</code>, donde se indica que no queremos que el iframe tenga borde.</p>
                     <p>Son numerosas las aplicaciones que podemos incluir en el iframe, por ejemplo, un mapa de Google o un servicio web, como la información meteorológica de una ciudad.</p>
-                    <pre class="bloque-codigo"><code>&lt;h1&gt;El tiempo en Málaga&lt;/h1&gt;
-&lt;iframe
-    src="https://w.bookcdn.com/weather/picture/1_18258_1_4_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&amp;domid=582&amp;anc_id=68678"
-    frameborder="0"&gt;
-&lt;/iframe&gt;</code></pre>
                     <figure class="figura-documento">
                         <img src="imagenes/tema4/figura-26.png" alt="Ejemplo de etiqueta iframe.">
                         <figcaption>Fig. 27. Ejemplo de etiqueta iframe.</figcaption>
