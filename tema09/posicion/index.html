@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Córdoba desde el aire</title>
+    <style>
+        body {
+            margin: 0;
+            color: #263746;
+            background-color: #f5f7f8;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        #inicio {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            padding: 12px 20px;
+            color: #fff;
+            background-color: #07314c;
+            text-align: center;
+        }
+
+        main {
+            width: 92%;
+            max-width: 900px;
+            margin: 24px auto 60px;
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+        }
+
+        .introduccion {
+            text-align: center;
+        }
+
+        .contenedor-imagen {
+            position: relative;
+            width: 100%;
+            max-width: 780px;
+            margin: 22px auto;
+        }
+
+        .imagen-principal {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .etiqueta {
+            position: absolute;
+            margin: 0;
+            padding: 5px 9px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.65);
+            font-weight: bold;
+        }
+
+        .puente {
+            bottom: 23%;
+            left: 4%;
+        }
+
+        .mezquita {
+            top: 55%;
+            left: 4%;
+        }
+
+        .rio {
+            left: 0;
+            right: 0;
+            bottom: 9%;
+            padding: 0;
+            background-color: transparent;
+            text-align: center;
+        }
+
+        .rio span {
+            display: inline-block;
+            padding: 5px 9px;
+            background-color: rgba(0, 0, 0, 0.65);
+        }
+
+        .credito {
+            margin-top: -14px;
+            color: #536574;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .contenido {
+            padding: 18px 22px;
+            background-color: #fff;
+        }
+
+        .boton-fijo {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 3;
+            padding: 10px 14px;
+            color: #fff;
+            background-color: #07314c;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .boton-fijo:hover {
+            background-color: #155878;
+        }
+
+        .volver-indice {
+            margin-top: 24px;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                width: 96%;
+            }
+
+            .etiqueta {
+                padding: 3px 5px;
+                font-size: 0.75rem;
+            }
+
+            .rio span {
+                padding: 3px 5px;
+            }
+
+            .contenido {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="inicio">
+        <h1>Córdoba</h1>
+    </header>
+    <main>
+        <p class="introduccion">Una vista aérea de la ciudad y de algunos de sus lugares más conocidos.</p>
+        <div class="contenedor-imagen">
+            <img class="imagen-principal" src="img/cordoba-aerea.jpg" alt="Vista aérea de Córdoba, el río Guadalquivir y su casco histórico">
+            <p class="etiqueta puente">Puente Romano</p>
+            <p class="etiqueta mezquita">Mezquita-Catedral</p>
+            <p class="etiqueta rio"><span>Río Guadalquivir</span></p>
+        </div>
+
+        <section class="contenido">
+            <h2>Córdoba, historia junto al Guadalquivir</h2>
+            <p>Córdoba se extiende a orillas del Guadalquivir y reúne huellas de distintas épocas. Desde el aire se distinguen el curso del río, los puentes que lo cruzan y el entramado de calles del casco histórico.</p>
+            <p>La Mezquita-Catedral es uno de los monumentos más conocidos de la ciudad. Sus arcos y ampliaciones reflejan siglos de historia. Muy cerca se encuentran calles estrechas, plazas y patios que forman parte de la vida cotidiana cordobesa.</p>
+            <p>El Puente Romano conecta el centro histórico con la otra orilla del río. Al recorrerlo se pueden observar la Torre de la Calahorra y el paisaje del Guadalquivir, especialmente al atardecer.</p>
+            <p>En primavera, muchos patios abren sus puertas y muestran macetas llenas de flores. Esta tradición, junto con la arquitectura y la gastronomía local, atrae a visitantes durante todo el año.</p>
+            <p>Un paseo por Córdoba permite descubrir rincones tranquilos, edificios históricos y vistas del río. Cada barrio ofrece una perspectiva distinta de la ciudad y de su patrimonio.</p>
+            <p class="volver-indice"><a href="../index.html">Volver al índice del tema 9</a></p>
+        </section>
+    </main>
+    <a class="boton-fijo" href="#inicio">Volver arriba</a>
+</body>
+</html>

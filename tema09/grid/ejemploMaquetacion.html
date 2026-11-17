@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de maquetación con Grid</title>
+    <style>
+        body {
+            margin: 0;
+            color: #183b56;
+            font-family: Arial, sans-serif;
+        }
+
+        .pagina {
+            display: grid;
+            width: 95%;
+            height: 440px;
+            margin: 20px auto;
+            padding: 5px;
+            grid-template-columns: 10% 68% 20%;
+            grid-template-rows: 28px 1fr 28px;
+            grid-template-areas:
+                "cabecera cabecera cabecera"
+                "menu principal derecha"
+                "pie pie pie";
+            gap: 5px;
+            background-color: #ccdce8;
+            border: 1px solid #7894a8;
+        }
+
+        .cabecera,
+        .pie {
+            padding-top: 5px;
+            background-color: #e7f0f6;
+            border: 1px solid #a8c1d2;
+            text-align: center;
+        }
+
+        .cabecera {
+            grid-area: cabecera;
+        }
+
+        .menu {
+            display: grid;
+            grid-area: menu;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 3px;
+            padding: 4px;
+            background-color: #e7f0f6;
+            border: 1px solid #a8c1d2;
+        }
+
+        .menu a {
+            display: block;
+            padding: 2px 0;
+            color: #183b56;
+            background-color: #b8d5e8;
+            border: 1px solid #6f9bb8;
+            font-size: 0.55rem;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .principal {
+            display: grid;
+            grid-area: principal;
+            grid-template-columns: 1fr;
+            grid-template-rows: 24px 1fr;
+            gap: 5px;
+            padding: 5px;
+            background-color: #e7f0f6;
+            border: 1px solid #a8c1d2;
+        }
+
+        .principal h2,
+        .derecha h2 {
+            margin: 0;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: normal;
+        }
+
+        .noticias {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            padding: 4px;
+        }
+
+        .noticia {
+            padding: 4px;
+            background-color: #a9cce0;
+            border: 1px solid #6f9bb8;
+            text-align: center;
+            font-size: 0.6rem;
+        }
+
+        .noticia1 {
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
+
+        .noticia2 {
+            grid-column: 3 / span 2;
+            grid-row: 1;
+        }
+
+        .noticia3 {
+            grid-column: 5 / span 2;
+            grid-row: 1;
+        }
+
+        .noticia4 {
+            grid-column: 2 / span 2;
+            grid-row: 2;
+        }
+
+        .noticia5 {
+            grid-column: 4 / span 2;
+            grid-row: 2;
+        }
+
+        .derecha {
+            display: grid;
+            grid-area: derecha;
+            grid-template-columns: 1fr;
+            grid-template-rows: 24px 1fr 1fr 1fr;
+            gap: 5px;
+            padding: 5px;
+            background-color: #e7f0f6;
+            border: 1px solid #a8c1d2;
+        }
+
+        .panel {
+            padding: 4px;
+            background-color: #a9cce0;
+            border: 1px solid #6f9bb8;
+            text-align: center;
+            font-size: 0.6rem;
+        }
+
+        .pie {
+            grid-area: pie;
+        }
+    </style>
+</head>
+<body>
+    <div class="pagina">
+        <header class="cabecera">Ejemplo maquetación</header>
+        <nav class="menu">
+            <a href="#noticia1">Enlace 1</a>
+            <a href="#noticia2">Enlace 2</a>
+            <a href="#noticia3">Enlace 3</a>
+            <a href="#noticia4">Enlace 4</a>
+            <a href="#noticia5">Enlace 5</a>
+            <a href="#panel1">Enlace 6</a>
+            <a href="#panel2">Enlace 7</a>
+            <a href="#panel3">Enlace 8</a>
+        </nav>
+        <main class="principal">
+            <h2>Área principal</h2>
+            <div class="noticias">
+                <div class="noticia noticia1" id="noticia1">Noticia 1</div>
+                <div class="noticia noticia2" id="noticia2">Noticia 2</div>
+                <div class="noticia noticia3" id="noticia3">Noticia 3</div>
+                <div class="noticia noticia4" id="noticia4">Noticia 4</div>
+                <div class="noticia noticia5" id="noticia5">Noticia 5</div>
+            </div>
+        </main>
+        <aside class="derecha">
+            <h2>derecha</h2>
+            <div class="panel" id="panel1">Panel 1</div>
+            <div class="panel" id="panel2">Panel 2</div>
+            <div class="panel" id="panel3">Panel 3</div>
+        </aside>
+        <footer class="pie">CopyRight 2023 DAW</footer>
+    </div>
+</body>
+</html>
