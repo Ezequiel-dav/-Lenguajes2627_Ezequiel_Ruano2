@@ -1,6 +1,6 @@
 .tema-layout {
     display: grid;
-    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+    grid-template-columns: 250px 1fr;
     align-items: start;
     gap: 24px;
     width: 80%;
@@ -9,10 +9,6 @@
 }
 
 .indice-tema {
-    position: sticky;
-    top: 18px;
-    max-height: calc(100vh - 36px);
-    overflow-y: auto;
     padding: 18px;
     background-color: #f1f6fc;
     border: 1px solid #d8e5f3;
@@ -41,7 +37,7 @@
 }
 
 .indice-tema a:hover,
-.indice-tema a:focus-visible {
+.indice-tema a:focus {
     color: #1766a8;
     text-decoration: underline;
 }
@@ -57,7 +53,7 @@
     background-color: #fff;
     border: 1px solid #d8e5f3;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgb(22 61 102 / 7%);
+    box-shadow: 0 8px 24px #e6edf5;
 }
 
 .objetivos {
@@ -79,11 +75,12 @@
 }
 
 .numero-punto {
-    display: grid;
+    display: flex;
     width: 42px;
     height: 42px;
     flex: 0 0 42px;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     background-color: #e2efff;
     border-radius: 12px;
     color: #174b81;
@@ -135,7 +132,7 @@
 
 .tabla-contenedor {
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: auto;
 }
 
 .tabla-tema {
@@ -167,7 +164,7 @@
 .bloque-codigo {
     margin: 14px 0;
     padding: 16px;
-    overflow-x: auto;
+    overflow: auto;
     background-color: #f1f6fc;
     border-left: 4px solid #3986c9;
     border-radius: 0 8px 8px 0;
@@ -175,7 +172,6 @@
     font-family: Consolas, monospace;
     font-size: 0.9rem;
     line-height: 1.55;
-    white-space: pre;
 }
 
 .figura-documento {
@@ -214,14 +210,14 @@
 
 .grupo-imagenes {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 14px;
     align-items: start;
 }
 
 .rejilla-figuras {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 14px;
 }
 
@@ -244,7 +240,7 @@
     margin-bottom: 0;
 }
 
-.indice-tema a:focus-visible {
+.indice-tema a:focus {
     outline: 3px solid #f0b64d;
     outline-offset: 3px;
 }
@@ -255,14 +251,9 @@
         width: 94%;
     }
 
-    .indice-tema {
-        position: static;
-        max-height: none;
-    }
-
     .indice-tema ol {
         columns: 2;
-        column-gap: 28px;
+        gap: 28px;
     }
 }
 
