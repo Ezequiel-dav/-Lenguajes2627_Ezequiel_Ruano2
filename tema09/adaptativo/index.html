@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño adaptativo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: #173b6c;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 18px 24px 12px;
+            border-bottom: 4px solid #00a99d;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: normal;
+        }
+
+        main {
+            width: 94%;
+            max-width: 1100px;
+            margin: 24px auto;
+        }
+
+        h2 {
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .descripcion {
+            margin-bottom: 28px;
+            font-size: 1.1rem;
+        }
+
+        .ejemplo {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            color: #fff;
+            background-color: #292929;
+            text-align: center;
+        }
+
+        .ejemplo h3 {
+            margin: 0;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .imagen {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .etiqueta {
+            margin: 0;
+            padding: 10px;
+            background-color: #292929;
+        }
+
+        .pantalla-mediana,
+        .pantalla-pequena {
+            display: none;
+        }
+
+        @media (max-width: 800px) {
+            .ejemplo {
+                width: 90%;
+            }
+
+            .pantalla-grande,
+            .pantalla-pequena {
+                display: none;
+            }
+
+            .pantalla-mediana {
+                display: inline;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 14px 16px 10px;
+            }
+
+            header h1 {
+                font-size: 1.25rem;
+            }
+
+            main {
+                width: 92%;
+                margin-top: 20px;
+            }
+
+            .descripcion {
+                font-size: 1rem;
+            }
+
+            .ejemplo {
+                width: 100%;
+            }
+
+            .pantalla-grande,
+            .pantalla-mediana {
+                display: none;
+            }
+
+            .pantalla-pequena {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tema 09. Disposición de los elementos HTML</h1>
+    </header>
+    <main>
+        <h2>Adaptativo</h2>
+        <p class="descripcion">Un mismo contenido que se adapta al tamaño de la pantalla.</p>
+        <section class="ejemplo" aria-label="Ejemplo de imagen adaptativa">
+            <h3>Ejemplo de diseño adaptativo</h3>
+            <img class="imagen" src="img/campo.jpg" alt="Botijo de barro">
+            <p class="etiqueta">
+                <span class="pantalla-grande">Pantalla grande</span>
+                <span class="pantalla-mediana">Pantalla mediana</span>
+                <span class="pantalla-pequena">Pantalla pequeña</span>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
